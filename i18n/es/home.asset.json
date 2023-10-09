@@ -1,0 +1,31 @@
+{
+  "home": {
+    "hero": {
+      "description": "La energía se transforma y mi trabajo es materializar la energía de tus ideas en grandes experiencias digitales",
+      "githubLabel": "Mi Github",
+      "linkedinLabel": "Mi Linkedin",
+      "profileLabel": "Mi perfil",
+      "subtitle": "Desarrollador Full Stack"
+    },
+    "projects": {
+      "subtitle": {
+        "value0": "Cada proyecto tiene un propósito",
+        "value1": "y mi trabajo es caracterizarlo en un escenario real"
+      },
+      "title": {
+        "value0": "Algunos de mis",
+        "value1": "trabajos"
+      }
+    },
+    "trajectory": {
+      "subtitle": {
+        "value0": "Desde el inicio hasta al presente",
+        "value1": "haciendo una diferencia en el mundo digital"
+      },
+      "title": {
+        "value0": "Mi trayectoria",
+        "value1": "como profesional"
+      }
+    }
+  }
+}

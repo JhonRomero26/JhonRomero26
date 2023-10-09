@@ -1,0 +1,22 @@
+{
+  "trajectoryApp": {
+    "experiences": {
+      "i2tec": {
+        "title": "Desarrollador Full Stack",
+        "description": "Diseño y desarrollo del sitio web y backend para el centro de investigacion I2TEC de la Universidad Nacional de Loja.",
+        "location": "Loja, Ecuador",
+        "workplace": "Híbrido"
+      }
+    },
+    "education": {
+      "unlTelecom": {
+        "titleDegree": "Ingeniería en Telecomunicaciones",
+        "description": "Grado en Ingeniería en Telecomunicaciones"
+      },
+      "dolorosa": {
+        "titleDegree": "Técnico en Servicios Informáticos",
+        "description": "Grado en Técnico de Servicios Informáticos"
+      }
+    }
+  }
+}

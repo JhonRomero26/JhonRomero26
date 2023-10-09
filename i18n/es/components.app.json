@@ -1,0 +1,24 @@
+{
+  "Footer": {
+    "follow": "Sígueme y contácteme"
+  },
+  "Header": {
+    "navigation": {
+      "about": "Acerca",
+      "blog": "blog"
+    }
+  },
+  "SkillsCarousel": {
+    "title": "Mis habilidades"
+  },
+  "Trajectory": {
+    "title": {
+      "education": "Estudios",
+      "experience": "Experiencia"
+    }
+  },
+  "TrajectoryCard": {
+    "dateEvenToday": "Presente",
+    "skillsTitle": "Aptitudes"
+  }
+}
