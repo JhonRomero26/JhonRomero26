@@ -1,11 +1,10 @@
 import { type RequestHandler } from "@builder.io/qwik-city";
-import { type SpeakLocale } from "qwik-speak";
 import { i18nConfig } from "~/lib/constants";
 
 export const onRequest: RequestHandler = ({ request, locale }) => {
   const cookie = request.headers.get("cookie");
   const acceptLanguage = request.headers.get("accept-language");
-  let lang: string | SpeakLocale | null = null;
+  let lang: string | null = null;
 
   if (cookie) {
     const result = new RegExp(
@@ -20,7 +19,7 @@ export const onRequest: RequestHandler = ({ request, locale }) => {
 
   lang =
     i18nConfig.supportedLocales.find((value) => value.lang === lang)?.lang ||
-    i18nConfig.defaultLocale;
+    i18nConfig.defaultLocale.lang;
 
-  locale(lang.toString());
+  locale(lang);
 };
