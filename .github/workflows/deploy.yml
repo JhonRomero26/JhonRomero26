@@ -23,13 +23,18 @@ jobs:
         with:
           deno-version: v1.x
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
+          cache: "pnpm"
 
       - name: Build step
-        run: "npm install && npm run build && rm -rf node_modules" # 📝 Update the build command(s) if necessary
+        run: "pnpm install && pnpm run build && rm -rf node_modules" # 📝 Update the build command(s) if necessary
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
