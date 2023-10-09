@@ -27,14 +27,11 @@ jobs:
         with:
           version: 8
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-          cache: "pnpm"
+      - name: Bun setup
+        uses: oven-sh/setup-bun@v1
 
       - name: Build step
-        run: "pnpm install && pnpm run build && rm -rf node_modules" # 📝 Update the build command(s) if necessary
+        run: "bun install && bun run build && rm -rf node_modules" # 📝 Update the build command(s) if necessary
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
