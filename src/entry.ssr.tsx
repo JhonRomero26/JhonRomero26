@@ -11,7 +11,7 @@ import type { RenderOptions } from "@builder.io/qwik";
 
 export function extractBase({ serverData }: RenderOptions): string {
   const defaultPath = "/build";
-  return !isDev && serverData?.locale
+  return !isDev && serverData?.locale.locale
     ? `${defaultPath}/${serverData.locale}`
     : defaultPath;
 }
