@@ -1,0 +1,7 @@
+@use "../_tools/variables/shadows" as *;
+
+:root {
+  @each $sh, $value in $shadows {
+    --shadow-#{$sh}: #{$value};
+  }
+}

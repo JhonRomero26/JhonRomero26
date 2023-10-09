@@ -1,0 +1,29 @@
+@use "/src/styles/_tools/mixins/typography" as *;
+@use "/src/styles/_tools/mixins/transitions" as *;
+
+.home-hero {
+  &-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+  
+    &-link {
+      --shadow-color: var(--text-primary);
+      display: flex;
+      box-shadow: 2px 2px var(--shadow-color);
+      color: var(--shadow-color);
+      padding: 0.625rem;
+      border-radius: var(--radius-rounded);
+      @include transition(box-shadow);
+  
+      svg {
+        @include typography-text(2xl, 2xl)
+      }
+  
+      &:hover {
+        --shadow-color: var(--primary);
+      }
+    }
+  }
+
+}

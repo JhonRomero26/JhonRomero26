@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "/src/styles/_tools/variables/colors" as *;
+
+:root {
+  @each $key, $value in $cool-gray {
+    --cool-gray-#{$key}: #{$value};
+  }
+}
+
+:root {
+  @each $key, $value in $palette {
+    --#{$key}: #{$value};
+    --#{$key}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+}
+
+:root {
+  @each $key, $value in $ui-ligth {
+    --#{$key}: #{$value};
+    --#{$key}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+}
+
+:root {
+  @each $key, $value in $typography-ligth {
+    --text-#{$key}: #{$value};
+  }
+}
+
+/*
+** Dark theme
+*********************/
+
+[data-theme="dark"] {
+  @each $key, $value in $palette {
+    --#{$key}: #{$value};
+    --#{$key}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+}
+
+[data-theme="dark"] {
+  @each $key, $value in $ui-dark {
+    --#{$key}: #{$value};
+    --#{$key}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+}
+
+[data-theme="dark"] {
+  @each $key, $value in $typography-dark {
+    --text-#{$key}: #{$value};
+  }
+}

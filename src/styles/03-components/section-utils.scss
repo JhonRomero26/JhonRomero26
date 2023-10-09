@@ -1,0 +1,22 @@
+@use "../_tools/mixins/typography" as *;
+
+.section {
+  &-header {
+    margin-bottom: 5rem;
+  }
+
+  &-title {
+    @include typography-type(display);
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+
+    .accent {
+      color: var(--primary);
+    }
+  }
+
+  &-subtitle {
+    @include typography-type(subtitle, 300);
+    color: var(--text-secondary);
+  }
+}

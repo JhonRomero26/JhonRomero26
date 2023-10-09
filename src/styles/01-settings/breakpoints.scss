@@ -1,0 +1,7 @@
+@use "/src/styles/_tools/variables/breakpoints" as *;
+
+:root {
+  @each $breakpoint, $value in $breakpoints {
+    --#{$breakpoint}-screen: #{$value};
+  }
+}

@@ -1,0 +1,9 @@
+@use "../_tools/variables/radius" as *;
+@use "../_tools/variables/breakpoints" as *;
+@use "../_tools/mixins/media" as *;
+
+@each $radius in $radiuses {
+  .#{$radius} {
+    border-radius: $radius;
+  }
+}

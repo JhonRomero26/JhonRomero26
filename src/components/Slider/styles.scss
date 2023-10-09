@@ -1,0 +1,12 @@
+.Slider {
+  overflow: hidden;
+
+  &-wrapper {
+    display: flex;
+    width: max-content;
+  }
+
+  &-item {
+    display: inline-flex;
+  }
+}

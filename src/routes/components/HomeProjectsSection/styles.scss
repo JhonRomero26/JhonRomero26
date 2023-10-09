@@ -1,0 +1,23 @@
+@use "src/styles/_tools/mixins/typography" as *;
+@use "src/styles/_tools/mixins/svg-patterns" as *;
+@use "src/styles/_tools/mixins/media" as *;
+@use "src/styles/_tools/mixins/transitions" as *;
+
+.HomeProjectsSection {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  background-color: var(--bg);
+  position: relative;
+  overflow: hidden;
+
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    grid-auto-flow: dense;
+
+    @include media-up(xl) {
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    }
+  }
+}

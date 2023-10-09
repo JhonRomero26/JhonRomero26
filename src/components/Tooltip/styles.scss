@@ -1,0 +1,111 @@
+$tooltip-distance: calc(100% + 0.5rem);
+
+.Tooltip {
+  display: inline-flex;
+  position: relative;
+
+  &-message {
+    width: max-content;
+
+    display: none;
+    position: absolute;
+
+    animation: fadeOut 150ms linear forwards;
+    background-color: var(--ui-01);
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-base);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+
+    &.top {
+      bottom: $tooltip-distance;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    &.tooltip-start {
+      bottom: $tooltip-distance;
+      left: 0;
+    }
+
+    &.tooltip-end {
+      bottom: $tooltip-distance;
+      right: 0;
+    }
+
+    &.bottom {
+      top: $tooltip-distance;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    &.tooltip-start {
+      top: $tooltip-distance;
+      left: 0;
+    }
+
+    &.tooltip-end {
+      top: $tooltip-distance;
+      right: 0;
+    }
+
+    &.left {
+      top: 50%;
+      right: $tooltip-distance;
+      transform: translate(0, -50%);
+    }
+
+    &.left-start {
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+    }
+
+    &.left-end {
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+
+    &.right {
+      top: 50%;
+      left: $tooltip-distance;
+      transform: translate(0, -50%);
+    }
+
+    &.right-start {
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &:hover .Tooltip-message {
+    display: block;
+    animation: fadeIn 150ms linear forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    display: block;
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+    scale: 0.9;
+  }
+}

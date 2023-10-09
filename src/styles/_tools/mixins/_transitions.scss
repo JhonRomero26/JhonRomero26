@@ -1,0 +1,24 @@
+@use "sass:meta";
+@use "sass:list";
+
+/**
+* @mixin transition
+* @param {$transition-properties} $property
+* @param {$transition-durations} $duration
+*/
+@mixin transition($property: default, $duration: base) {
+  $properties: ();
+
+  $property-type: meta.type-of($property);
+  @if ($property-type == "list") {
+    @each $property in $property {
+      $properties: append($properties, var(--transition-#{$property}), comma);
+    }
+    transition-property: $properties;
+  } @else {
+    transition-property: var(--transition-#{$property});
+  }
+
+  transition-duration: var(--transition-#{$duration});
+  transition-timing-function: var(--transition-timing);
+}

@@ -1,0 +1,136 @@
+@use "sass:math";
+@use "src/styles/_tools/mixins/typography" as *;
+@use "src/styles/_tools/mixins/transitions" as *;
+@use "src/styles/_tools/mixins/media" as *;
+
+$circle-date: 0.5rem;
+$timeline-width: 0.0625rem * 2; // 1px * 2
+$padding-vertical: 2rem;
+$padding-horizontal: 2rem;
+$timeline-content: $padding-horizontal + 1rem;
+$timeline-margin: math.div($timeline-content, 1.75);
+
+.TrajectoryCard {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-vertical $padding-horizontal;
+  padding-left: $timeline-content;
+  width: 100%;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: flex;
+    position: absolute;
+    margin-left: -$timeline-margin - math.div($timeline-width, 2) +
+      math.div($circle-date, 2);
+    width: $timeline-width;
+    background: var(--primary);
+  }
+
+  &::before {
+    top: 2.9485rem;
+    height: calc(100% - 2.9485rem);
+  }
+
+  &::after {
+    top: 0;
+    height: 3rem;
+  }
+
+  &:first-child::after {
+    display: none;
+  }
+
+  &-date {
+    @include typography-text(sm, $weight: 500);
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      margin-left: -$timeline-margin;
+      top: 50%;
+      transform: translate(0 -50%);
+      position: absolute;
+      width: $circle-date;
+      height: $circle-date;
+      background: var(--primary);
+      border-radius: var(--radius-rounded);
+      animation: shadow-effect 2s infinite;
+    }
+  }
+
+  &-header {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &-title {
+    @include typography-type(2xl, $weight: 500);
+  }
+
+  &-description {
+    color: var(--text-secondary);
+  }
+
+  &-badges {
+    @include typography-text(sm, $weight: 500);
+    color: var(--text-muted);
+    display: flex;
+    gap: 0.5rem;
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-skills {
+    @include typography-text(sm);
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+
+    &-title {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    &-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &::after {
+        content: "·";
+        @include typography-text(2xl);
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes shadow-effect {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 1rem rgba(var(--primary-rgb), 0);
+  }
+}

@@ -1,0 +1,72 @@
+$font-sizes: (
+  poppins: "Poppins" sans-serif,
+  cascadia: "Cascadia Code" monospace,
+);
+
+$font-sizes: (
+  2xs: 0.625rem,
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.875rem,
+  4xl: 2.25rem,
+  5xl: 3rem,
+  6xl: 3.75rem,
+);
+
+$font-lines-height: (
+  lh-2xs: 0.875rem,
+  lh-xs: 1rem,
+  lh-sm: 1.25rem,
+  lh-base: 1.5rem,
+  lh-lg: 1.75rem,
+  lh-xl: 1.75rem,
+  lh-2xl: 2rem,
+  lh-3xl: 2.25rem,
+  lh-4xl: 2.5rem,
+  lh-5xl: 1,
+  lh-6xl: 1,
+);
+
+$text-types: (
+  display: var(--text-6xl),
+  heading: var(--text-5xl),
+  title: var(--text-3xl),
+  subtitle: var(--text-2xl),
+  icon: var(--text-2xl),
+  icon-sm: var(--text-xl),
+  body-lg: var(--text-l),
+  body: var(--text-base),
+  body-sm: var(--text-sm),
+  caption: var(--text-sm),
+  label: var(--text-xs),
+);
+
+$text-types-lh: (
+  display: var(--text-lh-6xl),
+  heading: var(--text-lh-5xl),
+  title: var(--text-lh-3xl),
+  subtitle: var(--text-lh-2xl),
+  icon: var(--text-lh-2xl),
+  icon-sm: var(--text-lh-xl),
+  body-lg: var(--text-lh-l),
+  body: var(--text-lh-base),
+  body-sm: var(--text-lh-sm),
+  caption: var(--text-lh-sm),
+  label: var(--text-lh-xs),
+);
+
+$text-types-weight: (
+  display: 300,
+  heading: 400,
+  title: 600,
+  subtitle: 500,
+  body-lg: 400,
+  body: 400,
+  body-sm: 400,
+  caption: 500,
+  label: 500,
+);

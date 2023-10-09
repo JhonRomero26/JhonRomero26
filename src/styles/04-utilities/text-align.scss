@@ -1,0 +1,10 @@
+@use "../_tools/mixins/media" as *;
+@use "../_tools/variables/breakpoints" as *;
+
+$aligns: (start, center, end);
+
+@each $align in $aligns {
+  .text-#{$align} {
+    text-align: $align;
+  }
+}

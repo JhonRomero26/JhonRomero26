@@ -1,0 +1,21 @@
+@use "/src/styles/_tools/mixins/typography" as *;
+
+.btn {
+  // reset button styles
+  display: inline-flex;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+
+  &-icon {
+    @include typography-type(icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-rounded);
+    color: var(--text-primary);
+  }
+}
