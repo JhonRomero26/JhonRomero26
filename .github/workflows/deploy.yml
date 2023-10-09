@@ -23,9 +23,14 @@ jobs:
         with:
           deno-version: v1.x
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - run: npm install --platform=linux sharp
+
       - name: Bun setup
         uses: oven-sh/setup-bun@v1
-      - run: bun install -g sharp --no-save
 
       - name: Build step
         run: "bun install && bun run build && rm -rf node_modules" # 📝 Update the build command(s) if necessary
