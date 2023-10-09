@@ -26,16 +26,16 @@ export const Header = component$(() => {
               triggerClass="btn-icon Header-burger"
             >
               <TbMenu2 q:slot="trigger" />
-              {NAVIGATION_MENU.map((nav) => (
-                <DropdownItem key={nav.path}>
-                  <Link href={nav.path}>{t(nav.title)}</Link>
+              {NAVIGATION_MENU.map(({ title, path }) => (
+                <DropdownItem key={path}>
+                  <Link href={path}>{t(title)}</Link>
                 </DropdownItem>
               ))}
             </Dropdown>
             <ul class="Header-navigation" ref={navigationRef}>
-              {NAVIGATION_MENU.map((nav) => (
-                <Link key={nav.path} class="Header-link" href={nav.path}>
-                  {t(nav.title)}
+              {NAVIGATION_MENU.map(({ title, path }) => (
+                <Link key={path} class="Header-link" href={path}>
+                  {t(title)}
                 </Link>
               ))}
             </ul>

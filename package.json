@@ -1,6 +1,8 @@
 {
   "name": "website",
-  "type": "module",
+  "trustedDependencies": [
+    "sharp"
+  ],
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
