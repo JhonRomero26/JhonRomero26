@@ -1,0 +1,10 @@
+{
+  "folders": [
+    { "name": "i18n", "path": "i18n" },
+    { "name": "source", "path": "src" },
+    { "path": "." }
+  ],
+  "settings": {
+    "cSpell.language": "en,es-ES"
+  }
+}
