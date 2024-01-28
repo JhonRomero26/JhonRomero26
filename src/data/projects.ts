@@ -61,29 +61,30 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: "Rick and Morty API Website",
+    title: "Carrion Loja Tourism",
     devtools: [
-      DEVTOOLS_NAMES.javascript,
-      DEVTOOLS_NAMES.html5,
       DEVTOOLS_NAMES.css3,
+      DEVTOOLS_NAMES.astro,
+      DEVTOOLS_NAMES.typescript,
+      DEVTOOLS_NAMES.tailwind
     ],
     links: [
       {
         name: "Website",
         default: true,
-        url: "https://jhonromero26.github.io/rick-and-morty",
+        url: "https://carrion-tours.vercel.app/",
       },
       {
         name: "GitHub",
         default: false,
-        url: "https://github.com/JhonRomero26/rick-and-morty",
+        url: "https://github.com/JhonRomero26/carrion-tours",
       },
     ],
     images: {
-      thumbnail: "/projects/rick-and-morty.thumbnail.webp",
-      small: "/projects/rick-and-morty.1x.webp",
-      medium: "/projects/rick-and-morty.2x.webp",
-      large: "/projects/rick-and-morty.4x.webp",
+      thumbnail: "/projects/carrion-tours.thumbnail.webp",
+      small: "/projects/carrion-tours.1x.webp",
+      medium: "/projects/carrion-tours.2x.webp",
+      large: "/projects/carrion-tours.4x.webp",
     },
   },
   {
@@ -135,6 +136,33 @@ export const projects: Project[] = [
       small: "/projects/uefli-fiestas-patronales.1x.webp",
       medium: "/projects/uefli-fiestas-patronales.2x.webp",
       large: "/projects/uefli-fiestas-patronales.4x.webp",
+    },
+  },
+  {
+    id: "6",
+    title: "Rick and Morty API Website",
+    devtools: [
+      DEVTOOLS_NAMES.javascript,
+      DEVTOOLS_NAMES.html5,
+      DEVTOOLS_NAMES.css3,
+    ],
+    links: [
+      {
+        name: "Website",
+        default: true,
+        url: "https://jhonromero26.github.io/rick-and-morty",
+      },
+      {
+        name: "GitHub",
+        default: false,
+        url: "https://github.com/JhonRomero26/rick-and-morty",
+      },
+    ],
+    images: {
+      thumbnail: "/projects/rick-and-morty.thumbnail.webp",
+      small: "/projects/rick-and-morty.1x.webp",
+      medium: "/projects/rick-and-morty.2x.webp",
+      large: "/projects/rick-and-morty.4x.webp",
     },
   },
 ];
