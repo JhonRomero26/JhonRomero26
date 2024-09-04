@@ -23,6 +23,16 @@ const sortByDate = <T = any>(arr: (T & { start_date: Date })[]): T[] => {
 
 export const EXPERIENCES: Experience[] = sortByDate([
   {
+    title: `${pathExperiences}.i2tec-iot.title`,
+    location: `${pathExperiences}.i2tec-iot.location`,
+    description: `${pathExperiences}.i2tec-iot.description`,
+    company: COMPANIES.i2tec,
+    start_date: new Date(2025, 2),
+    end_date: new Date(2024, 4),
+    skills: [
+    ],
+  },
+  {
     title: `${pathExperiences}.i2tec.title`,
     location: `${pathExperiences}.i2tec.location`,
     description: `${pathExperiences}.i2tec.description`,

@@ -6,6 +6,12 @@
         "description": "Diseño y desarrollo del sitio web y backend para el centro de investigacion I2TEC de la Universidad Nacional de Loja.",
         "location": "Loja, Ecuador",
         "workplace": "Híbrido"
+      },
+      "i2tec-iot": {
+        "title": "Desarrollador movíl & IoT",
+        "description": "Desarrollo de un prototipo electrónico para la adaptación a una silla de ruedas convencional por comandos de voz con redes neuronales recurrentes (RNN) y asistencia de pendientes con microcontroladores.",
+        "location": "Loja, Ecuador",
+        "workplace": "Híbrido"
       }
     },
     "education": {
