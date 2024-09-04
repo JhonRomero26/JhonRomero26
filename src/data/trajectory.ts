@@ -50,6 +50,16 @@ export const EXPERIENCES: Experience[] = sortByDate([
       DEVTOOLS_NAMES.postgres,
     ],
   },
+  {
+    title: `${pathExperiences}.i2tec-iot.title`,
+    location: `${pathExperiences}.i2tec-iot.location`,
+    description: `${pathExperiences}.i2tec-iot.description`,
+    company: COMPANIES.i2tec,
+    start_date: new Date(2017, 1),
+    end_date: new Date(2019, 7),
+    skills: [
+    ],
+  },
 ]);
 
 export const EDUCATION: Education[] = sortByDate([
