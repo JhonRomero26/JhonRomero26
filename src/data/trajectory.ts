@@ -8,6 +8,7 @@ const pathEducation = `${basePathTranslate}.education`;
 
 export const COMPANIES = {
   i2tec: "I2TEC",
+  electronetTech: "Electronet Ltda.",
 };
 
 export const INSTITUTIONS = {
@@ -51,10 +52,10 @@ export const EXPERIENCES: Experience[] = sortByDate([
     ],
   },
   {
-    title: `${pathExperiences}.i2tec-iot.title`,
-    location: `${pathExperiences}.i2tec-iot.location`,
-    description: `${pathExperiences}.i2tec-iot.description`,
-    company: COMPANIES.i2tec,
+    title: `${pathExperiences}.electronet-tech.title`,
+    location: `${pathExperiences}.electronet-tech.location`,
+    description: `${pathExperiences}.electronet-tech.description`,
+    company: COMPANIES.electronetTech,
     start_date: new Date(2017, 1),
     end_date: new Date(2019, 7),
     skills: [
