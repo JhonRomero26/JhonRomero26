@@ -60,6 +60,87 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "8",
+    title: "Cryptors",
+    devtools: [
+      DEVTOOLS_NAMES.javascript,
+      DEVTOOLS_NAMES.html5,
+      DEVTOOLS_NAMES.css3,
+    ],
+    links: [
+      {
+        name: "Website",
+        default: true,
+        url: "https://cryptors.vercel.app",
+      },
+      {
+        name: "GitHub",
+        default: false,
+        url: "https://github.com/JhonRomero26/cryptors",
+      },
+    ],
+    images: {
+      thumbnail: "/projects/cryptors.thumbnail.webp",
+      small: "/projects/cryptors.1x.webp",
+      medium: "/projects/cryptors.2x.webp",
+      large: "/projects/cryptors.4x.webp",
+    },
+  },
+  {
+    id: "7",
+    title: "Trello Clone",
+    devtools: [
+      DEVTOOLS_NAMES.javascript,
+      DEVTOOLS_NAMES.html5,
+      DEVTOOLS_NAMES.css3,
+    ],
+    links: [
+      {
+        name: "Website",
+        default: true,
+        url: "https://trello-clone-dx7rw0h28-jhon-romeros-projects.vercel.app",
+      },
+      {
+        name: "GitHub",
+        default: false,
+        url: "https://github.com/JhonRomero26/trello-clone",
+      },
+    ],
+    images: {
+      thumbnail: "/projects/trello-clone.thumbnail.webp",
+      small: "/projects/trello-clone.1x.webp",
+      medium: "/projects/trello-clone.2x.webp",
+      large: "/projects/trello-clone.4x.webp",
+    },
+  },
+  {
+    id: "9",
+    title: "Wrouter",
+    devtools: [
+      DEVTOOLS_NAMES.javascript,
+      DEVTOOLS_NAMES.html5,
+      DEVTOOLS_NAMES.css3,
+    ],
+    links: [
+      {
+        name: "Website",
+        default: true,
+        url: "https://www.npmjs.com/package/@jhonromero26/wrouter",
+      },
+      {
+        name: "GitHub",
+        default: false,
+        url: "https://github.com/JhonRomero26/wrouter",
+      },
+    ],
+    images: {
+      thumbnail: "/projects/wrouter.thumbnail.webp",
+      small: "/projects/wrouter.1x.webp",
+      medium: "/projects/wrouter.2x.webp",
+      large: "/projects/wrouter.4x.webp",
+    },
+  },
+  {
     id: "3",
     title: "Carrion Loja Tourism",
     devtools: [
