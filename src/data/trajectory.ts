@@ -38,8 +38,8 @@ export const EXPERIENCES: Experience[] = sortByDate([
     location: `${pathExperiences}.i2tec.location`,
     description: `${pathExperiences}.i2tec.description`,
     company: COMPANIES.i2tec,
-    start_date: new Date(2023, 3),
-    end_date: new Date(2023, 6),
+    start_date: new Date(2023, 11),
+    end_date: new Date(2024, 4),
     skills: [
       DEVTOOLS_NAMES.preact,
       DEVTOOLS_NAMES.typescript,
@@ -56,8 +56,8 @@ export const EXPERIENCES: Experience[] = sortByDate([
     location: `${pathExperiences}.electronet-tech.location`,
     description: `${pathExperiences}.electronet-tech.description`,
     company: COMPANIES.electronetTech,
-    start_date: new Date(2017, 1),
-    end_date: new Date(2019, 7),
+    start_date: new Date(2017, 11),
+    end_date: new Date(2018, 7),
     skills: [
     ],
   },
