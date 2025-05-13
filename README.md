@@ -70,7 +70,7 @@ I am a Telecommunications Engineer and full stack developer. I am currently pass
 
 ###
 
-<h2 align="center">🛠 Web & Mobile Stack</h2>
+<h2 align="center">🛠 Web & Mobile</h2>
 
 ###
 
@@ -108,7 +108,7 @@ I am a Telecommunications Engineer and full stack developer. I am currently pass
 
 ###
 
-<h2 align="center">🛠 Backend Stack</h2>
+<h2 align="center">🛠 Backend</h2>
 
 ###
 
