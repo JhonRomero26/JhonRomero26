@@ -9,20 +9,31 @@ console.log(repoURL.pathname);
 ---
 
 <div class="flex mt-12 justify-center gap-2">
-  <img
-    alt="Github Stars"
-    src={`https://img.shields.io/github/stars${repoURL.pathname}?style=for-the-badge`}
-  />
-  <img
-    alt="Github Issues"
-    src={`https://img.shields.io/github/issues${repoURL.pathname}?style=for-the-badge`}
-  />
-  <img
-    alt="Github Stars"
-    src={`https://img.shields.io/github/forks${repoURL.pathname}?style=for-the-badge`}
-  />
-  <img
-    alt="Github PRs"
-    src={`https://img.shields.io/github/issues-pr${repoURL.pathname}?style=for-the-badge`}
-  />
+  <a href={`https://github.com${repoURL.pathname}`} target="_blank">
+    <img
+      alt="Github Stars"
+      src={`https://img.shields.io/github/stars${repoURL.pathname}?style=for-the-badge`}
+    />
+  </a>
+  <a href={`https://github.com${repoURL.pathname}/issues`} target="_blank">
+    <img
+      alt="Github Issues"
+      src={`https://img.shields.io/github/issues${repoURL.pathname}?style=for-the-badge`}
+    />
+  </a>
+  <a
+    href={`https://github.com${repoURL.pathname}/network/members`}
+    target="_blank"
+  >
+    <img
+      alt="Github Forks"
+      src={`https://img.shields.io/github/forks${repoURL.pathname}?style=for-the-badge`}
+    />
+  </a>
+  <a href={`https://github.com${repoURL.pathname}/pulls`} target="_blank">
+    <img
+      alt="Github PRs"
+      src={`https://img.shields.io/github/issues-pr${repoURL.pathname}?style=for-the-badge`}
+    />
+  </a>
 </div>
