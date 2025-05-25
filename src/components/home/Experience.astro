@@ -12,16 +12,18 @@ const experience = data[lang as keyof typeof data];
 <div class="flex-1">
   <h3 class="text-heading2 font-semibold">{t("trajectory.experienceTitle")}</h3>
 
-  {
-    experience.map((item) => (
-      <TimelineCard
-        title={item.position}
-        subtitle={item.company}
-        description={item.description}
-        startDate={item.startDate}
-        endDate={item.endDate}
-        skills={item.skills}
-      />
-    ))
-  }
+  <ol>
+    {
+      experience.map((item) => (
+        <TimelineCard
+          title={item.position}
+          subtitle={item.company}
+          description={item.description}
+          startDate={item.startDate}
+          endDate={item.endDate}
+          skills={item.skills}
+        />
+      ))
+    }
+  </ol>
 </div>

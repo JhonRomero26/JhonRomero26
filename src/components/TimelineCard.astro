@@ -18,13 +18,12 @@ const formaterDate = new Intl.DateTimeFormat(lang, {
   year: "numeric",
   month: "short",
 });
-const dateFormatter = (date: string | Date) =>
-  formaterDate.format(new Date(date));
-
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const dateFormatter = (date: string | Date) =>
+  capitalize(formaterDate.format(new Date(date)));
 ---
 
-<article class="timeline-card">
+<li class="timeline-card">
   <time class="timeline-card-date">
     {capitalize(dateFormatter(startDate))} -
     {endDate ? capitalize(dateFormatter(endDate)) : "Present"}
@@ -54,4 +53,4 @@ const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
       )
     }
   </div>
-</article>
+</li>
