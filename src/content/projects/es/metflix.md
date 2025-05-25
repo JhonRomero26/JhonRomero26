@@ -9,13 +9,6 @@ website: "https://metflix-ten.vercel.app"
 repoUri: "https://github.com/JhonRomero26/metflix"
 ---
 
-<div class="flex justify-center gap-2">
-  <img alt="Github Stars" src="https://img.shields.io/github/stars/JhonRomero26/metflix" />
-  <img alt="Github Issues" src="https://img.shields.io/github/issues/JhonRomero26/metflix" />
-  <img alt="Github Stars" src="https://img.shields.io/github/forks/JhonRomero26/metflix" />
-  <img alt="Github PRs" src="https://img.shields.io/github/issues-pr/JhonRomero26/metflix" />
-</div>
-
 Hace unos meses me propuse construir **Metflix**, un proyecto inspirado en la plataforma de streaming Netflix, con el objetivo de aprender conceptos avanzados de desarrollo frontend sin usar frameworks reactivos como React o Vue. El resultado fue un sitio moderno, rápido y con una experiencia de usuario suave, incluso sin depender de un framework completo.
 
 ## 🧠 ¿Por qué este proyecto?

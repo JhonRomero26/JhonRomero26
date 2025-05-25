@@ -2,7 +2,8 @@
 import PostLayout from "@/layouts/PostLayout.astro";
 import { Icon } from "astro-icon/components";
 import { getEntry, render } from "astro:content";
-import ProjectLinks from "./ProjectLinks.astro";
+import ProjectLinks from "@/components/projects/ProjectLinks.astro";
+import GithubShields from "@/components/projects/GithubShields.astro";
 
 export interface Props {
   id: string;
@@ -34,5 +35,7 @@ const urlImage = `/images/projects/${image}`;
   readMinTime={readMinTime}
 >
   <ProjectLinks slot="subhead" repoUri={repoUri} website={website} />
+  <GithubShields slot="subhead" repositoryURL={repoUri} />
+
   <Content />
 </PostLayout>
