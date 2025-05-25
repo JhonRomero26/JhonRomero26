@@ -1,0 +1,26 @@
+---
+interface Props {
+  axis?: "x" | "y"
+  type?: "madatory" | "pro"
+  align?: "start" | "center" | "end"
+  gap?: string
+}
+
+const { axis, type, align, gap } = Astro.props
+---
+
+<div
+  class="slider">
+  <div
+    style={{
+      "--slider-align": align,
+      "--slider-axis": axis,
+      "--slider-type": type,
+      "--slider-gap": gap,
+      overflowX: axis === "x" || !axis ? "auto" : null,
+      overflowY: axis === "y" ? "auto" : null,
+    }}
+    class="slider-wrapper">
+    <slot />
+  </div>
+</div>

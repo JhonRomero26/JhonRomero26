@@ -1,0 +1,92 @@
+---
+import Logo from "@/components/Logo.astro";
+import ThemeButton from "@/components/ThemeButton.astro";
+import { Icon } from "astro-icon/components";
+import LanguageDropdown from "./LanguageDropdown.astro";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { loadI18n } from "@/utils/i18n";
+
+const lang = Astro.currentLocale || "en";
+const t = await loadI18n({
+  lang,
+  asset: "components/Header",
+});
+
+const menuNavLinks = [
+  { href: getAbsoluteLocaleUrl(lang, "/"), label: t("menu-links.home") },
+  {
+    href: getAbsoluteLocaleUrl(lang, "/projects"),
+    label: t("menu-links.projects"),
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="bg-ui-body/50 backdrop-blur-lg fixed top-0 left-0 w-full z-50 py-2"
+>
+  <nav class="container flex justify-between items-center gap-4">
+    <div class="flex-1 flex items-center">
+      <button id="btn-burger" class="btn btn-icon md:hidden">
+        <Icon name="tabler:menu-2" />
+      </button>
+      <div
+        id="header-menu"
+        class="max-md:w-full max-md:fixed max-md:top-full max-md:left-0 max-md:bg-ui-body/90 max-md:backdrop-blur-lg max-md:-z-10 max-md:py-8 max-md:overflow-hidden max-md:hidden hidden-fade-in"
+      >
+        <ul class="container flex max-md:flex-col items-center gap-x-3 md:m-0">
+          {
+            menuNavLinks.map((link) => (
+              <li class="flex w-full">
+                <a
+                  class:list={[
+                    "text-typo-primary border-b-2 border-transparent w-full p-3 font-medium text-center transition-colors hover:text-ui-accent md:hover:border-ui-accent max-md:hover:bg-ui-accent/15",
+                    currentPath === link.href &&
+                      "md:border-ui-accent text-ui-accent max-md:bg-ui-accent/15",
+                  ]}
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="flex-1 flex items-center justify-center">
+      <a
+        class="block w-14 transition-transform hover:scale-125"
+        aria-label="Home"
+        href="/"
+      >
+        <Logo />
+      </a>
+    </div>
+    <div class="flex-1 flex items-center gap-4 justify-end">
+      <ThemeButton />
+      <LanguageDropdown />
+    </div>
+  </nav>
+</header>
+<div class="h-14"></div>
+
+<script>
+  const onLoadDocument = () => {
+    const $burgerBtn = document.querySelector<HTMLButtonElement>("#btn-burger");
+    const $menu = document.querySelector<HTMLDivElement>("#header-menu");
+
+    $burgerBtn?.addEventListener("click", () => {
+      console.log($menu);
+      $menu?.classList.toggle("max-md:hidden");
+      $menu?.classList.toggle("visible");
+    });
+  };
+
+  onLoadDocument();
+
+  document.addEventListener("astro:after-swap", () => {
+    onLoadDocument();
+  });
+</script>

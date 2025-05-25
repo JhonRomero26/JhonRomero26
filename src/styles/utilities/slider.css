@@ -1,0 +1,24 @@
+@layer utilities {
+  .slider {
+    padding: 1rem;
+    mask: linear-gradient(
+      to right,
+      rgb(0 0 0 / 0%) 0%,
+      rgb(0 0 0 / 100%) 2%,
+      rgb(0 0 0 / 100%) 98%,
+      rgb(0 0 0 / 0%) 100%
+    );
+
+    .slide {
+      scroll-snap-align: var(--slider-align, center);
+    }
+
+    .slider-wrapper {
+      display: flex;
+      overflow: hidden;
+      flex-wrap: nowrap;
+      gap: var(--slider-gap, 1rem);
+      scroll-snap-type: var(--slider-axis, x) var(--slider-type, mandatory);
+    }
+  }
+}

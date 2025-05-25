@@ -1,0 +1,19 @@
+@layer components {
+  .pill {
+    background-color: rgb(var(--ui-accent-rgb) / 25%);
+    color: var(--ui-accent);
+    @apply gap-2 rounded-sm px-2 py-1 border inline-flex items-center justify-center transition-colors no-underline text-nowrap;
+
+    &:last-child {
+      @apply mr-0;
+    }
+
+    &-sm {
+      @apply text-sm;
+    }
+
+    &-lg {
+      @apply text-lg px-3 py-1;
+    }
+  }
+}

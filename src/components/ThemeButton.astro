@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+import Tooltip from "./Tooltip.astro";
+import { loadI18n } from "@/utils/i18n";
+
+const lang = Astro.currentLocale || "en";
+const t = await loadI18n({
+  lang,
+  asset: "components/ThemeButton",
+});
+---
+
+<Tooltip direction="bottom">
+  <small id="theme-info" slot="message">
+    {t("tooltip")}
+  </small>
+
+  <button id="theme-toggler" class="btn btn-icon">
+    <span
+      class="absolute dark:opacity-0 dark:rotate-90 rotate-0 transition-all"
+    >
+      <Icon name="tabler:sun" />
+    </span>
+    <span
+      class="opacity-0 rotate-90 dark:opacity-100 dark:rotate-0 transition-all"
+    >
+      <Icon name="tabler:moon" />
+    </span>
+  </button>
+</Tooltip>
+
+<script is:inline>
+  const themeAttr = "data-theme";
+  const storageKey = "theme";
+  const defaultTheme = "dark";
+
+  const initTheme = function () {
+    const theme = localStorage.getItem(storageKey) || defaultTheme;
+    document.querySelector("html")?.setAttribute(themeAttr, theme);
+  };
+
+  const handleToggleTheme = () => {
+    const $html = document.querySelector("html");
+    const currentTheme = $html?.getAttribute(themeAttr) ?? defaultTheme;
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    $html?.setAttribute(themeAttr, newTheme);
+    localStorage.setItem(storageKey, newTheme);
+  };
+
+  const handleThemePreferenceChange = (e) => {
+    const isDark = $html.getAttribute(themeAttr) === defaultTheme;
+    const toggle = (e.matches && !isDark) || (!e.matches && isDark);
+    if (toggle) handleToggleTheme();
+  };
+
+  const onLoad = () => {
+    initTheme();
+
+    const $themeToggler = document.querySelector("#theme-toggler");
+    const darkModePreference = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+
+    darkModePreference.addEventListener("change", handleThemePreferenceChange);
+    $themeToggler?.addEventListener("click", handleToggleTheme);
+  };
+
+  onLoad();
+
+  document.addEventListener("astro:after-swap", () => {
+    onLoad();
+  });
+</script>

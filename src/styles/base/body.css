@@ -1,0 +1,19 @@
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Onest Variable", sans-serif;
+    overflow-x: hidden;
+    background-color: var(--color-ui-body);
+    color: var(--color-typo-primary);
+    scrollbar-width: thin;
+    @apply transition-colors;
+  }
+}

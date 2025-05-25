@@ -1,7 +1,0 @@
-@use "/src/styles/_tools/variables/radius" as *;
-
-:root {
-  @each $key, $value in $radiuses {
-    --radius-#{$key}: #{$value};
-  }
-}

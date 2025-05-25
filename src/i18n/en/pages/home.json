@@ -1,0 +1,26 @@
+{
+  "title": "Jhon Romero - Full Stack Developer",
+  "description": "Full Stack Developer with experience in react, typescript, nextjs, astrojs, python, odoo, docker, ci/cd, flutter, and postgres.",
+  "hero": {
+    "description": "The energy is transformed and my job is to materialize the energy of your ideas into great digital experiences",
+    "subtitle": "Full Stack Developer"
+  },
+  "skillsTitle": "My skills",
+  "projects": {
+    "subtitle": "Each project has a different purpose and my job is to characterize it in a real scenario",
+    "title": {
+      "normal": "Some of my",
+      "accent": "jobs"
+    },
+    "moreProjects": "See all projects"
+  },
+  "trajectory": {
+    "subtitle": "From the beginning to the presente making a difference in the digital world",
+    "title": {
+      "normal": "My trajectory",
+      "accent": "as a professional"
+    },
+    "experienceTitle": "Experience",
+    "educationTitle": "Education"
+  }
+}

@@ -1,0 +1,29 @@
+---
+import ProjectCard from "@/components/ProjectCardWithTooltip.astro";
+import type { CollectionEntry } from "astro:content";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const lang = Astro.currentLocale || "en";
+const { projects } = Astro.props;
+---
+
+<div class="container grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  {
+    projects.map(({ id, data }) => (
+      <ProjectCard
+        id={id}
+        slug={getAbsoluteLocaleUrl(lang, `/projects/${id.split("/")[1]}`)}
+        title={data.title}
+        description={data.description}
+        skills={data.skills}
+        website={data.website}
+        repoUri={data.repoUri}
+        image={data.image}
+      />
+    ))
+  }
+</div>

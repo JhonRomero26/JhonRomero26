@@ -1,0 +1,47 @@
+@layer components {
+  .btn {
+    @apply cursor-pointer rounded gap-2 border inline-flex items-center justify-center transition-colors no-underline px-4 py-2 text-ui-04 border-transparent hover:text-ui-04 hover:bg-ui-01;
+  }
+
+  /* Variants */
+  .btn-primary {
+    @apply text-white bg-primary-500 hover:bg-primary-400;
+  }
+
+  .btn-secondary {
+    @apply text-typo-inverted bg-gray-800 hover:text-typo-inverted hover:bg-gray-700 dark:bg-gray-100 dark:hover:bg-gray-300;
+  }
+
+  .btn-tertiary {
+    @apply text-ui-accent bg-transparent hover:bg-primary-500/20;
+  }
+
+  .btn-outline {
+    @apply border-ui-03;
+  }
+
+  .btn-icon {
+    @apply p-0 size-10 rounded-full;
+  }
+
+  /* Modificators */
+  .btn-sm {
+    @apply py-1 px-2;
+  }
+
+  .btn-sm.btn-icon {
+    @apply p-9;
+  }
+
+  .btn-lg {
+    @apply py-3 px-5;
+  }
+
+  .btn-lg.btn-icon {
+    @apply py-1 px-11;
+  }
+
+  .btn-block {
+    @apply w-full flex;
+  }
+}

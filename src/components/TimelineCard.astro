@@ -1,0 +1,57 @@
+---
+import Pill from "./Pill.astro";
+
+type Props = {
+  title: string;
+  subtitle?: string;
+  description: string;
+  startDate: string | Date;
+  endDate?: string | Date;
+  skills?: string[];
+};
+
+const { title, subtitle, description, startDate, endDate, skills } =
+  Astro.props;
+
+const lang = Astro.currentLocale || "en";
+const formaterDate = new Intl.DateTimeFormat(lang, {
+  year: "numeric",
+  month: "short",
+});
+const dateFormatter = (date: string | Date) =>
+  formaterDate.format(new Date(date));
+
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+---
+
+<article class="timeline-card">
+  <time class="timeline-card-date">
+    {capitalize(dateFormatter(startDate))} -
+    {endDate ? capitalize(dateFormatter(endDate)) : "Present"}
+  </time>
+  <header class="mb-4">
+    <h3 class="text-xl font-medium sm:text-2xl">{title}</h3>
+    {
+      subtitle && (
+        <span class="mt-2 text-sm font-medium text-typo-muted flex gap-2 sm:text-base">
+          {subtitle}
+        </span>
+      )
+    }
+  </header>
+  <div class="flex flex-col">
+    <p class="text-typo-secondary text-sm sm:text-lg">{description}</p>
+    <slot />
+    {
+      skills && (
+        <div class="text-sm text-typo-secondary flex flex-wrap gap-2 mt-4">
+          {skills.map((skill) => (
+            <Pill class="text-violet-500 bg-violet-500/15 border-violet-500">
+              {skill}
+            </Pill>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</article>

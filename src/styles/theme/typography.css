@@ -1,0 +1,13 @@
+@theme {
+  --text-display: var(--text-6xl);
+  --text-heading1: var(--text-3xl);
+  --text-heading2: var(--text-2xl);
+  --text-icon: var(--text-2xl);
+  --text-heading3: var(--text-xl);
+  --text-title1: var(--text-xl);
+  --text-title2: var(--text-lg);
+  --text-body1: var(--text-base);
+  --text-body2: var(--text-sm);
+  --text-small1: var(--text-xs);
+  --text-small2: var(--text-2xs);
+}

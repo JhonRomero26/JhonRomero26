@@ -1,0 +1,44 @@
+---
+import Pill from "@/components/Pill.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Tooltip from "@/components/Tooltip.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  skills: string[];
+  website: string;
+  repoUri?: string;
+  slug: string;
+  image: string;
+}
+
+const { id, title, description, skills, slug, website, repoUri, image } =
+  Astro.props;
+---
+
+<Tooltip direction="bottom">
+  <div class="w-full max-w-96 py-4" slot="message">
+    <h1
+      class="text-typo-primary text-xl font-bold"
+      style={{ marginBottom: "1rem" }}
+    >
+      {title}
+    </h1>
+    <div class="text-typo-secondary">{description}</div>
+    <div class="flex gap-2 mt-6 flex-wrap">
+      {skills.map((skill) => <Pill>{skill}</Pill>)}
+    </div>
+  </div>
+
+  <ProjectCard
+    id={id}
+    slug={slug}
+    skills={skills}
+    image={image}
+    title={title}
+    website={website}
+    repoUri={repoUri}
+  />
+</Tooltip>

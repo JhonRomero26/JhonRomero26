@@ -1,0 +1,90 @@
+{
+  "en": [
+    {
+      "id": "i2tec-full-stack-developer",
+      "position": "IoT & Mobile Developer",
+      "company": "I2TEC - National University of Loja",
+      "startDate": "2024-07",
+      "endDate": "2025-03",
+      "description": "Development of an electronic prototype for adaptation to a conventional wheelchair by voice commands with recurrent neural networks (RNN) and slope assistance with microcontrollers.",
+      "location": "Loja, Ecuador",
+      "workplace": "Hybrid",
+      "skills": ["Flutter", "Arduino", "Tensorflow", "Python", "C++"]
+    },
+    {
+      "id": "i2tec-full-stack-developer",
+      "position": "Full Stack Developer Intern",
+      "company": "I2TEC - National University of Loja",
+      "startDate": "2023-03",
+      "endDate": "2023-05",
+      "description": "Design and development of the website for the I2TEC research center of the National University of Loja",
+      "location": "Loja, Ecuador",
+      "workplace": "Hybrid",
+      "skills": [
+        "Preact",
+        "TypeScript",
+        "Astro",
+        "CSS3",
+        "Docker",
+        "Github Actions",
+        "NodeJS",
+        "Postgres"
+      ]
+    },
+    {
+      "id": "electronet-it-services-technician-intern",
+      "position": "IT Services Technician Intern",
+      "company": "Electronet Ltda.",
+      "startDate": "2018-09",
+      "endDate": "2019-05",
+      "description": "Technical support of computers, electronic equipment and installation, maintenance and troubleshooting of networks and systems. Assistant in the implementation of technological projects.",
+      "location": "Loja, Ecuador",
+      "workplace": "Hybrid",
+      "skills": []
+    }
+  ],
+  "es": [
+    {
+      "id": "i2tec-full-stack-developer",
+      "position": "Desarrollador IoT & Mobile",
+      "company": "I2TEC - Universidad Nacional de Loja",
+      "startDate": "2024-07",
+      "endDate": "2025-03",
+      "description": "Desarrollo de un prototipo eléctrico para adaptación a una silla de ruedas convencional por comandos de voz con redes neuronales recurrentes (RNN) y asistencia en pendiente con microcontroladores.",
+      "location": "Loja, Ecuador",
+      "workplace": "Híbrido",
+      "skills": ["Flutter", "Arduino", "Tensorflow", "Python", "C++"]
+    },
+    {
+      "id": "i2tec-full-stack-developer",
+      "position": "Desarrollador Full Stack",
+      "company": "I2TEC - Universidad Nacional de Loja",
+      "startDate": "2018-09",
+      "endDate": "2019-05",
+      "description": "Diseño y desarrollo del sitio web del centro de investigación de I2TEC de la Universidad Nacional de Loja",
+      "location": "Loja, Ecuador",
+      "workplace": "Híbrido",
+      "skills": [
+        "Preact",
+        "TypeScript",
+        "Astro",
+        "CSS3",
+        "Docker",
+        "Github Actions",
+        "NodeJS",
+        "Postgres"
+      ]
+    },
+    {
+      "id": "electronet-it-services-technician-intern",
+      "position": "Practicante de Soporte Técnico",
+      "company": "Electronet Ltda.",
+      "startDate": "2018-09",
+      "endDate": "2019-05",
+      "description": "Soporte técnico de computadoras, equipos electrónicos e instalación, mantenimiento y solución de problemas de redes y sistemas. Asistente en la implementación de proyectos tecnológicos.",
+      "location": "Loja, Ecuador",
+      "workplace": "Híbrido",
+      "skills": []
+    }
+  ]
+}

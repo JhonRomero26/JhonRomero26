@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+import { loadI18n } from "@/utils/i18n";
+
+interface Props {
+  repoUri?: string;
+  website?: string;
+}
+
+const lang = Astro.currentLocale || "en";
+const { repoUri, website } = Astro.props;
+const t = await loadI18n({ lang, asset: "pages/project-detail" });
+---
+
+<div class="flex mx-auto max-w-3xl px-6">
+  {
+    repoUri && (
+      <a
+        href={repoUri}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-block btn-tertiary text-lg py-4 rounded-none flex items-center gap-2"
+      >
+        <Icon name="tabler:brand-github" />
+        <span>{t("repository")}</span>
+      </a>
+    )
+  }
+  {
+    website && (
+      <a
+        href={website}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-block btn-tertiary text-lg py-4 rounded-none flex items-center gap-2"
+      >
+        <Icon name="tabler:world" />
+        <span>{t("website")}</span>
+      </a>
+    )
+  }
+</div>

@@ -1,7 +1,0 @@
-$transforms: (lowercase, uppercase, capitalize);
-
-@each $transform in $transforms {
-  .text-#{$transform} {
-    text-transform: $transform;
-  }
-}

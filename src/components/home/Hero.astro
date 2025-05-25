@@ -1,0 +1,87 @@
+---
+import Logo from "@/components/Logo.astro";
+import Tooltip from "@/components/Tooltip.astro";
+import { loadI18n } from "@/utils/i18n";
+import { Icon } from "astro-icon/components";
+
+const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
+---
+
+<section
+  class="home-hero overflow-hidden relative justify-center items-center flex px-6 py-8 w-full min-h-[calc(100lvh-72px)] transition-colors after:absolute top-0 left-0 bg-ui-body"
+>
+  <div
+    class="w-max flex rounded-lg flex-col justify-center items-center max-w-2xl p-6 relative z-10 transition-colors before:brightness-125 dark:before:brightness-75 before:absolute before:blur-xs before:top-1/2 before:left-1/2 before:h-3/4 before:w-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:block before:z-0 before:border-4 before:border-ui-accent/30 before:animate before:animate-fade-in before:shadow-2xl before:shadow-ui-accent/70"
+  >
+    <Logo
+      class="animate animate-scale-fade-in animate-duration-1000 block w-52 h-auto"
+    />
+    <div
+      style={{ animationDelay: "300ms" }}
+      class="home-hero-body animate animate-blurred-fade-in"
+    >
+      <div class="mb-8">
+        <h1
+          class="text-2xl text-center leading-none uppercase mb-2 sm:text-5xl sm:text-left md:text-6xl text-ui-accent"
+        >
+          <span>Jhon Alexander</span>
+          <span>Romero Gonzaga</span>
+        </h1>
+        <div
+          class="text-xl font-bold uppercase px-3 py-1 w-max mx-auto transition-colors sm:text-2xl sm:mx-0 md:text-3xl text-ui-body bg-ui-accent"
+        >
+          {t("hero.subtitle")}
+        </div>
+      </div>
+      <p class="text-typo-primary text-center transition-colors sm:text-xl">
+        {t("hero.description")}
+      </p>
+    </div>
+    <div class="flex gap-6 mt-10">
+      <Tooltip direction="bottom">
+        <span slot="message">Github</span>
+        <a
+          href="https://github.com/JhonRomero26"
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+          class="btn btn-secondary btn-icon text-3xl"
+        >
+          <Icon name="tabler:brand-github" />
+        </a>
+      </Tooltip>
+      <Tooltip direction="bottom">
+        <span slot="message">Linkedin</span>
+        <a
+          href="https://linkedin.com/in/jhonchinss"
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+          class="btn btn-secondary btn-icon text-3xl"
+        >
+          <Icon name="tabler:brand-linkedin" />
+        </a>
+      </Tooltip>
+      <Tooltip direction="bottom">
+        <span slot="message">CV</span>
+        <a
+          href="https://drive.google.com/file/d/1xJJHaZ4_VKHJKcFwK6fTGTqFP0uaQtwD/view?usp=sharing"
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+          class="btn btn-secondary btn-icon text-3xl"
+        >
+          <Icon name="tabler:paperclip" />
+        </a>
+      </Tooltip>
+      <Tooltip direction="bottom">
+        <span slot="message">Instagram</span>
+        <a
+          href="https://instagram.com/jhonchinss"
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+          class="btn btn-secondary btn-icon text-3xl"
+        >
+          <Icon name="tabler:brand-instagram" />
+        </a>
+      </Tooltip>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+@layer components {
+  .header {
+    animation: to-blur linear both;
+    animation-timeline: scroll();
+    animation-range: 0 300px;
+  }
+
+  @keyframes to-blur {
+    to {
+      background-color: var(--color-ui-body);
+      backdrop-filter: blur(10px);
+    }
+  }
+}

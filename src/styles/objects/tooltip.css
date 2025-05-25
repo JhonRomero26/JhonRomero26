@@ -1,0 +1,78 @@
+@layer components {
+  .tooltip {
+    display: inline-flex;
+    position: relative;
+
+    &:hover .tooltip-message {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  .tooltip-message {
+    @apply z-20 py-2 px-4 text-typo-primary shadow rounded bg-ui-01 absolute hidden w-max;
+
+    &.top,
+    &.bottom {
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    &.bottom,
+    &.bottom-end,
+    &.bottom-start {
+      @apply top-full mt-2;
+    }
+
+    &.top,
+    &.top-start,
+    &.top-end {
+      @apply top-full mt-2;
+    }
+
+    &.top-start,
+    &.bottom-start {
+      @apply left-0;
+    }
+
+    &.top-end,
+    &.bottom-end {
+      @apply right-0;
+    }
+
+    &.tooltip-start {
+      @apply top-full mt-2 left-0;
+    }
+
+    &.tooltip-end {
+      @apply top-full mt-2 right-0;
+    }
+
+    &.left,
+    &.right {
+      @apply top-1/2 -translate-y-1/2;
+    }
+
+    &.left,
+    &.left-start,
+    &.left-end {
+      @apply right-full mr-2;
+    }
+
+    &.left-start,
+    &.right-start {
+      @apply bottom-full;
+    }
+
+    &.left-end,
+    &.right-end {
+      @apply top-full;
+    }
+
+    &.right,
+    &.right-start,
+    &.right-end {
+      @apply left-full ml-2;
+    }
+  }
+}

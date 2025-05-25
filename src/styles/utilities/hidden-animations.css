@@ -1,0 +1,14 @@
+@layer utilities {
+  .hidden-fading {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out, display 300ms ease allow-discrete;
+
+    &.visible {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"section">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<section class:list={["py-32", className]} {...props}>
+  <div class="container">
+    <div class="mx-auto mb-24 max-w-2xl text-center">
+      <h2
+        class="mb-4 capitalize text-4xl md:text-5xl xl:text-7xl font-medium [&_span]:block"
+      >
+        <slot name="title" />
+      </h2>
+      <div class="w-full text-typo-secondary text-pretty text-lg lg:text-2xl">
+        <slot name="subtitle" />
+      </div>
+    </div>
+    <slot />
+  </div>
+</section>

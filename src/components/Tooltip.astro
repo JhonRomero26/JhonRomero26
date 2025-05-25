@@ -1,0 +1,29 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div"> & {
+  direction?:
+    | "top"
+    | "top-start"
+    | "top-end"
+    | "bottom"
+    | "bottom-start"
+    | "bottom-end"
+    | "left"
+    | "left-start"
+    | "left-end"
+    | "right"
+    | "right-start"
+    | "right-end";
+  class?: string;
+};
+
+const { direction = "top", class: className, ...props } = Astro.props;
+---
+
+<div class:list={["tooltip", className]} {...props}>
+  <slot />
+  <div data-id="tooltip-message" class:list={["tooltip-message", direction]}>
+    <slot name="message" />
+  </div>
+</div>

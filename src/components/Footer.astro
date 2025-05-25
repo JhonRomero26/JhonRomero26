@@ -1,0 +1,66 @@
+---
+import Logo from "@/components/Logo.astro";
+import Tooltip from "@/components/Tooltip.astro";
+import { loadI18n } from "@/utils/i18n";
+import { Icon } from "astro-icon/components";
+
+const lang = Astro.currentLocale || "en";
+const t = await loadI18n({ lang, asset: "components/Footer" });
+---
+
+<footer class="bg-gray-900 dark:bg-gray-800 py-20">
+  <div class="container footer-content">
+    <div class="flex flex-col items-center justify-center">
+      <Logo class="inline-flex align-middle w-52" />
+      <div class="text-center mb-10 text-white text-title1 font-bold">
+        {t("title")}
+      </div>
+      <ul class="flex justify-center flex-wrap gap-6">
+        <Tooltip direction="bottom">
+          <span slot="message">Github</span>
+          <a
+            href="https://github.com/JhonRomero26"
+            rel="noreferrer"
+            target="_blank"
+            class="text-gray-50 text-icon transition hover:text-ui-accent hover:scale-125"
+          >
+            <Icon name="simple-icons:github" />
+          </a>
+        </Tooltip>
+        <Tooltip direction="bottom">
+          <span slot="message">Instagram</span>
+          <a
+            href="https://instagram.com/jhonchito.romero"
+            rel="noreferrer"
+            target="_blank"
+            class="text-gray-50 text-icon transition hover:text-ui-accent hover:scale-125"
+          >
+            <Icon name="simple-icons:instagram" />
+          </a>
+        </Tooltip>
+        <!-- <Tooltip direction="bottom">
+          <span slot="message">Whatsapp</span>
+          <a
+            href="https://wa.me/593958813841"
+            rel="noreferrer"
+            target="_blank"
+            class="text-gray-50 text-icon transition hover:text-ui-accent hover:scale-125"
+          >
+            <Icon name="simple-icons:whatsapp" />
+          </a>
+        </Tooltip> -->
+        <Tooltip direction="bottom">
+          <span slot="message">Linkedin</span>
+          <a
+            href="https://linkedin.com/in/jhonromero26/"
+            rel="noreferrer"
+            target="_blank"
+            class="text-gray-50 text-icon transition hover:text-ui-accent hover:scale-125"
+          >
+            <Icon name="simple-icons:linkedin" />
+          </a>
+        </Tooltip>
+      </ul>
+    </div>
+  </div>
+</footer>

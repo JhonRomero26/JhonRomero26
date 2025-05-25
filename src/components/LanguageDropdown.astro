@@ -1,0 +1,46 @@
+---
+import Dropdown from "@/components/Dropdown.astro";
+import { Icon } from "astro-icon/components";
+import Tooltip from "./Tooltip.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { loadI18n } from "@/utils/i18n";
+
+const lang = Astro.currentLocale || "en";
+const currentPath = Astro.url.pathname.replace(`/${lang}`, "");
+const t = await loadI18n({
+  lang,
+  asset: "components/LanguageDropdown",
+});
+
+const languages = {
+  en: getRelativeLocaleUrl("en", currentPath),
+  es: getRelativeLocaleUrl("es", currentPath),
+};
+---
+
+<Tooltip direction="bottom">
+  <small slot="message">{t("title")}</small>
+  <Dropdown>
+    <button data-dropdown="trigger" class="btn btn-icon" slot="trigger">
+      <Icon name="tabler:language" />
+    </button>
+    <ul>
+      {
+        Object.entries(languages).map(([lang, link]) => (
+          <li>
+            <a
+              class:list={[
+                "dropdown-item",
+                lang === Astro.currentLocale &&
+                  "bg-ui-accent/15 text-ui-accent",
+              ]}
+              href={link}
+            >
+              {t(`languages.${lang}`)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Dropdown>
+</Tooltip>

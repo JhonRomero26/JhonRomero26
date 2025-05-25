@@ -1,0 +1,19 @@
+---
+type Props = {
+  duration?: number;
+  spatial?: string;
+  direction?: "left" | "right";
+};
+
+const { duration = 10, direction = "left", spatial = "2rem" } = Astro.props;
+---
+
+<div
+  style={`--duration: ${duration}s; --spatial: ${spatial}`}
+  class="infinite-scroll"
+>
+  <div data-direction={direction} class="infinite-scroll-slider">
+    <slot />
+    <slot />
+  </div>
+</div>

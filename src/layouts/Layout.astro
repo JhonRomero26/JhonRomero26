@@ -1,0 +1,41 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import SEO from "@/components/SEO.astro";
+import { ClientRouter } from "astro:transitions";
+import "@/styles/global.css";
+import "@fontsource-variable/onest";
+import ApplyColorTheme from "@/components/ApplyColorTheme.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+}
+
+const { title, description, image, canonical } = Astro.props;
+const lang = Astro.currentLocale;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      canonical={canonical}
+      lang={lang}
+    />
+    <ClientRouter />
+    <ApplyColorTheme />
+  </head>
+  <body>
+    <Header />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

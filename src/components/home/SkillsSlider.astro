@@ -1,0 +1,55 @@
+---
+import InfiniteScroll from "@/components/InfiniteScroll.astro";
+import { loadI18n } from "@/utils/i18n";
+import { Icon } from "astro-icon/components";
+import CentralSection from "../CentralSection.astro";
+
+const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
+const skills = [
+  { icon: "simple-icons:react", name: "ReactJS" },
+  { icon: "simple-icons:typescript", name: "TypeScript" },
+  { icon: "simple-icons:html5", name: "HTML5" },
+  { icon: "simple-icons:css3", name: "CSS3" },
+  { icon: "simple-icons:javascript", name: "JavaScript" },
+  { icon: "simple-icons:astro", name: "Astro" },
+  { icon: "simple-icons:tailwindcss", name: "TailwindCSS" },
+  { icon: "simple-icons:git", name: "Git" },
+  { icon: "simple-icons:github", name: "GitHub" },
+  { icon: "simple-icons:figma", name: "Figma" },
+  { icon: "simple-icons:githubactions", name: "GitHub Actions" },
+  { icon: "simple-icons:docker", name: "Docker" },
+  { icon: "simple-icons:nodedotjs", name: "NodeJS" },
+  { icon: "simple-icons:arduino", name: "Arduino" },
+  { icon: "simple-icons:postgresql", name: "PostgreSQL" },
+  { icon: "simple-icons:mongodb", name: "MongoDB" },
+  { icon: "simple-icons:sass", name: "Sass" },
+  { icon: "simple-icons:graphql", name: "GraphQL" },
+];
+---
+
+<CentralSection>
+  <span slot="title">{t("skillsTitle")}</span>
+
+  <InfiniteScroll spatial="6rem" duration={40}>
+    {
+      skills.slice(0, Math.floor(skills.length / 2)).map(({ icon, name }) => (
+        <div class="flex gap-6 flex-col items-center">
+          <Icon class="text-5xl md:text-7xl" name={icon} />
+          <span class="md:text-lg">{name}</span>
+        </div>
+      ))
+    }
+  </InfiniteScroll>
+  <InfiniteScroll spatial="6rem" direction="right" duration={40}>
+    {
+      skills
+        .slice(Math.floor(skills.length / 2) + 1, skills.length)
+        .map(({ icon, name }) => (
+          <div class="flex gap-6 flex-col items-center">
+            <Icon class="text-5xl md:text-7xl" name={icon} />
+            <span class="md:text-lg">{name}</span>
+          </div>
+        ))
+    }
+  </InfiniteScroll>
+</CentralSection>

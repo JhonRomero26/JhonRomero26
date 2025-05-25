@@ -1,0 +1,42 @@
+---
+import CentralSection from "@/components/CentralSection.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import GridProjects from "@/components/GridProjects.astro";
+import NoContent from "@/components/NoContent.astro";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { loadI18n } from "@/utils/i18n";
+
+const lang = Astro.currentLocale || "en";
+const t = await loadI18n({ lang, asset: "pages/home" });
+const projects = await getCollection("projects", ({ id }) =>
+  id.startsWith(`${lang}/`)
+);
+const showProjects = projects.slice(0, 7);
+---
+
+<CentralSection
+  class="relative before:size-[max(50vw,70vh)] before:absolute before:top-56 before:left-1/2 before:-translate-x-1/2 before:z-[-1] before:blur-[200px] dark:before:bg-violet-400/50 before:animate before:animate-duration-[10s] before:animate-pulse before:animate-iteration-count-infinite before:animate-direction-alternate before:rounded-full before:transition-colors"
+>
+  <span slot="title">
+    {t("projects.title.normal")}
+    <span class="text-ui-accent">{t("projects.title.accent")}</span>
+  </span>
+  <p slot="subtitle">
+    {t("projects.subtitle")}
+  </p>
+
+  {
+    showProjects.length > 0 ? (
+      <GridProjects projects={showProjects} />
+    ) : (
+      <NoContent />
+    )
+  }
+  <div class="mt-12 flex justify-center">
+    <a href={getAbsoluteLocaleUrl(lang, "/projects")} class="btn btn-secondary">
+      {t("projects.moreProjects")}
+      <Icon name="tabler:arrow-right" />
+    </a>
+  </div>
+</CentralSection>

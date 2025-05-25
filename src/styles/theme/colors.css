@@ -1,0 +1,24 @@
+@theme {
+  --color-primary-50: oklch(0.9727 0.0136 34.3);
+  --color-primary-100: oklch(0.9365 0.0328 36.5);
+  --color-primary-200: oklch(0.8755 0.0676 35.48);
+  --color-primary-300: oklch(0.8175 0.1048 36);
+  --color-primary-400: oklch(0.7642 0.1429 36.36);
+  --color-primary-500: oklch(0.7178 0.1791 35.82);
+  --color-primary-600: oklch(0.6625 0.2267 34.54);
+  --color-primary-700: oklch(0.5803 0.2112 33.52);
+  --color-primary-800: oklch(0.4673 0.1682 33.96);
+  --color-primary-900: oklch(0.3481 0.1213 35.27);
+  --color-primary-950: oklch(0.2923 0.0985 36.71);
+
+  --color-gray-50: oklch(0.9873 0.006672 295.4542);
+  --color-gray-100: oklch(0.9136 0.011 297.61);
+  --color-gray-200: oklch(0.8371 0.0126 296.31);
+  --color-gray-300: oklch(0.7459 0.0214 285.87);
+  --color-gray-400: oklch(0.6567 0.0295 285.56);
+  --color-gray-500: oklch(0.5465 0.0604 284.22);
+  --color-gray-600: oklch(0.4558 0.0648 283.53);
+  --color-gray-700: oklch(0.356 0.0769 281.77);
+  --color-gray-800: oklch(0.2034 0.0414 282.09);
+  --color-gray-900: oklch(0.1178 0.0595 288.45);
+}

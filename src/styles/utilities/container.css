@@ -1,0 +1,5 @@
+@layer utilities {
+  .container {
+    @apply w-full mx-auto px-4;
+  }
+}

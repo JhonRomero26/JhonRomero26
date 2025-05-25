@@ -1,0 +1,25 @@
+@layer components {
+  .loading-skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.2) 20%,
+      rgba(0, 0, 0, 0.1) 40%,
+      rgba(0, 0, 0, 0.2) 60%,
+      rgba(0, 0, 0, 0.1) 80%,
+      rgba(0, 0, 0, 0.2) 90%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    background-size: 200% 100%;
+    animation: gradient 2s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 200%;
+    }
+  }
+}

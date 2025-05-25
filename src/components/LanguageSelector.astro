@@ -1,0 +1,19 @@
+---
+import Dropdown from "@/components/Dropdown.astro";
+import { Icon } from "astro-icon/components";
+
+const languages = {
+  us: { label: "English", iconName: "us" },
+  es: { label: "Español", iconName: "es" },
+};
+---
+
+<Dropdown>
+  <button data-dropdown="trigger" slot="trigger" class="btn btn-sm btn-outline">
+    <Icon name=`circle-flags:${languages['es'].iconName}` />
+    <span>{languages["es"].label}</span>
+  </button>
+
+  <li><a class="dropdown-item active" href="#">English</a></li>
+  <li><a class="dropdown-item" href="#">Spanish</a></li>
+</Dropdown>

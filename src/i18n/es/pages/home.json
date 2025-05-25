@@ -1,0 +1,26 @@
+{
+  "title": "Jhon Romero - Desarrollador Full Stack",
+  "description": "Desarrollador Full Stack con experiencia en react, typescript, nextjs, astrojs, python, odoo, docker, ci/cd, flutter y postgres.",
+  "hero": {
+    "description": "La energía se transforma y mi trabajo es materializar la energía de tus ideas en grandes experiencias digitales",
+    "subtitle": "Desarrollador Full Stack"
+  },
+  "skillsTitle": "Mis habilidades",
+  "projects": {
+    "subtitle": "Cada proyecto tiene un propósito y mi trabajo es caracterizarlo en un escenario real",
+    "title": {
+      "normal": "Algunos de mis",
+      "accent": "trabajos"
+    },
+    "moreProjects": "Ver todos los proyectos"
+  },
+  "trajectory": {
+    "subtitle": "Desde el inicio hasta al presente haciendo una diferencia en el mundo digital",
+    "title": {
+      "normal": "Mi trayectoria",
+      "accent": "como profesional"
+    },
+    "experienceTitle": "Experiencia",
+    "educationTitle": "Educación"
+  }
+}

@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+import { dateFormater } from "@/utils/formatters";
+import { Image } from "astro:assets";
+
+interface Props {
+  id: string;
+  title: string;
+  excerpt?: string;
+  published: Date;
+  author?: string;
+  image: string;
+  readTime: number;
+}
+
+const { id, title, published, author, image, excerpt, readTime } = Astro.props;
+const publishDate = dateFormater({ date: published });
+---
+
+<header>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <p class="mb-2 flex justify-start mt-0 gap-2 text-ui-05">
+      <span class="inline-flex items-center gap-1">
+        <Icon class="inline-block text-lg" name="tabler:clock" />
+        <time class="inline-block" datetime={publishDate}>{publishDate}</time>
+      </span>
+      <span> · </span>
+      <span>{readTime} min</span>
+      {
+        author !== undefined && (
+          <p class="mb-2 flex items-center gap-1">
+            <Icon class="inline-block text-lg" name="tabler:user" />
+            <span>{author}</span>
+          </p>
+        )
+      }
+    </p>
+    <div class="mb-8">
+      <h1
+        class="font-bold text-typo-primary leading-tighter md:text-5xl text-4xl tracking-tighter"
+      >
+        {title}
+      </h1>
+      {
+        excerpt !== undefined && (
+          <p class="text-muted text-ui-muted md:text-xl text-pretty mt-4 text-xl leading-tighter">
+            {excerpt}
+          </p>
+        )
+      }
+    </div>
+  </div>
+  <figure
+    class="mx-auto mb-6 w-full aspect-video overflow-hidden lg:rounded-lg max-w-4xl"
+  >
+    <div
+      class="size-[max(45vw,70vh)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 -z-10 blur-[200px] dark:bg-violet-400/45 animate animate-duration-[10s] animate-pulse animate-iteration-count-infinite animate-direction-alternate rounded-full"
+    >
+    </div>
+    <Image
+      transition:name={`project-${id}-image`}
+      loading="lazy"
+      width={900}
+      height={500}
+      format="webp"
+      quality={65}
+      class="w-full h-full object-cover object-center"
+      src={image}
+      alt={title}
+    />
+  </figure>
+</header>

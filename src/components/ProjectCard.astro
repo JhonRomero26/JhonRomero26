@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import Pill from "./Pill.astro";
+
+type Props = {
+  id: string;
+  title: string;
+  image: string;
+  skills?: string[];
+  slug: string;
+  class?: string;
+  website?: string;
+  repoUri?: string;
+};
+
+const { id, title, image, skills, slug, repoUri, website } = Astro.props;
+const urlImage = `/images/projects/${image}`;
+---
+
+<article
+  class="ProjectCard h-max isolate w-full overflow-hidden rounded-xl border border-ui-04/65 bg-ui-body group transition-colors"
+>
+  <a class="block relative" href={slug}>
+    <Image
+      transition:name={`project-${id}-image`}
+      class="w-full h-full object-cover aspect-video object-center"
+      height={200}
+      width={600}
+      src={urlImage}
+      alt={title}
+    />
+    <div
+      class="w-full absolute flex-col justify-end h-full top-0 left-0 p-4 z-10 bg-gradient-to-b from-gray-900/20 to-gray-900 flex opacity-0 group-hover:opacity-100 transition transition-discrete"
+    >
+      <h3
+        class="group-hover:text-ui-accent text-gray-50 text-2xl md:text-xl font-bold"
+      >
+        {title}
+      </h3>
+    </div>
+  </a>
+
+  {
+    (repoUri || website) && (
+      <div class="flex">
+        {repoUri && (
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={repoUri}
+            class="btn btn-block py-4 rounded-none hover:text-white hover:bg-ui-accent"
+          >
+            <Icon name="tabler:brand-github" />
+            Repositorio
+          </a>
+        )}
+        {website && (
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={website}
+            class="btn btn-block py-4 rounded-none hover:text-white hover:bg-ui-accent"
+          >
+            <Icon name="tabler:world" />
+            Visitar
+          </a>
+        )}
+      </div>
+    )
+  }
+</article>

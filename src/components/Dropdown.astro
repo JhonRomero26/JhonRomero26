@@ -1,0 +1,59 @@
+<div class="dropdown">
+  <slot name="trigger" />
+
+  <div class="dropdown-content">
+    <slot />
+  </div>
+</div>
+
+<script>
+  const handleClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const isDropdownButton = target.matches('[data-dropdown="trigger"]');
+    if (!isDropdownButton && target.closest(".dropdown") !== null) return;
+
+    let currentDropdown: HTMLElement | null = null;
+    if (isDropdownButton) {
+      currentDropdown = target.closest(".dropdown");
+      const $content =
+        currentDropdown?.querySelector<HTMLElement>(".dropdown-content");
+      $content?.classList.toggle(".active");
+    }
+
+    document
+      .querySelectorAll<HTMLElement>(".dropdown-content.active")
+      .forEach(($dropdown) => {
+        if ($dropdown === currentDropdown) return;
+        $dropdown.classList.remove("active");
+      });
+  };
+
+  const onLoadDocument = () => {
+    const $dropdowns = document.querySelectorAll<HTMLElement>(".dropdown");
+
+    $dropdowns.forEach(($dropdown) => {
+      const $trigger = $dropdown.querySelector<HTMLElement>(
+        '[data-dropdown="trigger"]'
+      );
+      const $content =
+        $dropdown.querySelector<HTMLElement>(".dropdown-content");
+      const $items = $content?.querySelectorAll<HTMLElement>(".dropdown-item");
+
+      $items?.forEach(($item) => {
+        $item.addEventListener("click", () => {
+          $content?.classList.remove("active");
+        });
+      });
+
+      $trigger?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        $content?.classList.toggle("active");
+      });
+    });
+
+    document.addEventListener("click", handleClick);
+  };
+
+  onLoadDocument();
+  document.addEventListener("astro:after-swap", onLoadDocument);
+</script>

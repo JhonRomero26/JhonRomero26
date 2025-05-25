@@ -1,0 +1,25 @@
+---
+import CentralSection from "@/components/CentralSection.astro";
+import { loadI18n } from "@/utils/i18n";
+import Experience from "@/components/home/Experience.astro";
+import Education from "@/components/home/Education.astro";
+
+const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
+---
+
+<CentralSection
+  class="relative before:block before:absolute before:top-1/4 before:-z-10 before:w-[5vw] before:h-[98vh] before:rounded-full before:blur-[15vw] lg:before:size-[max(28vw,28vh)] dark:before:bg-violet-400/50 before:left-0 before:animate before:animate-heartbeat before:animate-iteration-count-infinite before:animate-duration-[3s] after:block after:absolute after:top-1/4 after:-z-10 after:w-[5vw] after:h-[98vh] after:rounded-full after:blur-[15vw] lg:after:size-[max(28vw,28vh)] dark:after:bg-violet-400/50 after:right-0 after:animate after:animate-heartbeat after:animate-iteration-count-infinite after:animate-duration-[3s]"
+>
+  <span slot="title">
+    {t("trajectory.title.normal")}
+    <span class="text-primary-500">{t("trajectory.title.accent")}</span>
+  </span>
+  <p slot="subtitle">
+    {t("trajectory.subtitle")}
+  </p>
+
+  <div class="flex max-lg:flex-col gap-20">
+    <Experience />
+    <Education />
+  </div>
+</CentralSection>

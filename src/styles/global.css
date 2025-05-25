@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@import "./theme/colors.css";
+@import "./theme/themes.css";
+@import "./theme/typography.css";
+@import "./theme/transitions.css";
+@import "./theme/animations.css";
+
+@import "./base/body.css";
+@import "./base/pre.css";
+
+@import "./objects/button.css";
+@import "./objects/tooltip.css";
+@import "./objects/pill.css";
+
+@import "./components/header.css";
+@import "./components/dropdown.css";
+@import "./components/skeleton.css";
+@import "./components/timeline-card.css";
+
+@import "./utilities/container.css";
+@import "./utilities/slider.css";
+@import "./utilities/scrollbar.css";
+@import "./utilities/infinite-scroll.css";
+@import "./utilities/hidden-animations.css";
+
+@plugin "@midudev/tailwind-animations";
+@plugin "@tailwindcss/typography";

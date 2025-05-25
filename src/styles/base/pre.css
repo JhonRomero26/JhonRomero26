@@ -1,0 +1,53 @@
+@layer base {
+  figcaption[data-rehype-pretty-code-title] {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "lang title close";
+    margin-bottom: 5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-slate-900);
+    color: var(--color-slate-200);
+    font-weight: 600;
+    @apply rounded-t-lg;
+
+    &::after {
+      grid-area: lang;
+      font-weight: 400;
+      align-self: center;
+      content: attr(data-language);
+    }
+
+    &::before {
+      grid-area: close;
+      justify-self: end;
+      align-self: center;
+      content: "";
+      width: 0.8em;
+      height: 0.8em;
+      border-radius: 50%;
+      font-weight: 600;
+      background-color: var(--color-red-500);
+      box-shadow: -1.2em 0 var(--color-amber-500),
+        -2.4em 0 var(--color-green-500);
+    }
+  }
+
+  pre {
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+
+  pre [data-line] {
+    padding: 0 1rem;
+  }
+
+  pre [data-highlighted-line] {
+    background-color: #c8c8ff1a;
+  }
+
+  pre [data-highlighted-chars] {
+    border-radius: 0.25rem;
+    background-color: #54545b80;
+    box-shadow: 0 0 0 4px #54545b80;
+  }
+}

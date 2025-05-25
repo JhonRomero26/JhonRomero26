@@ -1,0 +1,42 @@
+{
+  "en": [
+    {
+      "id": "telecommunications-engineer",
+      "title": "Telecommunications Engineer",
+      "institution": "National University of Loja",
+      "degree": "Bachelor's Degree in Telecommunications Engineering",
+      "startDate": "2019-10",
+      "endDate": "2025-07",
+      "description": "Professional training focused on the design, implementation, and management of communication systems. Emphasis on network technologies, data transmission, telephony, radiocommunications, optical networks, and signal digital processing."
+    },
+    {
+      "id": "technical-it-services",
+      "title": "Technical - IT Services",
+      "institution": "National University of Loja",
+      "degree": "Technical Degree in IT Services",
+      "startDate": "2013-09",
+      "endDate": "2019-07",
+      "description": "Technical training in computer support, local network administration, hardware and software maintenance, and basic information security. Acquisition of practical skills in equipment installation, network configuration, and troubleshooting."
+    }
+  ],
+  "es": [
+    {
+      "id": "ingeniero-en-telecomunicaciones",
+      "title": "Ingeniero en Telecomunicaciones",
+      "institution": "Universidad Nacional de Loja",
+      "degree": "Ingeniería en Telecomunicaciones",
+      "startDate": "2019-10",
+      "endDate": "2025-07",
+      "description": "Formación profesional orientada al diseño, implementación y gestión de sistemas de comunicación. Enfocado en tecnologías de red, transmisión de datos, telefonía, radiocomunicaciones, redes ópticas y procesamiento digital de señales."
+    },
+    {
+      "id": "tecnico-en-servicios-it",
+      "title": "Técnico en Servicios IT",
+      "institution": "Universidad Nacional de Loja",
+      "degree": "Bachiller Técnico en Servicios Informáticos",
+      "startDate": "2013-09",
+      "endDate": "2019-07",
+      "description": "Formación técnica en soporte informático, administración de redes locales, mantenimiento de hardware y software, y seguridad básica de la información. Adquisición de competencias prácticas en instalación de equipos, configuración de redes y resolución de incidencias técnicas."
+    }
+  ]
+}

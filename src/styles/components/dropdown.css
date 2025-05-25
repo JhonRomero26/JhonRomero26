@@ -1,0 +1,24 @@
+@layer components {
+  .dropdown {
+    @apply relative;
+  }
+  .dropdown-content {
+    @apply w-full absolute hidden top-full mt-2 left-1/2 -translate-x-1/2 min-w-40 z-30 rounded p-2 bg-ui-01 transition-colors;
+
+    &.active {
+      @apply block;
+    }
+  }
+  .dropdown-item {
+    @apply block px-4 py-2 text-ui-accent transition-colors;
+
+    &.active,
+    &:hover {
+      @apply text-ui-accent;
+    }
+
+    &:hover {
+      @apply bg-ui-accent/15;
+    }
+  }
+}

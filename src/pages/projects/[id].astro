@@ -1,0 +1,17 @@
+---
+import ProjectDetail from "@/components/projects/ProjectDetail.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects", ({ id }) =>
+        id.startsWith("en/"),
+    );
+    return projects.map(({ id }: { id: string }) => ({
+        params: { id: id.split("/")[1] },
+    }));
+}
+
+const { id } = Astro.params;
+---
+
+<ProjectDetail id={id} />

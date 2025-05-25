@@ -1,0 +1,117 @@
+{
+  "basics": {
+    "firstName": "Jhon Alexander",
+    "lastName": "Romero Gonzaga",
+    "label": "Full Stack Developer",
+    "image": "",
+    "email": "romerogonzaga21@gmail.com",
+    "phone": "+593 95 881 3841",
+    "url": "https://jhonromero26.vercel.app",
+    "summary": "Soy un Full Stack Developer con más de 5 años de experiencia creando soluciones innovadoras con tecnologías como React, Next.js, Node.js y MongoDB. Me apasiona diseñar experiencias accesibles y funcionales, automatizar procesos con Docker y CI/CD, y asegurar calidad con testing. He desarrollado desde sitios web hasta prototipos IoT. Amante del aprendizaje constante, disfruto trabajar en equipo y aportar ideas frescas. ¿Mi meta? Resolver problemas de manera ágil y creativa. ¡Listo para nuevos retos!",
+    "location": {
+      "postalCode": "EC 110150",
+      "city": "Loja",
+      "countryCode": "EC",
+      "region": "Loja"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "jhonchinss",
+        "url": "https://x.com/jhonchinss"
+      },
+      {
+        "network": "Github",
+        "username": "jhonchinss",
+        "url": "https://github.com/jhonchinss"
+      },
+      {
+        "network": "Linkedin",
+        "username": "jhonchinss",
+        "url": "https://linkedin.com/in/jhonchinss"
+      },
+      {
+        "network": "Instagram",
+        "username": "jhonchinss",
+        "url": "https://instagram.com/jhonchinss"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Company",
+      "position": "President",
+      "url": "https://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Description…",
+      "highlights": ["Started the company"]
+    }
+  ],
+  "colaborations": [
+    {
+      "organization": "Organization",
+      "position": "Volunteer",
+      "url": "https://organization.com/",
+      "startDate": "2012-01-01",
+      "endDate": "2013-01-01",
+      "summary": "Description…",
+      "highlights": ["Awarded 'Volunteer of the Month'"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University",
+      "url": "https://institution.com/",
+      "area": "Software Development",
+      "studyType": "Bachelor",
+      "startDate": "2011-01-01",
+      "endDate": "2013-01-01"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.com"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "references": [
+    {
+      "name": "Jane Doe",
+      "reference": "Reference…"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "I2TEC's website showcases innovative projects and technology breakthroughs developed where they collaborate with experts to deliver impactful technology solutions. Built with AstroJS, Strapi, and TypeScript, it integrates modern technologies such as Docker, GitHub Actions, and Hetzner Cloud.",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://project.com/"
+    }
+  ]
+}

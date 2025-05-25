@@ -1,0 +1,142 @@
+/* .home-hero {
+  --time-show: 1s;
+  background-color: var(--ui-bg);
+  @apply overflow-hidden relative justify-center items-center flex px-6 py-8 w-full min-h-[100lvh-72px] transition-colors after:absolute top-0 left-0;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    overflow: hidden;
+    animation-name: home-hero-parallax;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    @apply rounded-full;
+  }
+
+  &::before {
+    box-shadow: var(--stars-1);
+    animation-duration: 25s;
+  }
+
+  &::after {
+    box-shadow: var(--stars-2);
+    animation-duration: 16s;
+  }
+
+  &-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(
+      180deg,
+      rgb(var(--ui-bg-rgb) 0) 0%,
+      rgb(var(--ui-bg-rgb) 1) 100%
+    );
+  }
+
+  &-logo {
+    @apply block w-52 h-auto;
+    animation: zoom-in var(--time-show) forwards;
+  }
+
+  &-content {
+    @apply w-max flex backdrop-blur-xs rounded-lg flex-col justify-center items-center max-w-xl p-6 relative z-10 transition-colors ;
+
+    @apply before:brightness-125 dark:before:brightness-75
+    before:absolute
+    before:top-1/2
+    before:left-1/2
+    before:h-3/4
+    before:w-1/2
+    before:blur-xs
+    before:-translate-x-1/2
+    before:-translate-y-1/2
+    before:block
+    before:z-0
+    before:border-4;
+
+    &::before {
+      border-color: rgb(var(--primary-color-rgb) / 30%);
+    }
+  }
+
+  &-body {
+    animation: fade-in calc(var(--time-show) + 0.75s) forwards;
+  }
+
+  &-header {
+    @apply mb-8 leading-none;
+  }
+
+  &-title {
+    @apply text-3xl text-center uppercase mb-2 sm:text-5xl sm:text-left md:text-6xl;
+    color: var(--primary-color);
+  }
+
+  &-subtitle {
+    @apply text-xl font-bold uppercase px-3 py-1 w-max mx-auto transition-colors sm:text-2xl sm:mx-0 md:text-3xl;
+    color: var(--ui-bg);
+    background-color: var(--primary-color);
+  }
+
+  &-description {
+    text-align: center;
+    color: var(--text-primary);
+    @apply text-center transition-colors sm:text-xl;
+  }
+
+  &-footer {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    animation: fade-in calc(var(--time-show) + 0.5s) forwards;
+  }
+
+  &-promo {
+    --focus-color: var(--ui-04);
+    box-shadow: 2px 2px var(--focus-color);
+    @apply p-2 rounded-full transition-shadow;
+
+    [data-icon] {
+      color: var(--focus-color);
+      @apply transition-colors;
+    }
+
+    &:hover {
+      --focus-color: var(--primary-color);
+    }
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+} */
