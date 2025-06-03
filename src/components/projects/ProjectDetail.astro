@@ -35,7 +35,7 @@ const urlImage = `/images/projects/${image}`;
   readMinTime={readMinTime}
 >
   <ProjectLinks slot="subhead" repoUri={repoUri} website={website} />
-  <GithubShields slot="subhead" repositoryURL={repoUri} />
+  {repoUri && <GithubShields slot="subhead" repositoryURL={repoUri} />}
 
   <Content />
 </PostLayout>

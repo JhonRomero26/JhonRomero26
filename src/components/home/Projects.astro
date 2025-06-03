@@ -10,9 +10,8 @@ import { loadI18n } from "@/utils/i18n";
 const lang = Astro.currentLocale || "en";
 const t = await loadI18n({ lang, asset: "pages/home" });
 const projects = await getCollection("projects", ({ id }) =>
-  id.startsWith(`${lang}/`)
+  id.startsWith(`${lang}/`),
 );
-const showProjects = projects.slice(0, 7);
 ---
 
 <CentralSection
@@ -26,13 +25,7 @@ const showProjects = projects.slice(0, 7);
     {t("projects.subtitle")}
   </p>
 
-  {
-    showProjects.length > 0 ? (
-      <GridProjects projects={showProjects} />
-    ) : (
-      <NoContent />
-    )
-  }
+  {projects.length > 0 ? <GridProjects projects={projects} /> : <NoContent />}
   <div class="mt-12 flex justify-center">
     <a href={getAbsoluteLocaleUrl(lang, "/projects")} class="btn btn-secondary">
       {t("projects.moreProjects")}
