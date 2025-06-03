@@ -1,4 +1,5 @@
 ---
+order: 11
 title: "Rick y Morty"
 description: "Rick and Morty is a web application that allows users to explore and search for characters from the Rick and Morty series. This project was primarily for learning how to consume JavaScript APIs. Then the infinite scroll functionality was implemented to improve the user experience."
 image: rick-and-morty/poster.webp

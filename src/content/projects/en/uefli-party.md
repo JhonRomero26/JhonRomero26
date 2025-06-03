@@ -1,4 +1,5 @@
 ---
+order: 9
 title: "Fiestas Patronales La Inmaculada"
 description: "A website developed for the presentation of the blogs of each of the cantons of the province of Loja developed by students, in Spanish and English, and a Quiz section on the history and culture of the province. This project was promoted by the English area of the Unidad Educativa Fiscomisional La Inmaculada."
 image: uefli-fiestas/poster.webp

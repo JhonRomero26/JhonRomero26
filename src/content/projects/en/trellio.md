@@ -1,4 +1,5 @@
 ---
+order: 7
 title: "Trellio"
 description: "Trellio is a Trello inspired clone built to learn the native Vanilla JavaScript Drag and Drop API. This initial project was an introduction to learn but it is also an opportunity to extend its functionality by integrating new ones like login, registration and sharing between users."
 image: trellio/poster.webp

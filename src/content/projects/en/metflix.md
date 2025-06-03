@@ -1,4 +1,5 @@
 ---
+order: 3
 title: "Metflix"
 description: "Metflix is a website inspired by Netflix built with Astro, TypeScript, and Tailwind CSS. It explores how to implement custom reactivity, load content dynamically with IntersectionObserver, and handle dynamic events with MutationObserver."
 image: metflix/poster.webp

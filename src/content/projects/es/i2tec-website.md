@@ -1,4 +1,5 @@
 ---
+order: 4
 title: "I2TEC Website"
 description: "El sitio web de I2TEC muestra proyectos innovadores y avances tecnológicos desarrollados donde colaboran con expertos para ofrecer soluciones tecnológicas impactantes. Construida con AstroJS, Strapi y TypeScript, integra tecnologías modernas como Docker, GitHub Actions y Hetzner Cloud."
 image: i2tec/poster.webp

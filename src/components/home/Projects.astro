@@ -12,6 +12,7 @@ const t = await loadI18n({ lang, asset: "pages/home" });
 const projects = await getCollection("projects", ({ id }) =>
   id.startsWith(`${lang}/`),
 );
+projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <CentralSection

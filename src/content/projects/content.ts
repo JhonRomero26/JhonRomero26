@@ -2,6 +2,7 @@ import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
 const projectSchema = z.object({
+  order: z.number(),
   title: z.string(),
   description: z.string(),
   image: z.string(),

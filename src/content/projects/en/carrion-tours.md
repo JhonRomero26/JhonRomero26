@@ -1,4 +1,5 @@
 ---
+order: 8
 title: "Carrion Loja Tours"
 description: "Carrión Tours is a website for the promotion of routes, activities, tourist sites and restaurants in the province of Loja for informative purposes promoted by Hotel Carrión."
 image: carrion-tours/poster.webp

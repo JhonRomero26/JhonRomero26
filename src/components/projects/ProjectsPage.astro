@@ -6,22 +6,25 @@ import ProjectCardWithTooltip from "@/components/ProjectCardWithTooltip.astro";
 
 const lang = Astro.currentLocale || "en";
 
-const posts = await getCollection("projects", ({ id }) => id.startsWith(lang));
+const projects = await getCollection("projects", ({ id }) =>
+  id.startsWith(lang),
+);
+projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout title="Projects | Jhon Romero" description="Hello there">
   <section class="container grid gap-4 md:grid-cols-2 xl:grid-cols-3 py-16">
     {
-      posts.map(({ id, data: post }) => (
+      projects.map(({ id, data }) => (
         <ProjectCardWithTooltip
           id={id}
           slug={getAbsoluteLocaleUrl(lang, `/projects/${id.split("/")[1]}`)}
-          title={post.title}
-          skills={post.skills}
-          description={post.description}
-          repoUri={post.repoUri}
-          website={post.website}
-          image={post.image}
+          title={data.title}
+          skills={data.skills}
+          description={data.description}
+          repoUri={data.repoUri}
+          website={data.website}
+          image={data.image}
         />
       ))
     }
