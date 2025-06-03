@@ -79,6 +79,7 @@ export default defineConfig({
           "arrow-right",
           "user",
           "clock",
+          "mail",
           "brand-github",
           "brand-linkedin",
           "brand-instagram",

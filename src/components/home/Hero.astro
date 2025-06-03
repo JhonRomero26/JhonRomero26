@@ -44,9 +44,9 @@ const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
           href="https://github.com/JhonRomero26"
           rel="nofollow noopener noreferrer"
           target="_blank"
-          class="btn btn-secondary btn-icon text-3xl"
+          class="btn btn-secondary btn-icon p-2 text-3xl"
         >
-          <Icon name="tabler:brand-github" />
+          <Icon name="simple-icons:github" />
         </a>
       </Tooltip>
       <Tooltip direction="bottom">
@@ -55,9 +55,9 @@ const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
           href="https://linkedin.com/in/jhonchinss"
           rel="nofollow noopener noreferrer"
           target="_blank"
-          class="btn btn-secondary btn-icon text-3xl"
+          class="btn btn-secondary btn-icon p-2 text-3xl"
         >
-          <Icon name="tabler:brand-linkedin" />
+          <Icon name="simple-icons:linkedin" />
         </a>
       </Tooltip>
       <Tooltip direction="bottom">
@@ -69,6 +69,17 @@ const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
           class="btn btn-secondary btn-icon text-3xl"
         >
           <Icon name="tabler:paperclip" />
+        </a>
+      </Tooltip>
+      <Tooltip direction="bottom">
+        <span slot="message">Email</span>
+        <a
+          href="mailto:romerogonzaga21@gmail.com"
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+          class="btn btn-secondary btn-icon text-3xl"
+        >
+          <Icon name="tabler:mail" />
         </a>
       </Tooltip>
     </div>
