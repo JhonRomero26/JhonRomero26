@@ -6,6 +6,6 @@ image: mesaturisloja/poster.webp
 skills: ["Odoo", "Python", "HTML", "SCSS"]
 publishDate: 2023-07-08
 readMinTime: 7
-website: "https://mass.ec"
+website: "https://mesaturisticaloja.com"
 repoUri: ""
 ---
