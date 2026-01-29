@@ -20,7 +20,7 @@ const getCanonicalURL = () => {
   return canonical || Astro.url.pathname;
 };
 
-const imageURL = new URL(image, Astro.url);
+const imageURL = new URL(image, Astro.site);
 const canonicalURL = new URL(getCanonicalURL(), Astro.site);
 ---
 
