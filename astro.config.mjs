@@ -22,6 +22,7 @@ const options = {
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
+  site: "https://jhonromero.dev",
 
   markdown: {
     syntaxHighlight: false,
