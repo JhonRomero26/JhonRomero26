@@ -82,6 +82,7 @@ export default defineConfig({
           "paperclip",
           "link",
           "arrow-right",
+          "arrow-left",
           "user",
           "clock",
           "mail",
