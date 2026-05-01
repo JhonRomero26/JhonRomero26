@@ -6,50 +6,85 @@ import { Icon } from "astro-icon/components";
 
 const lang = Astro.currentLocale || "en";
 const t = await loadI18n({ lang, asset: "components/Footer" });
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  {
+    name: "Github",
+    href: "https://github.com/JhonRomero26",
+    icon: "simple-icons:github",
+  },
+  {
+    name: "Email",
+    href: "mailto:romerogonzaga21@gmail.com",
+    icon: "tabler:mail",
+  },
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/jhonromero26/",
+    icon: "simple-icons:linkedin",
+  },
+];
 ---
 
-<footer class="bg-gray-900 dark:bg-gray-800 py-20">
-  <div class="container footer-content">
+<footer
+  class="relative bg-gradient-to-b from-gray-900 to-gray-950 dark:from-gray-900 dark:to-gray-950 py-12 sm:py-16 lg:py-20 overflow-hidden border-t border-gray-800/60"
+>
+  <!-- Decorative gradient -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[min(600px,80vw)] h-32 bg-gradient-to-b from-ui-accent/10 to-transparent blur-3xl pointer-events-none"
+  >
+  </div>
+
+  <div class="container relative z-10">
     <div class="flex flex-col items-center justify-center">
-      <Logo class="inline-flex align-middle w-52" />
-      <div class="text-center mb-10 text-white text-title1 font-bold">
+      <!-- Logo -->
+      <Logo class="w-32 sm:w-40 lg:w-48 mb-4 sm:mb-6" />
+
+      <!-- Title -->
+      <h2
+        class="text-center mb-2 text-white text-lg sm:text-xl lg:text-2xl font-bold max-w-md"
+      >
         {t("title")}
-      </div>
-      <ul class="flex justify-center flex-wrap gap-6">
-        <Tooltip direction="bottom">
-          <span slot="message">Github</span>
-          <a
-            href="https://github.com/JhonRomero26"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-50 text-icon transition hover:text-ui-accent hover:scale-125"
-          >
-            <Icon name="simple-icons:github" />
-          </a>
-        </Tooltip>
-        <Tooltip direction="bottom">
-          <span slot="message">Email</span>
-          <a
-            href="mailto:romerogonzaga21@gmail.com"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-50 transition hover:text-ui-accent hover:scale-125"
-          >
-            <Icon class="size-7" name="tabler:mail" />
-          </a>
-        </Tooltip>
-        <Tooltip direction="bottom">
-          <span slot="message">Linkedin</span>
-          <a
-            href="https://linkedin.com/in/jhonromero26/"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-50 text-icon transition hover:text-ui-accent hover:scale-125"
-          >
-            <Icon name="simple-icons:linkedin" />
-          </a>
-        </Tooltip>
+      </h2>
+
+      <!-- CTA subtitle -->
+      <p class="text-center mb-6 sm:mb-8 text-gray-400 text-sm sm:text-base max-w-sm">
+        {t("cta")}
+      </p>
+
+      <!-- Social links -->
+      <ul class="flex justify-center flex-wrap gap-4 sm:gap-6 mb-8 sm:mb-10">
+        {
+          socialLinks.map((link) => (
+            <li>
+              <Tooltip direction="top">
+                <span slot="message">{link.name}</span>
+                <a
+                  href={link.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 text-gray-50 text-xl sm:text-2xl transition-all duration-300 hover:bg-ui-accent hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-ui-accent/25"
+                  aria-label={link.name}
+                >
+                  <Icon name={link.icon} />
+                </a>
+              </Tooltip>
+            </li>
+          ))
+        }
       </ul>
+
+      <!-- Divider -->
+      <div
+        class="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6 sm:mb-8"
+      >
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-gray-400 text-xs sm:text-sm text-center">
+        © {currentYear} Jhon Romero. {t("rights")}
+      </p>
     </div>
   </div>
 </footer>

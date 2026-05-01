@@ -2,32 +2,165 @@
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { getAbsoluteLocaleUrl } from "astro:i18n";
-import ProjectCardWithTooltip from "@/components/ProjectCardWithTooltip.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { loadI18n } from "@/utils/i18n";
+import GridProjects from "../GridProjects.astro";
 
 const lang = Astro.currentLocale || "en";
+const t = await loadI18n({ lang, asset: "pages/home" });
 
 const projects = await getCollection("projects", ({ id }) =>
-  id.startsWith(lang),
+    id.startsWith(lang),
 );
 projects.sort((a, b) => a.data.order - b.data.order);
+
+// Extract unique skills
+const allSkills = Array.from(
+    new Set(projects.flatMap((project) => project.data.skills || [])),
+).sort();
 ---
 
-<Layout title="Projects | Jhon Romero" description="Hello there">
-  <section class="container grid gap-4 md:grid-cols-2 xl:grid-cols-3 py-16">
-    {
-      projects.map(({ id, data }) => (
-        <ProjectCardWithTooltip
-          id={id}
-          slug={getAbsoluteLocaleUrl(lang, `/projects/${id.split("/")[1]}`)}
-          title={data.title}
-          skills={data.skills}
-          description={data.description}
-          repoUri={data.repoUri}
-          website={data.website}
-          image={data.image}
-        />
-      ))
-    }
-  </section>
-  <div></div>
+<Layout
+    title={t("projects.pageTitle")}
+    description={t("projects.pageDescription")}
+    ogType="website"
+>
+    <main
+        class="relative min-h-screen overflow-hidden bg-ui-body transition-colors"
+    >
+        <!-- Ambient Background Depth -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-500/10 rounded-full blur-[120px] opacity-60 mix-blend-screen dark:mix-blend-normal"
+            >
+            </div>
+            <div
+                class="absolute top-[20%] right-0 w-[800px] h-[800px] bg-violet-500/5 rounded-full blur-[120px] opacity-40"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[100px] opacity-40"
+            >
+            </div>
+        </div>
+
+        <div
+            class="container projects-page-section relative z-10 py-24 sm:py-32"
+        >
+            <!-- Page Header -->
+            <header
+                class="max-w-3xl mx-auto text-center mb-12 sm:mb-16 space-y-6"
+            >
+                <h1
+                    class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight animate animate-fade-in-up"
+                >
+                    {t("projects.title.normal")}
+                    <span class="text-ui-accent"
+                        >{t("projects.title.accent")}</span
+                    >
+                </h1>
+                <p
+                    class="text-lg sm:text-xl text-typo-secondary leading-relaxed animate animate-fade-in-up"
+                    style="animation-delay: 100ms;"
+                >
+                    {t("projects.subtitle")}
+                </p>
+            </header>
+
+            <!-- Filters -->
+            <div
+                class="mb-12 overflow-x-auto pb-4 mask-fade-sides scrollbar-hide animate animate-fade-in-up"
+                style="animation-delay: 200ms;"
+            >
+                <div
+                    class="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-2 sm:gap-3 min-w-max px-4"
+                >
+                    <button
+                        class="filter-btn active px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-ui-02/50 bg-ui-01 text-typo-secondary hover:border-ui-accent/30 hover:text-ui-accent hover:shadow-lg hover:shadow-ui-accent/10 data-[active=true]:bg-ui-accent data-[active=true]:border-ui-accent data-[active=true]:text-white data-[active=true]:shadow-ui-accent/25 whitespace-nowrap"
+                        data-filter="all"
+                        data-active="true"
+                    >
+                        All
+                    </button>
+                    {
+                        allSkills.map((skill) => (
+                            <button
+                                class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-ui-02/50 bg-ui-01 text-typo-secondary hover:border-ui-accent/30 hover:text-ui-accent hover:shadow-lg hover:shadow-ui-accent/10 data-[active=true]:bg-ui-accent data-[active=true]:border-ui-accent data-[active=true]:text-white data-[active=true]:shadow-ui-accent/25 whitespace-nowrap"
+                                data-filter={skill}
+                            >
+                                {skill}
+                            </button>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <GridProjects id="projects-grid" projects={projects} />
+        </div>
+
+        <script>
+            function initProjectFilterDispatcher() {
+                const container = document.querySelector(
+                    ".projects-page-section",
+                );
+                if (!container) return;
+
+                const buttons = container.querySelectorAll(".filter-btn");
+                const gridElement = container.querySelector("#projects-grid");
+
+                if (!gridElement || !buttons.length) return;
+
+                buttons.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        buttons.forEach((b) =>
+                            b.setAttribute("data-active", "false"),
+                        );
+                        btn.setAttribute("data-active", "true");
+                        const filter = btn.getAttribute("data-filter") || "all";
+
+                        const event = new CustomEvent("grid:filter-change", {
+                            detail: { filter: filter },
+                            bubbles: true,
+                        });
+                        gridElement.dispatchEvent(event);
+                    });
+                });
+
+                document.addEventListener("astro:after-swap", () => {
+                    const initialFilterEvent = new CustomEvent(
+                        "grid:filter-change",
+                        {
+                            detail: { filter: "all" },
+                            bubbles: true,
+                        },
+                    );
+                    gridElement.dispatchEvent(initialFilterEvent);
+                });
+                // Dispatch initial filter event for "all" on load
+            }
+
+            initProjectFilterDispatcher();
+        </script>
+
+        <style>
+            /* Hide scrollbar for cleaner look */
+            .mask-fade-sides {
+                mask-image: linear-gradient(
+                    to right,
+                    transparent 0px,
+                    black 24px,
+                    black calc(100% - 24px),
+                    transparent 100%
+                );
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+    </main>
 </Layout>

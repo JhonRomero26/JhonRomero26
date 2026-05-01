@@ -1,32 +1,25 @@
 @layer base {
   figcaption[data-rehype-pretty-code-title] {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-areas: "close title lang";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5rem 1rem;
-    background-color: var(--color-slate-900);
-    color: var(--color-slate-200);
-    font-weight: 600;
+    background-color: var(--ui-02); /* Use theme variable */
+    color: var(--typo-secondary); /* Use theme variable */
+    font-weight: 500;
+    font-size: 0.875rem; /* text-sm */
     @apply rounded-t-lg;
 
     &::after {
-      grid-area: lang;
-      font-weight: 400;
-      justify-self: end;
-      align-self: center;
+      /* Language display */
+      font-weight: 500;
       content: attr(data-language);
+      color: var(--ui-accent); /* Highlight language */
     }
 
+    /* Remove the fake close buttons */
     &::before {
-      grid-area: close;
-      align-self: center;
-      content: "";
-      width: 0.8em;
-      height: 0.8em;
-      border-radius: 50%;
-      font-weight: 600;
-      background-color: var(--color-green-500);
-      box-shadow: 1.2em 0 var(--color-amber-500), 2.4em 0 var(--color-red-500);
+      content: none;
     }
   }
 }

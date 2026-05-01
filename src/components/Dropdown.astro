@@ -7,53 +7,162 @@
 </div>
 
 <script>
-  const handleClick = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    const isDropdownButton = target.matches('[data-dropdown="trigger"]');
-    if (!isDropdownButton && target.closest(".dropdown") !== null) return;
+  let cleanup: (() => void) | null = null;
 
-    let currentDropdown: HTMLElement | null = null;
-    if (isDropdownButton) {
-      currentDropdown = target.closest(".dropdown");
-      const $content =
-        currentDropdown?.querySelector<HTMLElement>(".dropdown-content");
-      $content?.classList.toggle(".active");
+  const updatePosition = ($content: HTMLElement, $trigger: HTMLElement) => {
+    // Reset/Setup styles for fixed positioning calculation
+    $content.style.position = "fixed";
+    $content.style.width = "auto";
+    $content.style.maxWidth = "90vw";
+    // min-w-40 is 10rem = 160px. Match trigger width or min 160px.
+    const triggerRect = $trigger.getBoundingClientRect();
+    $content.style.minWidth = `${Math.max(triggerRect.width, 160)}px`;
+    $content.style.zIndex = "9999";
+    $content.style.margin = "0";
+
+    // Use offsetWidth/Height to get the "real" size without transforms (scale-in animation)
+    const contentWidth = $content.offsetWidth;
+    const contentHeight = $content.offsetHeight;
+
+    // Use clientWidth/Height to exclude scrollbars from viewport calculation
+    const viewport = {
+      w: document.documentElement.clientWidth,
+      h: document.documentElement.clientHeight
+    };
+    const gap = 8;
+
+    // Preferred: Bottom Center
+    let x = triggerRect.left + triggerRect.width / 2 - contentWidth / 2;
+    let y = triggerRect.bottom + gap;
+    let originY = "top";
+
+    // Flip Logic (Bottom -> Top)
+    const fitsBottom = y + contentHeight <= viewport.h;
+    const fitsTop = triggerRect.top - contentHeight - gap >= 0;
+
+    if (!fitsBottom && fitsTop) {
+      y = triggerRect.top - contentHeight - gap;
+      originY = "bottom";
     }
 
+    // Horizontal Logic: Try Center -> Right -> Left
+    // Improved Clamp: Keep within viewport with gap
+    x = Math.max(gap, Math.min(x, viewport.w - contentWidth - gap));
+
+    $content.style.top = `${y}px`;
+    $content.style.left = `${x}px`;
+
+    // Dynamic Transform Origin for nicer animation
+    // We calculate the center of the trigger relative to the content's new position
+    const relativeTriggerCenter = (triggerRect.left + triggerRect.width/2) - x;
+    $content.style.transformOrigin = `${relativeTriggerCenter}px ${originY}`;
+  };
+
+  const closeAllDropdowns = () => {
     document
       .querySelectorAll<HTMLElement>(".dropdown-content.active")
-      .forEach(($dropdown) => {
-        if ($dropdown === currentDropdown) return;
-        $dropdown.classList.remove("active");
+      .forEach(($content) => {
+        $content.classList.remove("active");
+        // We wait for transition to finish? No, CSS allow-discrete handles display:none timing.
+        // However, we should probably wait to clear cssText until closed?
+        // Actually, clearing cssText immediately might jump the position while fading out.
+        // Let's keep the position styles until the transition might be done, or just leave them.
+        // If we clear them now, the menu will jump to default position while fading out.
+        // So we SHOULD NOT clear cssText immediately.
+        // But if we don't clear, they persist.
+        // Correct approach: The previous logic cleared them on display:none.
+        // With CSS transitions, we can't easily hook into "end" without listeners.
+        // BUT: if we leave the inline styles, they will be recalculated next time 'updatePosition' is called.
+        // The only risk involves resize events if it's closed but fading out?
+        // Actually, it's safer to just leave the inline styles. 'updatePosition' overwrites them fully.
       });
+    if (cleanup) {
+      cleanup();
+      cleanup = null;
+    }
+  };
+
+  const handleClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const $trigger = target.closest(
+      '[data-dropdown="trigger"]'
+    ) as HTMLElement;
+    const $dropdown = target.closest(".dropdown");
+
+    // Click outside or on non-trigger inside dropdown (unless it's an item, handled separately)
+    if (!$trigger && !$dropdown) {
+      closeAllDropdowns();
+      return;
+    }
+
+    if ($trigger) {
+      const $currentDropdown = $trigger.closest(".dropdown");
+      const $content =
+        $currentDropdown?.querySelector<HTMLElement>(".dropdown-content");
+
+      if ($content) {
+        const isActive = $content.classList.contains("active");
+
+        // If clicking the same trigger, toggle. If opening, close others.
+        if (isActive) {
+          closeAllDropdowns();
+        } else {
+          closeAllDropdowns(); // Close others first
+
+          $content.classList.add("active");
+          // At this point display:block is applied by CSS.
+
+          updatePosition($content, $trigger);
+
+          // Setup listeners
+          const handleUpdate = () => updatePosition($content, $trigger);
+          const handleKeydown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+              closeAllDropdowns();
+            }
+          };
+
+          window.addEventListener("scroll", handleUpdate, {
+            capture: true,
+            passive: true,
+          });
+          window.addEventListener("resize", handleUpdate, { passive: true });
+          document.addEventListener("keydown", handleKeydown);
+
+          cleanup = () => {
+            window.removeEventListener("scroll", handleUpdate, true);
+            window.removeEventListener("resize", handleUpdate);
+            document.removeEventListener("keydown", handleKeydown);
+          };
+        }
+      }
+    }
   };
 
   const onLoadDocument = () => {
+    // Setup item clicks to close
     const $dropdowns = document.querySelectorAll<HTMLElement>(".dropdown");
-
     $dropdowns.forEach(($dropdown) => {
-      const $trigger = $dropdown.querySelector<HTMLElement>(
-        '[data-dropdown="trigger"]'
-      );
       const $content =
         $dropdown.querySelector<HTMLElement>(".dropdown-content");
       const $items = $content?.querySelectorAll<HTMLElement>(".dropdown-item");
 
       $items?.forEach(($item) => {
         $item.addEventListener("click", () => {
-          $content?.classList.remove("active");
+          closeAllDropdowns();
         });
-      });
-
-      $trigger?.addEventListener("click", (event) => {
-        event.stopPropagation();
-        $content?.classList.toggle("active");
       });
     });
 
+    // Global click listener
+    document.removeEventListener("click", handleClick);
     document.addEventListener("click", handleClick);
   };
 
   onLoadDocument();
   document.addEventListener("astro:after-swap", onLoadDocument);
+  document.addEventListener("scroll", () => {
+      // Optional: Close on global scroll if not captured?
+      // Current implementation updates position on scroll, which is better UX for fixed elements.
+  });
 </script>

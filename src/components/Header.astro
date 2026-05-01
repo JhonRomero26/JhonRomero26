@@ -8,85 +8,234 @@ import { loadI18n } from "@/utils/i18n";
 
 const lang = Astro.currentLocale || "en";
 const t = await loadI18n({
-  lang,
-  asset: "components/Header",
+    lang,
+    asset: "components/Header",
 });
 
 const menuNavLinks = [
-  { href: getAbsoluteLocaleUrl(lang, "/"), label: t("menu-links.home") },
-  {
-    href: getAbsoluteLocaleUrl(lang, "/projects"),
-    label: t("menu-links.projects"),
-  },
+    { href: getAbsoluteLocaleUrl(lang, "/"), label: t("menu-links.home") },
+    {
+        href: getAbsoluteLocaleUrl(lang, "/projects"),
+        label: t("menu-links.projects"),
+    },
+    {
+        href: getAbsoluteLocaleUrl(lang, "/contact"),
+        label: t("menu-links.contact"),
+    },
+    {
+        href: getAbsoluteLocaleUrl(lang, "/cv"),
+        label: t("menu-links.cv"),
+    },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
 <header
-  class="bg-ui-body/50 backdrop-blur-lg fixed top-0 left-0 w-full z-50 py-2"
+
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+
 >
-  <nav class="container flex justify-between items-center gap-4">
-    <div class="flex-1 flex items-center">
-      <button id="btn-burger" class="btn btn-icon md:hidden">
-        <Icon name="tabler:menu-2" />
-      </button>
-      <div
-        id="header-menu"
-        class="max-md:w-full max-md:fixed max-md:top-full max-md:left-0 max-md:bg-ui-body/90 max-md:backdrop-blur-lg max-md:-z-10 max-md:py-8 max-md:overflow-hidden max-md:hidden hidden-fade-in"
-      >
-        <ul class="container flex max-md:flex-col items-center gap-x-3 md:m-0">
-          {
-            menuNavLinks.map((link) => (
-              <li class="flex w-full">
-                <a
-                  class:list={[
-                    "text-typo-primary border-b-2 border-transparent w-full p-3 font-medium text-center transition-colors hover:text-ui-accent md:hover:border-ui-accent max-md:hover:bg-ui-accent/15",
-                    currentPath === link.href &&
-                      "md:border-ui-accent text-ui-accent max-md:bg-ui-accent/15",
-                  ]}
-                  href={link.href}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-    <div class="flex-1 flex items-center justify-center">
-      <a
-        class="block w-14 transition-transform hover:scale-125"
-        aria-label="Home"
-        href="/"
-      >
-        <Logo />
-      </a>
-    </div>
-    <div class="flex-1 flex items-center gap-4 justify-end">
-      <ThemeButton />
-      <LanguageDropdown />
-    </div>
-  </nav>
+
+    <!-- Background layer for blur effect -->
+
+    <div
+
+        id="header-bg"
+
+        class="absolute inset-0 bg-white/80 dark:bg-ui-body/80 backdrop-blur-xl border-b border-gray-200/60 dark:border-ui-02/50 shadow-sm dark:shadow-none transition-all duration-300"
+
+    ></div>
+
+
+
+    <nav class="container relative z-10 flex justify-between items-center gap-4 py-3">
+
+        <!-- Mobile menu button -->
+
+        <div class="flex-1 flex items-center md:hidden">
+
+            <button
+
+                id="btn-burger"
+
+                class="btn btn-icon relative z-50"
+
+                aria-label="Toggle menu"
+
+                aria-expanded="false"
+
+            >
+
+                <Icon
+
+                    name="tabler:menu-2"
+
+                    class="burger-icon transition-transform"
+
+                />
+
+                <Icon
+
+                    name="tabler:x"
+
+                    aria-label="Close menu"
+
+                    class="close-icon absolute opacity-0 transition-all"
+
+                />
+
+            </button>
+
+        </div>
+
+
+
+        <!-- navigation (Desktop: centered/block, Mobile: fixed full screen) -->
+
+        <div
+
+            id="header-menu"
+
+            class="max-md:fixed max-md:inset-0 max-md:bg-ui-body/95 max-md:backdrop-blur-xl
+
+      max-md:z-40 max-md:pt-28 max-md:px-6 max-md:pb-8
+
+      max-md:opacity-0 max-md:-translate-y-8 max-md:pointer-events-none max-md:transition-all max-md:duration-500 max-md:ease-out
+
+      md:block md:flex-1"
+
+        >
+
+            <ul
+
+                class="flex max-md:flex-col items-center gap-2 md:gap-1 max-md:gap-6 md:justify-start"
+
+            >
+
+                {
+
+                    menuNavLinks.map((link) => (
+
+                        <li class="w-full md:w-auto">
+
+                            <a
+
+                                class:list={[
+
+                                    "menu-link relative block w-full md:w-auto px-4 py-3 md:py-2 text-2xl md:text-base font-medium text-center rounded-lg",
+
+                                    "text-typo-primary transition-all duration-300",
+
+                                    "hover:text-ui-accent hover:bg-ui-accent/10",
+
+                                    currentPath === link.href
+
+                                        ? "text-ui-accent bg-ui-accent/10 md:bg-transparent md:after:absolute md:after:bottom-0 md:after:left-1/2 md:after:-translate-x-1/2 md:after:w-6 md:after:h-0.5 md:after:bg-ui-accent md:after:rounded-full"
+
+                                        : "",
+
+                                ]}
+
+                                href={link.href}
+
+                            >
+
+                                {link.label}
+
+                            </a>
+
+                        </li>
+
+                    ))
+
+                }
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Logo -->
+
+        <div class="flex items-center justify-center relative z-50 md:absolute md:left-1/2 md:-translate-x-1/2">
+
+            <a
+
+                class="block w-12 sm:w-14 transition-all duration-300 hover:scale-110"
+
+                aria-label="Home"
+
+                href="/"
+
+            >
+
+                <Logo />
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Actions -->
+
+        <div class="flex-1 flex items-center gap-2 sm:gap-3 justify-end relative z-50">
+
+            <ThemeButton />
+
+            <LanguageDropdown />
+
+        </div>
+
+    </nav>
+
 </header>
-<div class="h-14"></div>
+
+<!-- Spacer -->
+<div class="h-16"></div>
 
 <script>
-  const onLoadDocument = () => {
-    const $burgerBtn = document.querySelector<HTMLButtonElement>("#btn-burger");
-    const $menu = document.querySelector<HTMLDivElement>("#header-menu");
+    const onLoadDocument = () => {
+        const $burgerBtn =
+            document.querySelector<HTMLButtonElement>("#btn-burger");
+        const $header = $burgerBtn?.closest("header");
+        const $menu = document.getElementById("header-menu");
+        const $links = $menu?.querySelectorAll(".menu-link");
 
-    $burgerBtn?.addEventListener("click", () => {
-      console.log($menu);
-      $menu?.classList.toggle("max-md:hidden");
-      $menu?.classList.toggle("visible");
-    });
-  };
+        const toggleMenu = (forceClose = false) => {
+            const isCurrentlyOpen = $menu?.classList.contains("open");
+            const shouldOpen = forceClose ? false : !isCurrentlyOpen;
 
-  onLoadDocument();
+            if (shouldOpen) {
+                $header?.classList.add("header-menu-open");
+                $menu?.classList.add("open");
+            } else {
+                $header?.classList.remove("header-menu-open");
+                $menu?.classList.remove("open");
+            }
 
-  document.addEventListener("astro:after-swap", () => {
+            $burgerBtn?.setAttribute("aria-expanded", String(shouldOpen));
+            document.body.style.overflow = shouldOpen ? "hidden" : "";
+        };
+
+        $burgerBtn?.addEventListener("click", () => toggleMenu());
+
+        $links?.forEach((link) => {
+            link.addEventListener("click", () => toggleMenu(true));
+        });
+
+        // Close menu on resize to desktop
+        const mediaQuery = window.matchMedia("(min-width: 768px)");
+        mediaQuery.addEventListener("change", (e) => {
+            if (e.matches) {
+                toggleMenu(true);
+            }
+        });
+    };
+
     onLoadDocument();
-  });
+
+    document.addEventListener("astro:after-swap", onLoadDocument);
 </script>

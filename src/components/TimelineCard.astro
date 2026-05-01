@@ -28,24 +28,29 @@ const dateFormatter = (date: string | Date) =>
     {capitalize(dateFormatter(startDate))} -
     {endDate ? capitalize(dateFormatter(endDate)) : "Present"}
   </time>
-  <header class="mb-4">
-    <h3 class="text-xl font-medium sm:text-2xl">{title}</h3>
+  <header class="mb-2 sm:mb-3">
+    <h3 class="text-lg font-semibold sm:text-xl lg:text-2xl leading-tight">
+      {title}
+    </h3>
     {
       subtitle && (
-        <span class="mt-2 text-sm font-medium text-typo-muted flex gap-2 sm:text-base">
+        <span class="mt-1 text-xs font-medium text-typo-muted flex items-center gap-1.5 sm:text-sm lg:text-base">
+          <span class="inline-block w-1 h-1 rounded-full bg-typo-muted" />
           {subtitle}
         </span>
       )
     }
   </header>
   <div class="flex flex-col">
-    <p class="text-typo-secondary text-sm sm:text-lg">{description}</p>
+    <p class="text-typo-secondary text-sm leading-relaxed sm:text-base">
+      {description}
+    </p>
     <slot />
     {
       skills && (
-        <div class="text-sm text-typo-secondary flex flex-wrap gap-2 mt-4">
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
           {skills.map((skill) => (
-            <Pill class="text-violet-500 bg-violet-500/15 border-violet-500">
+            <Pill class="text-xs sm:text-sm text-violet-700 bg-violet-700/10 border-violet-700/30 hover:bg-violet-700/20 dark:text-violet-400 dark:bg-violet-400/10 dark:border-violet-400/30 dark:hover:bg-violet-400/20 transition-colors">
               {skill}
             </Pill>
           ))}

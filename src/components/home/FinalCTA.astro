@@ -1,0 +1,53 @@
+---
+import { loadI18n } from "@/utils/i18n";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+const lang = Astro.currentLocale || "en";
+const t = await loadI18n({ lang, asset: "pages/home" });
+---
+
+<section
+  class="relative py-20 sm:py-28 lg:py-36 overflow-hidden section-alt border-t border-ui-02/60"
+  aria-labelledby="final-cta-heading"
+>
+  <!-- Decorative glow -->
+  <div
+    class="absolute inset-0 flex items-center justify-center pointer-events-none"
+    aria-hidden="true"
+  >
+    <div
+      class="w-[min(700px,90vw)] h-[min(400px,60vw)] rounded-full bg-gradient-to-r from-primary-500/10 via-violet-500/10 to-primary-500/10 blur-3xl animate-breathe"
+    >
+    </div>
+  </div>
+
+  <div class="container relative z-10">
+    <div class="max-w-3xl mx-auto text-center px-4 space-y-6 sm:space-y-8">
+      <h2
+        id="final-cta-heading"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-typo-primary"
+      >
+        {t("finalCta.title")}
+      </h2>
+
+      <p class="text-base sm:text-lg md:text-xl text-typo-secondary leading-relaxed max-w-xl mx-auto">
+        {t("finalCta.subtitle")}
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={getAbsoluteLocaleUrl(lang, "/contact")}
+          class="btn btn-primary px-8 py-3 text-base sm:text-lg font-semibold rounded-full shadow-lg shadow-ui-accent/20 hover:shadow-ui-accent/30 transition-shadow"
+        >
+          {t("finalCta.primaryCta")}
+        </a>
+        <a
+          href={lang === "es" ? "/es/cv" : "/cv"}
+          class="btn btn-secondary px-8 py-3 text-base sm:text-lg font-semibold rounded-full"
+        >
+          {t("finalCta.secondaryCta")}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

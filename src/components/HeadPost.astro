@@ -17,56 +17,169 @@ const { id, title, published, author, image, excerpt, readTime } = Astro.props;
 const publishDate = dateFormater({ date: published });
 ---
 
-<header>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6">
-    <p class="mb-2 flex justify-start mt-0 gap-2 text-ui-05">
-      <span class="inline-flex items-center gap-1">
-        <Icon class="inline-block text-lg" name="tabler:clock" />
-        <time class="inline-block" datetime={publishDate}>{publishDate}</time>
-      </span>
-      <span> · </span>
-      <span>{readTime} min</span>
-      {
-        author !== undefined && (
-          <p class="mb-2 flex items-center gap-1">
-            <Icon class="inline-block text-lg" name="tabler:user" />
-            <span>{author}</span>
-          </p>
-        )
-      }
-    </p>
-    <div class="mb-8">
-      <h1
-        class="font-bold text-typo-primary leading-tighter md:text-5xl text-4xl tracking-tighter"
+<header class="mb-16 sm:mb-24 relative isolate">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <!-- Title -->
+    <h1
+      class="font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mb-8 relative z-10"
+    >
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-violet-400 animate-gradient-x"
+        style="text-shadow: 0 0 30px rgba(var(--primary-400), 0.3);"
       >
         {title}
-      </h1>
+      </span>
+    </h1>
+
+    <!-- Excerpt -->
+    {
+      excerpt && (
+        <p class="text-lg sm:text-xl md:text-2xl text-typo-secondary text-pretty max-w-3xl mx-auto mb-10 leading-relaxed relative z-10">
+          {excerpt}
+        </p>
+      )
+    }
+
+    <!-- Metadata (HUD Style) -->
+    <div
+      class="flex flex-wrap justify-center items-center gap-4 text-sm sm:text-base text-typo-secondary mb-16 relative z-10"
+    >
+      <div
+        class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-ui-02/10 border border-ui-accent/20 backdrop-blur-md shadow-[0_0_15px_rgba(var(--ui-accent-rgb),0.1)] hover:border-ui-accent/50 transition-colors"
+      >
+        <Icon class="text-lg text-ui-accent" name="tabler:calendar" />
+        <time datetime={publishDate} class="font-mono tracking-wide"
+          >{publishDate}</time
+        >
+      </div>
+      <div
+        class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-ui-02/10 border border-ui-accent/20 backdrop-blur-md shadow-[0_0_15px_rgba(var(--ui-accent-rgb),0.1)] hover:border-ui-accent/50 transition-colors"
+      >
+        <Icon class="text-lg text-ui-accent" name="tabler:clock" />
+        <span class="font-mono tracking-wide">{readTime} min read</span>
+      </div>
       {
-        excerpt !== undefined && (
-          <p class="text-muted text-ui-muted md:text-xl text-pretty mt-4 text-xl leading-tighter">
-            {excerpt}
-          </p>
+        author && (
+          <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-ui-02/10 border border-ui-accent/20 backdrop-blur-md shadow-[0_0_15px_rgba(var(--ui-accent-rgb),0.1)] hover:border-ui-accent/50 transition-colors">
+            <Icon class="text-lg text-ui-accent" name="tabler:user" />
+            <span class="font-mono tracking-wide">{author}</span>
+          </div>
         )
       }
     </div>
   </div>
-  <figure
-    class="mx-auto mb-6 w-full aspect-video overflow-hidden lg:rounded-lg max-w-4xl"
-  >
+
+  <!-- Quantum Image Container -->
+  <div class="relative mx-auto max-w-5xl px-4 sm:px-6 perspective-[2000px]">
     <div
-      class="size-[max(45vw,70vh)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 -z-10 blur-[200px] dark:bg-violet-400/45 animate animate-duration-[10s] animate-pulse animate-iteration-count-infinite animate-direction-alternate rounded-full"
+      class="relative group rounded-2xl transition-transform duration-500 ease-out transform-gpu hover:scale-[1.01]"
     >
+      <!-- Depth Layers / Quantum Glow -->
+      <div
+        class="absolute -inset-1 bg-gradient-to-r from-primary-500 via-violet-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"
+      >
+      </div>
+
+      <!-- Rotating Rings (Decorative) -->
+      <div
+        class="absolute -inset-[10%] -z-10 overflow-hidden pointer-events-none opacity-40 mix-blend-screen"
+      >
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-primary-500/10 rounded-full animate-spin-slow-reverse"
+        >
+        </div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-violet-500/10 rounded-full animate-spin-slow"
+        >
+        </div>
+      </div>
+
+      <!-- Core Glow -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary-500/20 blur-[120px] rounded-full -z-10 animate-pulse-slow"
+      >
+      </div>
+
+      <!-- Main Image Frame -->
+      <figure
+        class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 bg-ui-01/50 backdrop-blur-sm"
+      >
+        <Image
+          transition:name={`project-${id}-image`}
+          loading="eager"
+          width={1200}
+          height={675}
+          format="webp"
+          quality={90}
+          class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          src={image}
+          alt={title}
+        />
+
+        <!-- Scanline Overlay -->
+        <div
+          class="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none opacity-20"
+        >
+        </div>
+
+        <!-- Glass Sheen -->
+        <div
+          class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"
+        >
+        </div>
+      </figure>
+
+      <!-- Reflection -->
+      <div
+        class="absolute -bottom-[20px] left-0 right-0 h-[20px] bg-gradient-to-b from-primary-500/10 to-transparent blur-xl opacity-50 mx-auto w-[90%]"
+      >
+      </div>
     </div>
-    <Image
-      transition:name={`project-${id}-image`}
-      loading="lazy"
-      width={900}
-      height={500}
-      format="webp"
-      quality={65}
-      class="w-full h-full object-cover object-center"
-      src={image}
-      alt={title}
-    />
-  </figure>
+  </div>
 </header>
+
+<style>
+  .perspective-\[2000px\] {
+    perspective: 2000px;
+  }
+  @keyframes spin-slow {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes spin-slow-reverse {
+    from {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  .animate-spin-slow-reverse {
+    animation: spin-slow-reverse 25s linear infinite;
+  }
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 15s ease infinite;
+  }
+  @keyframes gradient-x {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

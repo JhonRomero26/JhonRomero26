@@ -4,69 +4,142 @@ import { Image } from "astro:assets";
 import Pill from "./Pill.astro";
 
 type Props = {
-  id: string;
-  title: string;
-  image: string;
-  skills?: string[];
-  slug: string;
-  class?: string;
-  website?: string;
-  repoUri?: string;
+    id: string;
+    title: string;
+    description?: string;
+    image: string;
+    skills?: string[];
+    slug: string;
+    class?: string;
+    website?: string;
+    repoUri?: string;
 };
 
-const { id, title, image, skills, slug, repoUri, website } = Astro.props;
+const { id, title, description, image, skills, slug, repoUri, website } =
+    Astro.props;
 const urlImage = `/images/projects/${image}`;
+const lang = Astro.currentLocale || "en";
+const labels = lang === "es"
+    ? { repo: "Código", live: "Ver sitio", details: "Ver caso" }
+    : { repo: "Code", live: "Live site", details: "View case" };
+const featuredSkill = skills?.[0];
 ---
 
 <article
-  class="ProjectCard h-max isolate w-full overflow-hidden rounded-xl border border-ui-04/65 bg-ui-body group transition-colors"
+    class="ProjectCard group/card h-full isolate relative w-full overflow-hidden rounded-2xl border border-ui-02/80 bg-ui-01 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-ui-accent/35 focus-within:border-ui-accent/45 flex flex-col shadow-card hover:shadow-card-hover"
 >
-  <a class="block relative" href={slug}>
-    <Image
-      transition:name={`project-${id}-image`}
-      class="w-full h-full object-cover aspect-video object-center"
-      height={200}
-      width={600}
-      src={urlImage}
-      alt={title}
-    />
     <div
-      class="w-full absolute flex-col justify-end h-full top-0 left-0 p-4 z-10 bg-gradient-to-b from-gray-900/20 to-gray-900 flex opacity-0 group-hover:opacity-100 transition transition-discrete"
+        class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-ui-accent via-ui-accent/60 to-transparent opacity-80"
+        aria-hidden="true"
     >
-      <h3
-        class="group-hover:text-ui-accent text-gray-50 text-2xl md:text-xl font-bold"
-      >
-        {title}
-      </h3>
     </div>
-  </a>
 
-  {
-    (repoUri || website) && (
-      <div class="flex">
-        {repoUri && (
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href={repoUri}
-            class="btn btn-block py-4 rounded-none hover:text-white hover:bg-ui-accent"
-          >
-            <Icon name="tabler:brand-github" />
-            Repositorio
-          </a>
-        )}
-        {website && (
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href={website}
-            class="btn btn-block py-4 rounded-none hover:text-white hover:bg-ui-accent"
-          >
-            <Icon name="tabler:world" />
-            Visitar
-          </a>
-        )}
-      </div>
-    )
-  }
+    <a
+        class="block relative overflow-hidden flex-shrink-0 bg-ui-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ui-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ui-01"
+        href={slug}
+        aria-label={`${labels.details}: ${title}`}
+    >
+        <Image
+            transition:name={`project-${id}-image`}
+            class="w-full h-full object-cover aspect-video object-center transition-transform duration-500 ease-out group-hover/card:scale-[1.035]"
+            height={200}
+            width={600}
+            src={urlImage}
+            alt={title}
+        />
+
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-950/65 via-gray-950/10 to-transparent opacity-70 transition-opacity duration-300 group-hover/card:opacity-85"
+            aria-hidden="true"
+        >
+        </div>
+
+        <div class="absolute left-4 right-4 bottom-4 flex items-end justify-between gap-3">
+            {
+                featuredSkill && (
+                    <span class="inline-flex max-w-[70%] items-center rounded-full border border-white/20 bg-white/90 px-3 py-1 text-xs font-semibold text-ui-accent shadow-sm backdrop-blur dark:bg-gray-950/80 dark:text-white">
+                        {featuredSkill}
+                    </span>
+                )
+            }
+            <span
+                class="inline-flex size-9 items-center justify-center rounded-full bg-white/90 text-ui-accent shadow-sm backdrop-blur transition-transform duration-300 group-hover/card:translate-x-0.5 dark:bg-gray-950/80 dark:text-white"
+                aria-hidden="true"
+            >
+                <Icon name="tabler:arrow-right" class="text-lg" />
+            </span>
+        </div>
+    </a>
+
+    <div class="flex flex-col flex-1 p-5 sm:p-6 gap-4">
+        <a
+            href={slug}
+            class="group/title rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ui-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ui-01"
+        >
+            <h3
+                class="text-lg sm:text-xl font-bold text-typo-heading group-hover/title:text-ui-accent transition-colors duration-200 leading-snug tracking-tight"
+            >
+                {title}
+            </h3>
+        </a>
+
+        {
+            description && (
+                <p class="text-sm sm:text-[0.95rem] text-typo-secondary leading-relaxed line-clamp-3 flex-1">
+                    {description}
+                </p>
+            )
+        }
+
+        {
+            skills && skills.length > 0 && (
+                <div class="flex gap-2 flex-wrap mt-auto pt-1" aria-label="Project technologies">
+                    {skills.slice(0, 5).map((skill) => (
+                        <Pill class="text-xs font-medium text-ui-accent bg-ui-accent/10 border-ui-accent/25">
+                            {skill}
+                        </Pill>
+                    ))}
+                    {skills.length > 5 && (
+                        <Pill class="text-xs text-typo-secondary bg-ui-01 border-ui-02/50">
+                            +{skills.length - 5}
+                        </Pill>
+                    )}
+                </div>
+            )
+        }
+    </div>
+
+    {
+        (repoUri || website) && (
+            <div
+                class:list={[
+                    "grid gap-2 border-t border-ui-02/70 p-3 bg-ui-surface/70",
+                    repoUri && website ? "grid-cols-2" : "grid-cols-1",
+                ]}
+            >
+                {repoUri && (
+                    <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={repoUri}
+                        class="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-ui-02 bg-ui-01 px-3 py-2 text-sm font-semibold text-typo-secondary transition-colors duration-200 hover:border-ui-accent/45 hover:text-ui-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ui-accent"
+                    >
+                        <Icon name="tabler:brand-github" class="text-lg" />
+                        <span>{labels.repo}</span>
+                    </a>
+                )}
+                {website && (
+                    <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={website}
+                        class="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-ui-accent/30 bg-ui-accent px-3 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[color-mix(in_oklch,var(--color-ui-accent)_88%,black)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ui-accent"
+                    >
+                        <Icon name="tabler:world" class="text-lg" />
+                        <span>{labels.live}</span>
+                    </a>
+                )}
+            </div>
+        )
+    }
 </article>

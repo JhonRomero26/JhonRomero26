@@ -8,39 +8,39 @@ import { loadI18n } from "@/utils/i18n";
 const lang = Astro.currentLocale || "en";
 const currentPath = Astro.url.pathname.replace(`/${lang}`, "");
 const t = await loadI18n({
-  lang,
-  asset: "components/LanguageDropdown",
+    lang,
+    asset: "components/LanguageDropdown",
 });
 
 const languages = {
-  en: getRelativeLocaleUrl("en", currentPath),
-  es: getRelativeLocaleUrl("es", currentPath),
+    en: getRelativeLocaleUrl("en", currentPath),
+    es: getRelativeLocaleUrl("es", currentPath),
 };
 ---
 
-<Tooltip direction="bottom">
-  <small slot="message">{t("title")}</small>
-  <Dropdown>
-    <button data-dropdown="trigger" class="btn btn-icon" slot="trigger">
-      <Icon name="tabler:language" />
-    </button>
+<Dropdown>
+    <Tooltip direction="bottom" slot="trigger">
+        <small slot="message">{t("title")}</small>
+        <button data-dropdown="trigger" class="btn btn-icon">
+            <Icon name="tabler:language" />
+        </button>
+    </Tooltip>
     <ul>
-      {
-        Object.entries(languages).map(([lang, link]) => (
-          <li>
-            <a
-              class:list={[
-                "dropdown-item",
-                lang === Astro.currentLocale &&
-                  "bg-ui-accent/15 text-ui-accent",
-              ]}
-              href={link}
-            >
-              {t(`languages.${lang}`)}
-            </a>
-          </li>
-        ))
-      }
+        {
+            Object.entries(languages).map(([lang, link]) => (
+                <li>
+                    <a
+                        class:list={[
+                            "dropdown-item",
+                            lang === Astro.currentLocale &&
+                                "bg-ui-accent/15 text-ui-accent",
+                        ]}
+                        href={link}
+                    >
+                        {t(`languages.${lang}`)}
+                    </a>
+                </li>
+            ))
+        }
     </ul>
-  </Dropdown>
-</Tooltip>
+</Dropdown>

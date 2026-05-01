@@ -8,17 +8,17 @@ const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
 ---
 
 <CentralSection
-  class="relative before:block before:absolute before:top-1/4 before:-z-10 before:w-[5vw] before:h-[98vh] before:rounded-full before:blur-[15vw] lg:before:size-[max(28vw,28vh)] dark:before:bg-violet-400/50 before:left-0 before:animate before:animate-heartbeat before:animate-iteration-count-infinite before:animate-duration-[3s] after:block after:absolute after:top-1/4 after:-z-10 after:w-[5vw] after:h-[98vh] after:rounded-full after:blur-[15vw] lg:after:size-[max(28vw,28vh)] dark:after:bg-violet-400/50 after:right-0 after:animate after:animate-heartbeat after:animate-iteration-count-infinite after:animate-duration-[3s]"
+  class="relative overflow-hidden before:hidden lg:before:block before:absolute before:top-1/4 before:-z-10 before:w-[20vw] before:h-[60vh] before:rounded-full before:blur-[100px] before:size-[max(20vw,20vh)] dark:before:bg-violet-500/30 before:left-0 before:animate before:animate-pulse before:animate-iteration-count-infinite before:animate-duration-[5s] after:hidden lg:after:block after:absolute after:top-1/3 after:-z-10 after:w-[20vw] after:h-[60vh] after:rounded-full after:blur-[100px] after:size-[max(20vw,20vh)] dark:after:bg-primary-500/30 after:right-0 after:animate after:animate-pulse after:animate-iteration-count-infinite after:animate-duration-[7s]"
 >
   <span slot="title">
     {t("trajectory.title.normal")}
-    <span class="text-primary-500">{t("trajectory.title.accent")}</span>
+    <span class="text-ui-accent">{t("trajectory.title.accent")}</span>
   </span>
   <p slot="subtitle">
     {t("trajectory.subtitle")}
   </p>
 
-  <div class="flex max-lg:flex-col gap-20">
+  <div class="flex flex-col gap-12 sm:gap-16 lg:flex-row lg:gap-12 xl:gap-20">
     <Experience />
     <Education />
   </div>

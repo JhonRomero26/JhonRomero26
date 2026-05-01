@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://jhonromero.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Projects index -->
+  <url>
+    <loc>https://jhonromero.dev/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://jhonromero.dev/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CV -->
+  <url>
+    <loc>https://jhonromero.dev/cv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/cv"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/cv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/cv"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/cv</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/cv"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/cv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/cv"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Projects — EN -->
+  <url>
+    <loc>https://jhonromero.dev/projects/wrouter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/wrouter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/wrouter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/wrouter"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/wrouter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/wrouter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/wrouter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/wrouter"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/uefli-party</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/uefli-party"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/uefli-party"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/uefli-party"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/uefli-party</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/uefli-party"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/uefli-party"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/uefli-party"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/trellio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/trellio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/trellio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/trellio"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/trellio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/trellio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/trellio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/trellio"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/rick-and-morty</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/rick-and-morty"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/rick-and-morty"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/rick-and-morty"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/rick-and-morty</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/rick-and-morty"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/rick-and-morty"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/rick-and-morty"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/metflix</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/metflix"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/metflix"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/metflix"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/metflix</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/metflix"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/metflix"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/metflix"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/mesaturisloja</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/mesaturisloja"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/mesaturisloja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/mesaturisloja"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/mesaturisloja</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/mesaturisloja"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/mesaturisloja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/mesaturisloja"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/massec</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/massec"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/massec"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/massec"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/massec</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/massec"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/massec"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/massec"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/i2tec-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/i2tec-website"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/i2tec-website"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/i2tec-website"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/i2tec-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/i2tec-website"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/i2tec-website"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/i2tec-website"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/erlang-calc</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/erlang-calc"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/erlang-calc"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/erlang-calc"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/erlang-calc</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/erlang-calc"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/erlang-calc"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/erlang-calc"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/cryptors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/cryptors"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/cryptors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/cryptors"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/cryptors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/cryptors"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/cryptors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/cryptors"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jhonromero.dev/projects/carrion-tours</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/carrion-tours"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/carrion-tours"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/carrion-tours"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jhonromero.dev/es/projects/carrion-tours</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jhonromero.dev/projects/carrion-tours"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jhonromero.dev/es/projects/carrion-tours"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jhonromero.dev/projects/carrion-tours"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

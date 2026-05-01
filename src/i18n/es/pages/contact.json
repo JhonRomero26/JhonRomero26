@@ -1,0 +1,54 @@
+{
+  "title": "Contacto — Jhon Romero",
+  "description": "Contactá a Jhon Romero — desarrollador Odoo y Full Stack TypeScript. Disponible para oportunidades full-time y freelance.",
+  "heading": {
+    "normal": "Trabajemos",
+    "accent": "juntos"
+  },
+  "subtitle": "Estoy disponible para posiciones full-time y proyectos freelance — remoto, presencial o reubicación.",
+  "availability": {
+    "label": "Estado actual",
+    "status": "Disponible para trabajar",
+    "types": "Full-time · Freelance · Remoto · Presencial · Reubicación"
+  },
+  "channels": {
+    "title": "Cómo contactarme",
+    "email": {
+      "label": "Email",
+      "value": "romerogonzaga21@gmail.com"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/jhonromero26"
+    },
+    "github": {
+      "label": "GitHub",
+      "value": "github.com/JhonRomero26"
+    },
+    "cv": {
+      "label": "Currículum Vitae",
+      "value": "Ver CV completo"
+    }
+  },
+  "opportunities": {
+    "title": "Qué estoy buscando",
+    "items": [
+      {
+        "title": "Rol full-time",
+        "description": "Posiciones de ingeniería enfocadas en desarrollo Odoo, Full Stack TypeScript, o ambos."
+      },
+      {
+        "title": "Proyectos freelance",
+        "description": "Contratos cortos o largos para personalización Odoo, aplicaciones web e integraciones de APIs."
+      },
+      {
+        "title": "Remoto o presencial",
+        "description": "Abierto a trabajo completamente remoto y a roles presenciales o híbridos, incluyendo reubicación."
+      }
+    ]
+  },
+  "cta": {
+    "email": "Enviar un email",
+    "cv": "Ver CV"
+  }
+}

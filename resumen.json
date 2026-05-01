@@ -1,0 +1,262 @@
+{
+  "$schema": "https://jsonresume.org/schema/",
+  "defaultLocale": "en",
+  "locales": {
+    "en": {
+      "basics": {
+        "name": "Jhon Alexander Romero Gonzaga",
+        "label": "Odoo Developer & Full Stack TypeScript Engineer",
+        "image": "",
+        "email": "romerogonzaga21@gmail.com",
+        "phone": "+593 95 881 3841",
+        "url": "https://jhonromero.dev",
+        "summary": "Odoo Developer and Full Stack TypeScript Engineer specialized in enterprise software solutions. Experienced in Odoo customization, Python, TypeScript, and end-to-end integrations. Open to full-time and freelance opportunities — remote, on-site, or relocation.",
+        "location": {
+          "city": "Loja",
+          "countryCode": "EC",
+          "region": "Loja",
+          "country": "Ecuador"
+        },
+        "profiles": [
+          {
+            "network": "LinkedIn",
+            "username": "jhonromero26",
+            "url": "https://www.linkedin.com/in/jhonromero26/"
+          },
+          {
+            "network": "GitHub",
+            "username": "JhonRomero26",
+            "url": "https://github.com/JhonRomero26"
+          }
+        ]
+      },
+      "work": [
+        {
+          "id": "i2tec-iot-mobile-developer",
+          "name": "I2TEC - National University of Loja",
+          "position": "IoT & Mobile Developer",
+          "startDate": "2024-07",
+          "endDate": "2025-03",
+          "summary": "Development of an electronic prototype for adaptation to a conventional wheelchair by voice commands with recurrent neural networks (RNN) and slope assistance with microcontrollers.",
+          "location": "Loja, Ecuador",
+          "workplace": "Hybrid",
+          "skills": ["Flutter", "Arduino", "Tensorflow", "Python", "C++"]
+        },
+        {
+          "id": "i2tec-full-stack-developer",
+          "name": "I2TEC - National University of Loja",
+          "position": "Full Stack Developer Intern",
+          "startDate": "2023-03",
+          "endDate": "2023-05",
+          "summary": "Design and development of the website for the I2TEC research center of the National University of Loja.",
+          "location": "Loja, Ecuador",
+          "workplace": "Hybrid",
+          "skills": [
+            "Preact",
+            "TypeScript",
+            "Astro",
+            "CSS3",
+            "Docker",
+            "Github Actions",
+            "NodeJS",
+            "Postgres"
+          ]
+        },
+        {
+          "id": "electronet-it-services-technician-intern",
+          "name": "Electronet Ltda.",
+          "position": "IT Services Technician Intern",
+          "startDate": "2018-09",
+          "endDate": "2019-05",
+          "summary": "Technical support of computers, electronic equipment and installation, maintenance and troubleshooting of networks and systems. Assistant in the implementation of technological projects.",
+          "location": "Loja, Ecuador",
+          "workplace": "Hybrid",
+          "skills": []
+        }
+      ],
+      "education": [
+        {
+          "id": "telecommunications-engineer",
+          "institution": "National University of Loja",
+          "area": "Bachelor's Degree in Telecommunications Engineering",
+          "studyType": "Bachelor",
+          "startDate": "2019-10",
+          "endDate": "2025-07",
+          "description": "Professional training focused on the design, implementation, and management of communication systems. Emphasis on network technologies, data transmission, telephony, radiocommunications, optical networks, and signal digital processing."
+        },
+        {
+          "id": "technical-it-services",
+          "institution": "National University of Loja",
+          "area": "Technical Degree in IT Services",
+          "studyType": "Technical",
+          "startDate": "2013-09",
+          "endDate": "2019-07",
+          "description": "Technical training in computer support, local network administration, hardware and software maintenance, and basic information security. Acquisition of practical skills in equipment installation, network configuration, and troubleshooting."
+        }
+      ],
+      "skills": [
+        {
+          "name": "Odoo & ERP",
+          "keywords": ["Odoo", "Python", "OWL", "XML", "PostgreSQL", "OCA"]
+        },
+        {
+          "name": "Full Stack TypeScript",
+          "keywords": [
+            "TypeScript",
+            "React",
+            "Next.js",
+            "Node.js",
+            "Astro",
+            "Tailwind CSS"
+          ]
+        },
+        {
+          "name": "Infrastructure & Tools",
+          "keywords": ["Docker", "Git", "GitHub Actions", "Linux", "Go"]
+        },
+        {
+          "name": "Mobile",
+          "keywords": ["Flutter"]
+        }
+      ],
+      "languages": [
+        {
+          "language": "Spanish",
+          "fluency": "Native"
+        },
+        {
+          "language": "English",
+          "fluency": "B1"
+        }
+      ]
+    },
+    "es": {
+      "basics": {
+        "name": "Jhon Alexander Romero Gonzaga",
+        "label": "Desarrollador Odoo & Full Stack TypeScript",
+        "image": "",
+        "email": "romerogonzaga21@gmail.com",
+        "phone": "+593 95 881 3841",
+        "url": "https://jhonromero.dev",
+        "summary": "Soy desarrollador Odoo y Full Stack TypeScript enfocado en software empresarial, personalización de sistemas, integraciones y aplicaciones web modernas. Estoy abierto a oportunidades full-time y freelance, en remoto, presencial o con reubicación.",
+        "location": {
+          "city": "Loja",
+          "countryCode": "EC",
+          "region": "Loja",
+          "country": "Ecuador"
+        },
+        "profiles": [
+          {
+            "network": "LinkedIn",
+            "username": "jhonromero26",
+            "url": "https://www.linkedin.com/in/jhonromero26/"
+          },
+          {
+            "network": "GitHub",
+            "username": "JhonRomero26",
+            "url": "https://github.com/JhonRomero26"
+          }
+        ]
+      },
+      "work": [
+        {
+          "id": "i2tec-iot-mobile-developer",
+          "name": "I2TEC - Universidad Nacional de Loja",
+          "position": "Desarrollador IoT & Mobile",
+          "startDate": "2024-07",
+          "endDate": "2025-03",
+          "summary": "Desarrollo de un prototipo eléctrico para adaptación a una silla de ruedas convencional por comandos de voz con redes neuronales recurrentes (RNN) y asistencia en pendiente con microcontroladores.",
+          "location": "Loja, Ecuador",
+          "workplace": "Híbrido",
+          "skills": ["Flutter", "Arduino", "Tensorflow", "Python", "C++"]
+        },
+        {
+          "id": "i2tec-full-stack-developer",
+          "name": "I2TEC - Universidad Nacional de Loja",
+          "position": "Desarrollador Full Stack",
+          "startDate": "2023-03",
+          "endDate": "2023-05",
+          "summary": "Diseño y desarrollo del sitio web del centro de investigación de I2TEC de la Universidad Nacional de Loja.",
+          "location": "Loja, Ecuador",
+          "workplace": "Híbrido",
+          "skills": [
+            "Preact",
+            "TypeScript",
+            "Astro",
+            "CSS3",
+            "Docker",
+            "Github Actions",
+            "NodeJS",
+            "Postgres"
+          ]
+        },
+        {
+          "id": "electronet-it-services-technician-intern",
+          "name": "Electronet Ltda.",
+          "position": "Practicante de Soporte Técnico",
+          "startDate": "2018-09",
+          "endDate": "2019-05",
+          "summary": "Soporte técnico de computadoras, equipos electrónicos e instalación, mantenimiento y solución de problemas de redes y sistemas. Asistente en la implementación de proyectos tecnológicos.",
+          "location": "Loja, Ecuador",
+          "workplace": "Híbrido",
+          "skills": []
+        }
+      ],
+      "education": [
+        {
+          "id": "ingeniero-en-telecomunicaciones",
+          "institution": "Universidad Nacional de Loja",
+          "area": "Ingeniería en Telecomunicaciones",
+          "studyType": "Ingeniería",
+          "startDate": "2019-10",
+          "endDate": "2025-07",
+          "description": "Formación profesional orientada al diseño, implementación y gestión de sistemas de comunicación. Enfocado en tecnologías de red, transmisión de datos, telefonía, radiocomunicaciones, redes ópticas y procesamiento digital de señales."
+        },
+        {
+          "id": "tecnico-en-servicios-it",
+          "institution": "Universidad Nacional de Loja",
+          "area": "Bachiller Técnico en Servicios Informáticos",
+          "studyType": "Técnico",
+          "startDate": "2013-09",
+          "endDate": "2019-07",
+          "description": "Formación técnica en soporte informático, administración de redes locales, mantenimiento de hardware y software, y seguridad básica de la información. Adquisición de competencias prácticas en instalación de equipos, configuración de redes y resolución de incidencias técnicas."
+        }
+      ],
+      "skills": [
+        {
+          "name": "Odoo & ERP",
+          "keywords": ["Odoo", "Python", "OWL", "XML", "PostgreSQL", "OCA"]
+        },
+        {
+          "name": "Full Stack TypeScript",
+          "keywords": [
+            "TypeScript",
+            "React",
+            "Next.js",
+            "Node.js",
+            "Astro",
+            "Tailwind CSS"
+          ]
+        },
+        {
+          "name": "Infraestructura & Herramientas",
+          "keywords": ["Docker", "Git", "GitHub Actions", "Linux", "Go"]
+        },
+        {
+          "name": "Mobile",
+          "keywords": ["Flutter"]
+        }
+      ],
+      "languages": [
+        {
+          "language": "Español",
+          "fluency": "Nativo"
+        },
+        {
+          "language": "Inglés",
+          "fluency": "B1"
+        }
+      ]
+    }
+  }
+}

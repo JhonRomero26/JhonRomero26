@@ -1,19 +1,20 @@
 @layer components {
   .pill {
-    background-color: rgb(var(--ui-accent-rgb) / 25%);
-    color: var(--ui-accent);
-    @apply gap-2 rounded-sm px-2 py-1 border inline-flex items-center justify-center transition-colors no-underline text-nowrap;
+    background-color: var(--color-ui-accent);
+    background-color: rgb(var(--ui-accent-rgb, 113 120 179) / 15%);
+    color: var(--color-ui-accent);
+    @apply gap-1.5 rounded-md px-2 sm:px-2.5 py-0.5 sm:py-1 border border-current/20 inline-flex items-center justify-center transition-all duration-200 no-underline text-nowrap text-xs sm:text-sm font-medium hover:border-current/40;
 
     &:last-child {
       @apply mr-0;
     }
 
     &-sm {
-      @apply text-sm;
+      @apply text-xs px-1.5 py-0.5;
     }
 
     &-lg {
-      @apply text-lg px-3 py-1;
+      @apply text-base px-3 py-1.5;
     }
   }
 }

@@ -1,29 +1,177 @@
 ---
-import ProjectCard from "@/components/ProjectCardWithTooltip.astro";
 import type { CollectionEntry } from "astro:content";
 import { getAbsoluteLocaleUrl } from "astro:i18n";
+import ProjectCard from "@/components/ProjectCard.astro";
 
 interface Props {
+  id?: string;
+  class?: string;
   projects: CollectionEntry<"projects">[];
 }
 
 const lang = Astro.currentLocale || "en";
-const { projects } = Astro.props;
+const { id, class: className, projects } = Astro.props;
 ---
 
-<div class="container grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+<div
+  id={id}
+  class:list={[
+    "grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 auto-rows-fr w-full",
+    className,
+  ]}
+>
   {
     projects.map(({ id, data }) => (
-      <ProjectCard
-        id={id}
-        slug={getAbsoluteLocaleUrl(lang, `/projects/${id.split("/")[1]}`)}
-        title={data.title}
-        description={data.description}
-        skills={data.skills}
-        website={data.website}
-        repoUri={data.repoUri}
-        image={data.image}
-      />
+      <div
+        class="project-item h-full transition-all duration-300 ease-in-out"
+        data-skills={data.skills?.join(",")}
+      >
+        <ProjectCard
+          id={id}
+          slug={getAbsoluteLocaleUrl(lang, `/projects/${id.split("/")[1]}`)}
+          title={data.title}
+          description={data.description}
+          skills={data.skills}
+          website={data.website}
+          repoUri={data.repoUri}
+          image={data.image}
+        />
+      </div>
     ))
   }
 </div>
+
+<!-- No Results Message -->
+<div
+  id={`${id}-no-results`}
+  class="hidden flex-col items-center justify-center py-20 text-center animate-fade-in"
+>
+  <div class="text-6xl mb-4">🔍</div>
+  <h3 class="text-2xl font-bold text-typo-primary mb-2">No projects found</h3>
+  <p class="text-typo-secondary">Try selecting a different technology.</p>
+</div>
+
+<script>
+  class FilterableGrid {
+    gridElement: HTMLElement;
+    items: HTMLElement[];
+    noResultsElement: HTMLElement | null;
+
+        constructor(gridId: string) {
+
+          const grid = document.getElementById(gridId);
+
+          if (!grid) throw new Error(`Grid element with ID ${gridId} not found.`);
+
+          this.gridElement = grid;
+
+          this.items = Array.from(grid.querySelectorAll(".project-item"));
+
+          this.noResultsElement = document.getElementById(`${gridId}-no-results`);
+
+
+
+          // Initialize filter state
+
+          this.filterProjects("all");
+
+
+
+          // Listen for filter change events from parent
+
+          this.gridElement.addEventListener("grid:filter-change", this.handleFilterChange as EventListener);
+
+        }
+
+    handleFilterChange = (eventOrFilter: CustomEvent | string) => {
+      let filter: string;
+      if (typeof eventOrFilter === "string") {
+        filter = eventOrFilter; // Initial call with 'all'
+      } else {
+        filter = eventOrFilter.detail.filter;
+      }
+      this.filterProjects(filter);
+    };
+
+    filterProjects(filter: string) {
+      const toHide: HTMLElement[] = [];
+      const toShow: HTMLElement[] = [];
+
+      // 0. Disable initial keyframe animations
+      this.items.forEach((item) => {
+        item.classList.remove("animate", "animate-fade-in-up");
+        item.style.animationDelay = "0ms";
+      });
+
+      // 1. Categorize
+      this.items.forEach((item) => {
+        const skillsAttr = item.dataset.skills || "";
+        const skills = skillsAttr.split(",").map((s) => s.trim());
+        const matches = filter === "all" || skills.includes(filter);
+
+        if (matches) {
+          toShow.push(item);
+        } else {
+          toHide.push(item);
+        }
+      });
+
+      // 2. Animate Out (Immediate)
+      toHide.forEach((item) => {
+        item.style.opacity = "0";
+        item.style.transform = "scale(0.95)";
+      });
+
+      // 3. Update Layout & Animate In (After Out finishes)
+      // Using 300ms to match the CSS duration-300
+      setTimeout(() => {
+        // Collapse hidden items
+        toHide.forEach((item) => {
+          item.classList.add("hidden");
+          item.style.display = "none";
+        });
+
+        // Prepare visible items
+        let visibleCount = 0;
+        toShow.forEach((item) => {
+          item.classList.remove("hidden");
+          item.style.display = "";
+          visibleCount++;
+        });
+
+        // Trigger Fade In (next frame to allow display change to register)
+        requestAnimationFrame(() => {
+          toShow.forEach((item) => {
+            item.style.opacity = "1";
+            item.style.transform = "scale(1)";
+          });
+        });
+
+        // Update No Results state
+        if (this.noResultsElement) {
+          if (visibleCount === 0) {
+            this.noResultsElement.classList.remove("hidden");
+            this.noResultsElement.classList.add("flex");
+          } else {
+            this.noResultsElement.classList.add("hidden");
+            this.noResultsElement.classList.remove("flex");
+          }
+        }
+      }, 300);
+    }
+  }
+
+  // Initialize filterable grids
+  function initFilterableGrids() {
+    document.querySelectorAll(".grid[id]").forEach((gridElement) => {
+      // @ts-ignore
+      if (!gridElement._filterableGrid) {
+        // @ts-ignore
+        gridElement._filterableGrid = new FilterableGrid(gridElement.id);
+      }
+    });
+  }
+
+  initFilterableGrids();
+  document.addEventListener("astro:page-load", initFilterableGrids);
+</script>

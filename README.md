@@ -6,10 +6,10 @@
 ###
 
 <div align="center">
-  <a href="https://jhonromero26.vercel.app" target="_blank">
+  <a href="https://jhonromero.dev" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Website&label=&color=ff734e&logoColor=06011a&labelColor=06011a&style=for-the-badge" height="25" alt="website logo"  />
   </a>
-  <a href="https://www.linkedin.com/in/jhonchito-romero/" target="_blank">
+  <a href="https://www.linkedin.com/in/jhonromero26/" target="_blank">
     <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"  />
   </a>
   <a href="mailto:romerogonzaga21@gmail.com" target="_blank">

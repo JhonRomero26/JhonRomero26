@@ -1,9 +1,9 @@
 .timeline-card {
   --circle-date: 0.75rem;
-  --timeline-width: 0.125rem;
-  --padding: 2rem;
-  --timeline-content: calc(var(--padding) + 1rem);
-  --timeline-margin: calc(var(--timeline-content) / 1.75);
+  --timeline-width: 2px;
+  --padding: 1.25rem;
+  --timeline-content: calc(var(--padding) + 0.75rem);
+  --timeline-margin: calc(var(--timeline-content) / 1.5);
 
   display: flex;
   flex-direction: column;
@@ -11,6 +11,22 @@
   padding-left: var(--timeline-content);
   width: 100%;
   position: relative;
+  transition: background-color 0.3s ease;
+
+  @media (min-width: 640px) {
+    --padding: 1.5rem;
+    --timeline-content: calc(var(--padding) + 1rem);
+    --timeline-margin: calc(var(--timeline-content) / 1.75);
+  }
+
+  @media (min-width: 1024px) {
+    --padding: 2rem;
+  }
+
+  &:hover {
+    background: var(--color-ui-01);
+    border-radius: 0.75rem;
+  }
 
   &::before {
     --top: calc(var(--padding) + var(--circle-date) + 2px);
@@ -22,10 +38,15 @@
           --circle-date
         ) / 2
     );
-    background: var(--color-ui-accent);
+    background: linear-gradient(
+      180deg,
+      var(--color-ui-accent) 0%,
+      var(--color-primary-300) 100%
+    );
     width: var(--timeline-width);
     top: var(--top);
     height: calc(100% - var(--circle-date) + 3px);
+    border-radius: 1px;
   }
 
   &:last-of-type::before {
@@ -34,10 +55,11 @@
 }
 
 .timeline-card-date {
-  @apply text-xs font-medium sm:text-sm;
+  @apply text-xs font-semibold sm:text-sm;
   color: var(--color-ui-accent);
   margin-bottom: 0.5rem;
   position: relative;
+  letter-spacing: 0.025em;
 
   &::before {
     content: "";
@@ -50,9 +72,17 @@
     height: var(--circle-date);
     border: 2px solid var(--color-ui-accent);
     border-radius: 50%;
+    background: var(--color-ui-body);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 3px var(--color-ui-body);
   }
 
   &:last-of-type::before {
     background: var(--color-ui-accent);
   }
+}
+
+.timeline-card:hover .timeline-card-date::before {
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: 0 0 0 4px var(--color-ui-body), 0 0 12px var(--color-ui-accent);
 }

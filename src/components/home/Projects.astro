@@ -2,35 +2,137 @@
 import CentralSection from "@/components/CentralSection.astro";
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
-import GridProjects from "@/components/GridProjects.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import NoContent from "@/components/NoContent.astro";
 import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { loadI18n } from "@/utils/i18n";
+import GridProjects from "../GridProjects.astro";
 
 const lang = Astro.currentLocale || "en";
 const t = await loadI18n({ lang, asset: "pages/home" });
 const projects = await getCollection("projects", ({ id }) =>
-  id.startsWith(`${lang}/`),
+    id.startsWith(`${lang}/`),
 );
 projects.sort((a, b) => a.data.order - b.data.order);
+
+// Extract unique skills
+const allSkills = Array.from(
+    new Set(projects.flatMap((project) => project.data.skills || [])),
+).sort();
 ---
 
 <CentralSection
-  class="relative before:size-[max(50vw,70vh)] before:absolute before:top-56 before:left-1/2 before:-translate-x-1/2 before:z-[-1] before:blur-[200px] dark:before:bg-violet-400/50 before:animate before:animate-duration-[10s] before:animate-pulse before:animate-iteration-count-infinite before:animate-direction-alternate before:rounded-full before:transition-colors"
+    id="projects"
+    class="home-projects-section relative before:size-[max(50vw,70vh)] before:absolute before:top-56 before:left-1/2 before:-translate-x-1/2 before:z-[-1] before:blur-[200px] dark:before:bg-violet-400/50 before:animate before:animate-duration-[10s] before:animate-pulse before:animate-iteration-count-infinite before:animate-direction-alternate before:rounded-full before:transition-colors"
 >
-  <span slot="title">
-    {t("projects.title.normal")}
-    <span class="text-ui-accent">{t("projects.title.accent")}</span>
-  </span>
-  <p slot="subtitle">
-    {t("projects.subtitle")}
-  </p>
+    <span slot="title">
+        {t("projects.title.normal")}
+        <span class="text-ui-accent">{t("projects.title.accent")}</span>
+    </span>
+    <p slot="subtitle">
+        {t("projects.subtitle")}
+    </p>
 
-  {projects.length > 0 ? <GridProjects projects={projects} /> : <NoContent />}
-  <div class="mt-12 flex justify-center">
-    <a href={getAbsoluteLocaleUrl(lang, "/projects")} class="btn btn-secondary">
-      {t("projects.moreProjects")}
-      <Icon name="tabler:arrow-right" />
-    </a>
-  </div>
+    <!-- Filters -->
+    <div class="mb-8 sm:mb-12 w-full max-w-4xl mx-auto">
+        <div class="overflow-x-auto pb-4 mask-fade-sides scrollbar-hide">
+            <div
+                class="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-2 sm:gap-3 min-w-max px-4"
+            >
+                <button
+                    class="filter-btn active px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-ui-02/50 bg-ui-01 text-typo-secondary hover:border-ui-accent/30 hover:text-ui-accent hover:shadow-lg hover:shadow-ui-accent/10 data-[active=true]:bg-ui-accent data-[active=true]:border-ui-accent data-[active=true]:text-white data-[active=true]:shadow-ui-accent/25 whitespace-nowrap"
+                    data-filter="all"
+                    data-active="true"
+                >
+                    All
+                </button>
+                {
+                    allSkills.map((skill) => (
+                        <button
+                            class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-ui-02/50 bg-ui-01 text-typo-secondary hover:border-ui-accent/30 hover:text-ui-accent hover:shadow-lg hover:shadow-ui-accent/10 data-[active=true]:bg-ui-accent data-[active=true]:border-ui-accent data-[active=true]:text-white data-[active=true]:shadow-ui-accent/25 whitespace-nowrap"
+                            data-filter={skill}
+                        >
+                            {skill}
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    {
+        projects.length > 0 ? (
+            <GridProjects id="home-projects-grid" projects={projects} />
+        ) : (
+            <NoContent />
+        )
+    }
+
+    <div class="mt-12 flex justify-center">
+        <a
+            href={getAbsoluteLocaleUrl(lang, "/projects")}
+            class="btn btn-secondary"
+        >
+            {t("projects.moreProjects")}
+            <Icon name="tabler:arrow-right" />
+        </a>
+    </div>
 </CentralSection>
+
+<script>
+    function initHomeFilterDispatcher() {
+        const container = document.querySelector(".home-projects-section");
+        if (!container) return;
+
+        const buttons = container.querySelectorAll(".filter-btn");
+        const gridElement = container.querySelector("#home-projects-grid"); // The GridProjects component itself
+
+        if (!gridElement || !buttons.length) return;
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                buttons.forEach((b) => b.setAttribute("data-active", "false"));
+                btn.setAttribute("data-active", "true");
+                const filter = btn.getAttribute("data-filter") || "all";
+
+                // Dispatch custom event for GridProjects to listen to
+                const event = new CustomEvent("grid:filter-change", {
+                    detail: { filter: filter },
+                    bubbles: true, // Allow event to bubble up if needed
+                });
+                gridElement.dispatchEvent(event);
+            });
+        });
+
+        // Dispatch initial filter event for "all" on load
+        document.addEventListener("astro:after-swap", () => {
+            const initialFilterEvent = new CustomEvent("grid:filter-change", {
+                detail: { filter: "all" },
+                bubbles: true,
+            });
+            gridElement.dispatchEvent(initialFilterEvent);
+        });
+    }
+
+    initHomeFilterDispatcher();
+</script>
+
+<style>
+    .mask-fade-sides {
+        mask-image: linear-gradient(
+            to right,
+            transparent 0px,
+            black 24px,
+            black calc(100% - 24px),
+            transparent 100%
+        );
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>

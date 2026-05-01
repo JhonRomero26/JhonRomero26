@@ -1,14 +1,52 @@
+#header-menu.open {
+  @apply max-md:opacity-100 max-md:pointer-events-auto max-md:translate-y-0;
+}
+
+/* Staggered animation for menu items */
+#header-menu.open li {
+  @apply opacity-100 translate-y-0;
+}
+
+#header-menu li {
+  @apply max-md:opacity-0 max-md:-translate-y-4 max-md:transition-all max-md:duration-500 max-md:ease-out;
+}
+
+#header-menu li:nth-child(1) { transition-delay: 100ms; }
+#header-menu li:nth-child(2) { transition-delay: 150ms; }
+#header-menu li:nth-child(3) { transition-delay: 200ms; }
+#header-menu li:nth-child(4) { transition-delay: 250ms; }
+
+.header-menu-open .burger-icon {
+  @apply opacity-0 rotate-90;
+}
+
+.header-menu-open .close-icon {
+  @apply opacity-100 rotate-0;
+}
+
+.close-icon {
+  @apply -rotate-90;
+}
+
 @layer components {
-  .header {
-    animation: to-blur linear both;
+  /* Animate the background layer opacity for better performance */
+  #header-bg {
+    /* Final state properties (always set, just hidden by opacity) */
+    @apply bg-white/80 dark:bg-ui-body/80 border-gray-200/60 dark:border-ui-02/50 shadow-sm dark:shadow-none;
+    backdrop-filter: blur(12px);
+
+    /* Start invisible */
+    opacity: 0;
+
+    /* Animation driver */
+    animation: header-fade-in linear both;
     animation-timeline: scroll();
     animation-range: 0 300px;
   }
 
-  @keyframes to-blur {
+  @keyframes header-fade-in {
     to {
-      background-color: var(--color-ui-body);
-      backdrop-filter: blur(10px);
+      opacity: 1;
     }
   }
 }

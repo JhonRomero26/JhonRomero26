@@ -2,15 +2,21 @@
   .tooltip {
     display: inline-flex;
     position: relative;
+  }
 
-    &:hover .tooltip-message {
-      display: block;
-      opacity: 1;
-    }
+  /* JS-driven visibility: show when data-show is true on the message element */
+  .tooltip-message[data-show="true"] {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .tooltip-message {
     @apply z-20 py-2 px-4 text-typo-primary shadow rounded bg-ui-01 absolute hidden w-max;
+    /* start hidden but keep space-free positioning; we animate opacity/transform */
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.14s ease, transform 0.14s ease;
 
     &.top,
     &.bottom {

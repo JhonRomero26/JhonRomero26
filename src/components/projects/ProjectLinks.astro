@@ -12,16 +12,16 @@ const { repoUri, website } = Astro.props;
 const t = await loadI18n({ lang, asset: "pages/project-detail" });
 ---
 
-<div class="flex mx-auto max-w-3xl px-6">
+<div class="flex flex-wrap justify-center gap-4 w-full">
   {
     repoUri && (
       <a
         href={repoUri}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-block btn-tertiary text-lg py-4 rounded-none flex items-center gap-2"
+        class="btn btn-secondary rounded-full px-6 py-3 text-base font-medium flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
       >
-        <Icon name="tabler:brand-github" />
+        <Icon name="tabler:brand-github" class="text-xl" />
         <span>{t("repository")}</span>
       </a>
     )
@@ -32,9 +32,9 @@ const t = await loadI18n({ lang, asset: "pages/project-detail" });
         href={website}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-block btn-tertiary text-lg py-4 rounded-none flex items-center gap-2"
+        class="btn btn-primary rounded-full px-6 py-3 text-base font-medium flex items-center gap-2 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30 hover:-translate-y-0.5 transition-all duration-300"
       >
-        <Icon name="tabler:world" />
+        <Icon name="tabler:world" class="text-xl" />
         <span>{t("website")}</span>
       </a>
     )

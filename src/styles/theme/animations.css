@@ -1,5 +1,9 @@
 @theme {
   --animate-scale-fade-in: scale-fade-in 500ms forwards;
+  --animate-fade-in-up: fade-in-up 600ms ease-out forwards;
+  --animate-slide-in-left: slide-in-left 500ms ease-out forwards;
+  --animate-slide-in-right: slide-in-right 500ms ease-out forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
 
   @keyframes scale-fade-in {
     from {
@@ -11,4 +15,66 @@
       transform: scale(1);
     }
   }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* Breathing animation for Hero */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 5s ease-in-out infinite;
 }

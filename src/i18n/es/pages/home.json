@@ -1,18 +1,54 @@
 {
-  "title": "Jhon Romero - Desarrollador Full Stack",
-  "description": "Desarrollador Full Stack con experiencia en react, typescript, nextjs, astrojs, python, odoo, docker, ci/cd, flutter y postgres.",
+  "title": "Jhon Romero - Desarrollador Odoo y Full Stack TypeScript",
+  "description": "Desarrollador Odoo y Full Stack TypeScript especializado en software empresarial. Disponible para trabajo full-time y freelance — remoto, presencial o reubicación.",
   "hero": {
-    "description": "La energía se transforma y mi trabajo es materializar la energía de tus ideas en grandes experiencias digitales",
-    "subtitle": "Desarrollador Full Stack"
+    "description": "Construyo software empresarial que funciona: personalización Odoo, soluciones Full Stack TypeScript e integraciones de extremo a extremo. Disponible para trabajo full-time o freelance — remoto, presencial o reubicación.",
+    "subtitle": "Desarrollador Odoo y Full Stack TypeScript",
+    "availability": "Disponible — full-time y freelance",
+    "projectsCta": "Ver proyectos",
+    "contactCta": "Contactarme"
+  },
+  "about": {
+    "title": {
+      "normal": "Qué",
+      "accent": "puedo hacer por vos"
+    },
+    "subtitle": "Trabajo con empresas que necesitan software empresarial confiable y mantenible — desde implementaciones Odoo hasta productos Full Stack TypeScript.",
+    "pillars": [
+      {
+        "title": "Personalización Odoo",
+        "description": "Módulos personalizados, lógica de negocio y flujos ERP adaptados a cómo realmente trabaja tu equipo — y no al revés."
+      },
+      {
+        "title": "Full Stack TypeScript",
+        "description": "Aplicaciones web de punta a punta con React, Node.js y tooling moderno. Type-safe, testeadas y construidas para durar."
+      },
+      {
+        "title": "Integraciones y APIs",
+        "description": "Conexión de Odoo con sistemas externos, pasarelas de pago, servicios de terceros y APIs REST o GraphQL a medida."
+      },
+      {
+        "title": "Código Empresarial Mantenible",
+        "description": "Arquitectura limpia, código documentado y proyectos listos para ser traspasados. Escribo software que tu equipo puede mantener y evolucionar."
+      }
+    ]
   },
   "skillsTitle": "Mis habilidades",
   "projects": {
-    "subtitle": "Cada proyecto tiene un propósito y mi trabajo es caracterizarlo en un escenario real",
+    "subtitle": "Soluciones reales para problemas de negocio reales — desde personalizaciones ERP hasta productos web full-stack.",
     "title": {
-      "normal": "Algunos de mis",
-      "accent": "trabajos"
+      "normal": "Trabajo",
+      "accent": "seleccionado"
     },
-    "moreProjects": "Ver todos los proyectos"
+    "moreProjects": "Ver todos los proyectos",
+    "pageTitle": "Proyectos — Jhon Romero | Portfolio Odoo y TypeScript",
+    "pageDescription": "Explorá el portfolio de Jhon Romero: personalizaciones Odoo, apps Full Stack TypeScript e integraciones de APIs construidas para problemas empresariales reales."
+  },
+  "finalCta": {
+    "title": "¿Listo para construir algo que funcione?",
+    "subtitle": "Ya sea que necesités expertise en Odoo, un equipo Full Stack TypeScript, o ambos — hablemos.",
+    "primaryCta": "Ponerse en contacto",
+    "secondaryCta": "Ver CV"
   },
   "trajectory": {
     "subtitle": "Desde el inicio hasta al presente haciendo una diferencia en el mundo digital",

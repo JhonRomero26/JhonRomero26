@@ -1,0 +1,54 @@
+{
+  "title": "Contact — Jhon Romero",
+  "description": "Get in touch with Jhon Romero — Odoo developer and Full Stack TypeScript engineer. Available for full-time and freelance opportunities.",
+  "heading": {
+    "normal": "Let's",
+    "accent": "work together"
+  },
+  "subtitle": "I'm available for full-time positions and freelance projects — remote, on-site, or relocation.",
+  "availability": {
+    "label": "Current status",
+    "status": "Open to work",
+    "types": "Full-time · Freelance · Remote · On-site · Relocation"
+  },
+  "channels": {
+    "title": "Ways to reach me",
+    "email": {
+      "label": "Email",
+      "value": "romerogonzaga21@gmail.com"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/jhonromero26"
+    },
+    "github": {
+      "label": "GitHub",
+      "value": "github.com/JhonRomero26"
+    },
+    "cv": {
+      "label": "Curriculum Vitae",
+      "value": "View full CV"
+    }
+  },
+  "opportunities": {
+    "title": "I'm looking for",
+    "items": [
+      {
+        "title": "Full-time role",
+        "description": "Engineering positions focused on Odoo development, Full Stack TypeScript, or both."
+      },
+      {
+        "title": "Freelance projects",
+        "description": "Short or long-term contracts for Odoo customization, web apps, and API integrations."
+      },
+      {
+        "title": "Remote or on-site",
+        "description": "Open to fully remote work and to on-site or hybrid roles, including relocation."
+      }
+    ]
+  },
+  "cta": {
+    "email": "Send an email",
+    "cv": "View CV"
+  }
+}

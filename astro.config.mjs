@@ -21,6 +21,7 @@ const options = {
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://jhonromero.dev",
   compressHTML: true,
   site: "https://jhonromero.dev",
 
@@ -49,6 +50,8 @@ export default defineConfig({
     icon({
       include: {
         "simple-icons": [
+          "odoo",
+          "python",
           "react",
           "typescript",
           "html5",
@@ -71,8 +74,9 @@ export default defineConfig({
           "linkedin",
           "whatsapp",
         ],
-        "tabler-icons": [
+        "tabler": [
           "menu-2",
+          "x",
           "sun",
           "moon",
           "paperclip",
@@ -81,9 +85,20 @@ export default defineConfig({
           "user",
           "clock",
           "mail",
+          "phone",
           "brand-github",
           "brand-linkedin",
           "brand-instagram",
+          "briefcase",
+          "world",
+          "map-pin",
+          "printer",
+          "download",
+          "info-circle",
+          "school",
+          "tools",
+          "language",
+          "calendar",
         ],
       },
     }),

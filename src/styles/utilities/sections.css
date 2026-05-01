@@ -1,0 +1,86 @@
+/**
+ * sections.css
+ * Alternating section backgrounds and visual rhythm utilities.
+ * "Editorial tecnológico cálido" direction:
+ *   Light: warm off-white (#faf9f7) base, alternate sections use pure white
+ *   Dark: stays with existing gray-900/800 palette
+ */
+
+@layer components {
+  /**
+   * Section divider — subtle hairline between major page sections.
+   * Usage: add class="section-divider" to an empty <div> between sections.
+   */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-ui-02) 20%,
+      var(--color-ui-02) 80%,
+      transparent
+    );
+  }
+
+  /**
+   * Alternate section background — for zebra-stripe visual rhythm.
+   * Sections with this class get a slightly different background.
+   */
+  .section-alt {
+    background-color: var(--color-ui-01);
+  }
+  /* Dark mode: use a slightly brighter card surface for alt sections */
+  :where([data-theme="dark"]) .section-alt {
+    background-color: var(--color-ui-01);
+  }
+
+  /**
+   * Card surface — used by cards that sit on section-alt backgrounds.
+   */
+  .card-surface {
+    background-color: var(--color-ui-body);
+    border: 1px solid var(--color-ui-02);
+    border-radius: 1rem;
+  }
+  :where([data-theme="dark"]) .card-surface {
+    background-color: var(--color-ui-01);
+    border-color: color-mix(in oklch, var(--color-ui-02) 50%, transparent);
+  }
+
+  /**
+   * Accent underline for section headings — warm orange bar.
+   */
+  .heading-accent-bar {
+    display: inline-block;
+    width: 3rem;
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(
+      to right,
+      var(--color-primary-500),
+      var(--color-primary-700)
+    );
+    margin-bottom: 1rem;
+  }
+
+  /**
+   * Subtle warm glow orb — decorative, pointer-events: none.
+   * Paired with position: relative on parent.
+   */
+  .warm-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(100px);
+    pointer-events: none;
+    opacity: 0.12;
+    background: radial-gradient(
+      circle,
+      var(--color-primary-400),
+      var(--color-primary-600)
+    );
+  }
+  :where([data-theme="dark"]) .warm-orb {
+    opacity: 0.18;
+  }
+}

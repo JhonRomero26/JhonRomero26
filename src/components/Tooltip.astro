@@ -2,28 +2,52 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"div"> & {
-  direction?:
-    | "top"
-    | "top-start"
-    | "top-end"
-    | "bottom"
-    | "bottom-start"
-    | "bottom-end"
-    | "left"
-    | "left-start"
-    | "left-end"
-    | "right"
-    | "right-start"
-    | "right-end";
+  direction?: "top" | "bottom" | "left" | "right";
   class?: string;
+  maxWidth?: string;
 };
 
-const { direction = "top", class: className, ...props } = Astro.props;
+const {
+  direction = "top",
+  maxWidth = "20rem",
+  class: className,
+  ...props
+} = Astro.props;
 ---
 
-<div class:list={["tooltip", className]} {...props}>
+<div
+  class:list={["tooltip-trigger", className]}
+  {...props}
+  data-direction={direction}
+  data-max-width={maxWidth}
+>
   <slot />
-  <div data-id="tooltip-message" class:list={["tooltip-message", direction]}>
-    <slot name="message" />
-  </div>
+  <template data-tooltip-content>
+    <div class="tooltip-portal">
+      <slot name="message" />
+    </div>
+  </template>
+
+  <script>
+    import { Tooltip } from "@/lib/Tooltip";
+
+    function init() {
+      document.querySelectorAll(".tooltip-trigger").forEach((el) => {
+        // @ts-ignore
+        if (!el._tooltip) {
+          // @ts-ignore
+          el._tooltip = new Tooltip(el as HTMLElement);
+        }
+      });
+    }
+
+    init();
+    document.addEventListener("astro:page-load", init);
+  </script>
+
+  <style>
+    .tooltip-trigger {
+      display: inline-flex;
+    }
+  </style>
 </div>

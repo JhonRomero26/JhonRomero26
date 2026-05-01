@@ -4,38 +4,52 @@
   --color-light: var(--color-gray-50);
   --color-dark: var(--color-gray-900);
 
-  --color-ui-accent: var(--color-primary-500);
-  --color-ui-secondary: #fff;
-  --color-ui-body: var(--color-gray-100);
-  --color-ui-01: var(--color-gray-50);
-  --color-ui-02: var(--color-gray-200);
-  --color-ui-03: var(--color-gray-300);
+  /* Light theme — warm, clean tones with WCAG AA contrast on white */
+  /* ui-accent uses primary-700 for 4.74:1 contrast ratio vs white */
+  --color-ui-accent: var(--color-primary-700);
+  --color-ui-primary: var(--color-primary-700); /* alias for accent */
+  --color-ui-secondary: #ffffff;
+  --color-ui-body: #faf9f7; /* Warm off-white */
+  --color-ui-01: #ffffff; /* Pure white for cards/alt sections */
+  --color-ui-02: #e8e6e3; /* Warm light border */
+  --color-ui-03: #d4d2cf; /* Medium border */
   --color-ui-04: var(--color-gray-900);
   --color-ui-05: var(--color-gray-700);
+  --color-ui-surface: #f5f3f0; /* Subtle warm surface, between body and card */
 
-  --color-typo-heading: var(--color-gray-900);
-  --color-typo-primary: var(--color-gray-800);
-  --color-typo-icon: var(--color-gray-700);
-  --color-typo-secondary: var(--color-gray-700);
+  --color-typo-heading: #1a1816; /* Warm near-black */
+  --color-typo-primary: #2d2a27; /* Warm body text */
+  --color-typo-icon: #5c5855;
+  --color-typo-secondary: #6b6662; /* 5.67:1 vs white ✓ WCAG AA */
   --color-typo-inverted: var(--color-gray-50);
-  --color-typo-disabled: var(--color-gray-400);
-  --color-typo-muted: var(--color-gray-500);
+  --color-typo-disabled: #a8a5a1;
+  --color-typo-muted: #767270; /* 4.57:1 vs white ✓ WCAG AA */
+
+  /* Shadows */
+  --shadow-card: 0 1px 4px 0 rgba(26, 24, 22, 0.06), 0 4px 16px 0 rgba(26, 24, 22, 0.04);
+  --shadow-card-hover: 0 4px 12px 0 rgba(26, 24, 22, 0.08), 0 12px 32px 0 rgba(92, 49, 13, 0.10);
 }
 
 @variant dark {
+  /* Dark theme — keep original palette */
   --color-ui-body: var(--color-gray-900);
   --color-ui-01: var(--color-gray-800);
   --color-ui-02: var(--color-gray-700);
   --color-ui-03: var(--color-gray-600);
   --color-ui-04: var(--color-gray-50);
   --color-ui-05: var(--color-gray-200);
-  --color-accent: var(--color-primary-500);
+  --color-ui-surface: var(--color-gray-800);
+  --color-ui-accent: var(--color-primary-500);
+  --color-ui-primary: var(--color-primary-500);
 
   --color-typo-heading: var(--color-gray-50);
   --color-typo-primary: var(--color-gray-100);
   --color-typo-icon: var(--color-gray-200);
-  --color-typo-secondary: var(--color-gray-200);
+  --color-typo-secondary: var(--color-gray-300);
   --color-typo-inverted: var(--color-gray-900);
   --color-typo-disabled: var(--color-gray-500);
   --color-typo-muted: var(--color-gray-400);
+
+  --shadow-card: 0 1px 4px 0 rgba(0, 0, 0, 0.30), 0 4px 16px 0 rgba(0, 0, 0, 0.20);
+  --shadow-card-hover: 0 4px 12px 0 rgba(0, 0, 0, 0.40), 0 12px 32px 0 rgba(0, 0, 0, 0.30);
 }

@@ -12,9 +12,12 @@ interface Props {
   description: string;
   image?: string;
   canonical?: string;
+  ogType?: "website" | "article" | "profile";
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, image, canonical } = Astro.props;
+const { title, description, image, canonical, ogType, noindex, jsonLd } = Astro.props;
 const lang = Astro.currentLocale;
 ---
 
@@ -27,6 +30,9 @@ const lang = Astro.currentLocale;
       image={image}
       canonical={canonical}
       lang={lang}
+      ogType={ogType}
+      noindex={noindex}
+      jsonLd={jsonLd}
     />
     <ClientRouter />
     <ApplyColorTheme />

@@ -1,21 +1,57 @@
 {
-  "title": "Jhon Romero - Full Stack Developer",
-  "description": "Full Stack Developer with experience in react, typescript, nextjs, astrojs, python, odoo, docker, ci/cd, flutter, and postgres.",
+  "title": "Jhon Romero - Odoo & Full Stack TypeScript Developer",
+  "description": "Odoo developer and Full Stack TypeScript engineer building enterprise software solutions. Available for full-time and freelance — remote, local or relocation.",
   "hero": {
-    "description": "The energy is transformed and my job is to materialize the energy of your ideas into great digital experiences",
-    "subtitle": "Full Stack Developer"
+    "description": "I build enterprise software that works: Odoo customization, Full Stack TypeScript solutions, and end-to-end integrations. Available for full-time or freelance — remote, on-site, or relocation.",
+    "subtitle": "Odoo & Full Stack TypeScript Developer",
+    "availability": "Open to work — full-time & freelance",
+    "projectsCta": "View projects",
+    "contactCta": "Hire me"
+  },
+  "about": {
+    "title": {
+      "normal": "What I",
+      "accent": "bring to the table"
+    },
+    "subtitle": "I partner with companies that need reliable, maintainable enterprise software — from Odoo implementations to Full Stack TypeScript products.",
+    "pillars": [
+      {
+        "title": "Odoo Customization",
+        "description": "Custom modules, business logic, and ERP workflows tailored to how your team actually works — not the other way around."
+      },
+      {
+        "title": "Full Stack TypeScript",
+        "description": "End-to-end web applications with React, Node.js, and modern tooling. Type-safe, tested, and built to last."
+      },
+      {
+        "title": "Integrations & APIs",
+        "description": "Connecting Odoo with external systems, payment gateways, third-party services, and custom REST or GraphQL APIs."
+      },
+      {
+        "title": "Maintainable Enterprise Code",
+        "description": "Clean architecture, documented code, and handoff-ready projects. I write software that your team can own and evolve."
+      }
+    ]
   },
   "skillsTitle": "My skills",
   "projects": {
-    "subtitle": "Each project has a different purpose and my job is to characterize it in a real scenario",
+    "subtitle": "Real solutions built for real business problems — from ERP customizations to full-stack web products.",
     "title": {
-      "normal": "Some of my",
-      "accent": "jobs"
+      "normal": "Selected",
+      "accent": "work"
     },
-    "moreProjects": "See all projects"
+    "moreProjects": "See all projects",
+    "pageTitle": "Projects — Jhon Romero | Odoo & TypeScript Portfolio",
+    "pageDescription": "Explore Jhon Romero's portfolio of projects: Odoo customizations, Full Stack TypeScript web apps, and API integrations built for real business problems."
+  },
+  "finalCta": {
+    "title": "Ready to build something that works?",
+    "subtitle": "Whether you need Odoo expertise, a Full Stack TypeScript team, or both — let's talk.",
+    "primaryCta": "Get in touch",
+    "secondaryCta": "View CV"
   },
   "trajectory": {
-    "subtitle": "From the beginning to the presente making a difference in the digital world",
+    "subtitle": "From the beginning to the present, making a difference in the digital world",
     "title": {
       "normal": "My trajectory",
       "accent": "as a professional"

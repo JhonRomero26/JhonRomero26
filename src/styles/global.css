@@ -23,6 +23,7 @@
 @import "./utilities/scrollbar.css";
 @import "./utilities/infinite-scroll.css";
 @import "./utilities/hidden-animations.css";
+@import "./utilities/sections.css";
 
 @plugin "@midudev/tailwind-animations";
 @plugin "@tailwindcss/typography";

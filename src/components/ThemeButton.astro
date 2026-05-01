@@ -44,8 +44,17 @@ const t = await loadI18n({
     const currentTheme = $html?.getAttribute(themeAttr) ?? defaultTheme;
     const newTheme = currentTheme === "light" ? "dark" : "light";
 
-    $html?.setAttribute(themeAttr, newTheme);
-    localStorage.setItem(storageKey, newTheme);
+    const updateTheme = () => {
+      $html?.setAttribute(themeAttr, newTheme);
+      localStorage.setItem(storageKey, newTheme);
+    };
+
+    // Use View Transitions API if available for smooth performance
+    if (document.startViewTransition) {
+      document.startViewTransition(updateTheme);
+    } else {
+      updateTheme();
+    }
   };
 
   const handleThemePreferenceChange = (e) => {

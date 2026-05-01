@@ -5,51 +5,80 @@ import { Icon } from "astro-icon/components";
 import CentralSection from "../CentralSection.astro";
 
 const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
-const skills = [
-  { icon: "simple-icons:react", name: "ReactJS" },
-  { icon: "simple-icons:typescript", name: "TypeScript" },
-  { icon: "simple-icons:html5", name: "HTML5" },
-  { icon: "simple-icons:css3", name: "CSS3" },
-  { icon: "simple-icons:javascript", name: "JavaScript" },
-  { icon: "simple-icons:astro", name: "Astro" },
-  { icon: "simple-icons:tailwindcss", name: "TailwindCSS" },
-  { icon: "simple-icons:git", name: "Git" },
-  { icon: "simple-icons:github", name: "GitHub" },
-  { icon: "simple-icons:figma", name: "Figma" },
-  { icon: "simple-icons:githubactions", name: "GitHub Actions" },
-  { icon: "simple-icons:docker", name: "Docker" },
-  { icon: "simple-icons:nodedotjs", name: "NodeJS" },
-  { icon: "simple-icons:arduino", name: "Arduino" },
-  { icon: "simple-icons:postgresql", name: "PostgreSQL" },
-  { icon: "simple-icons:mongodb", name: "MongoDB" },
-  { icon: "simple-icons:sass", name: "Sass" },
-  { icon: "simple-icons:graphql", name: "GraphQL" },
+
+// Core skills — primary positioning (Odoo, Python, TypeScript-ecosystem)
+const coreSkills = [
+    { icon: "simple-icons:odoo", name: "Odoo", core: true },
+    { icon: "simple-icons:python", name: "Python", core: true },
+    { icon: "simple-icons:typescript", name: "TypeScript", core: true },
+    { icon: "simple-icons:react", name: "ReactJS", core: true },
+    { icon: "simple-icons:nodedotjs", name: "NodeJS", core: true },
+    { icon: "simple-icons:postgresql", name: "PostgreSQL", core: true },
+];
+
+// Complementary skills
+const complementarySkills = [
+    { icon: "simple-icons:javascript", name: "JavaScript" },
+    { icon: "simple-icons:html5", name: "HTML5" },
+    { icon: "simple-icons:css3", name: "CSS3" },
+    { icon: "simple-icons:astro", name: "Astro" },
+    { icon: "simple-icons:tailwindcss", name: "TailwindCSS" },
+    { icon: "simple-icons:git", name: "Git" },
+    { icon: "simple-icons:github", name: "GitHub" },
+    { icon: "simple-icons:figma", name: "Figma" },
+    { icon: "simple-icons:githubactions", name: "GitHub Actions" },
+    { icon: "simple-icons:docker", name: "Docker" },
+    { icon: "simple-icons:mongodb", name: "MongoDB" },
+    { icon: "simple-icons:graphql", name: "GraphQL" },
 ];
 ---
 
-<CentralSection>
-  <span slot="title">{t("skillsTitle")}</span>
+<CentralSection class="overflow-hidden section">
+    <span slot="title">{t("skillsTitle")}</span>
 
-  <InfiniteScroll spatial="6rem" duration={40}>
-    {
-      skills.slice(0, Math.floor(skills.length / 2)).map(({ icon, name }) => (
-        <div class="flex gap-6 flex-col items-center">
-          <Icon class="text-5xl md:text-7xl" name={icon} />
-          <span class="md:text-lg">{name}</span>
-        </div>
-      ))
-    }
-  </InfiniteScroll>
-  <InfiniteScroll spatial="6rem" direction="right" duration={40}>
-    {
-      skills
-        .slice(Math.floor(skills.length / 2) + 1, skills.length)
-        .map(({ icon, name }) => (
-          <div class="flex gap-6 flex-col items-center">
-            <Icon class="text-5xl md:text-7xl" name={icon} />
-            <span class="md:text-lg">{name}</span>
-          </div>
-        ))
-    }
-  </InfiniteScroll>
+    <div class="space-y-6 sm:space-y-8 lg:space-y-10">
+        <!-- Row 1: Core skills (larger, accented) -->
+        <InfiniteScroll spatial="4rem" duration={35}>
+            {
+                coreSkills.map(({ icon, name }) => (
+                    <div class="flex gap-3 sm:gap-4 flex-col items-center cursor-default px-2 sm:px-4">
+                        <div
+                            class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-ui-body dark:bg-ui-01 border border-ui-02 dark:border-ui-accent/20"
+                            style="box-shadow: var(--shadow-card);"
+                        >
+                            <Icon
+                                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-ui-accent"
+                                name={icon}
+                            />
+                        </div>
+                        <span class="text-xs sm:text-sm lg:text-base font-semibold text-typo-primary">
+                            {name}
+                        </span>
+                    </div>
+                ))
+            }
+        </InfiniteScroll>
+
+        <!-- Row 2: Complementary skills (standard style) -->
+        <InfiniteScroll spatial="4rem" direction="right" duration={40}>
+            {
+                complementarySkills.map(({ icon, name }) => (
+                    <div class="flex gap-3 sm:gap-4 flex-col items-center cursor-default px-2 sm:px-4">
+                        <div
+                            class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-ui-body dark:bg-ui-01 border border-ui-02 dark:border-ui-02/50"
+                            style="box-shadow: var(--shadow-card);"
+                        >
+                            <Icon
+                                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-600 dark:text-typo-icon"
+                                name={icon}
+                            />
+                        </div>
+                        <span class="text-xs sm:text-sm lg:text-base font-medium text-typo-secondary">
+                            {name}
+                        </span>
+                    </div>
+                ))
+            }
+        </InfiniteScroll>
+    </div>
 </CentralSection>

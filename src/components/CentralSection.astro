@@ -6,15 +6,19 @@ type Props = HTMLAttributes<"section">;
 const { class: className, ...props } = Astro.props;
 ---
 
-<section class:list={["py-32", className]} {...props}>
+<section class:list={["py-16 sm:py-24 lg:py-32", className]} {...props}>
   <div class="container">
-    <div class="mx-auto mb-24 max-w-2xl text-center">
+    <div class="mx-auto mb-12 sm:mb-16 lg:mb-24 max-w-3xl text-center px-4">
+      <!-- Accent bar above heading -->
+      <div class="heading-accent-bar mx-auto mb-4 sm:mb-5" aria-hidden="true" />
       <h2
-        class="mb-4 capitalize text-4xl md:text-5xl xl:text-7xl font-medium [&_span]:block"
+        class="mb-3 sm:mb-4 capitalize text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-tight [&_span]:block text-typo-heading"
       >
         <slot name="title" />
       </h2>
-      <div class="w-full text-typo-secondary text-pretty text-lg lg:text-2xl">
+      <div
+        class="w-full text-typo-secondary text-pretty text-base sm:text-lg lg:text-xl leading-relaxed"
+      >
         <slot name="subtitle" />
       </div>
     </div>

@@ -1,24 +1,50 @@
 @layer components {
   .dropdown {
-    @apply relative;
+    @apply relative inline-block;
   }
+
   .dropdown-content {
-    @apply w-full absolute hidden top-full mt-2 left-1/2 -translate-x-1/2 min-w-40 z-30 rounded p-2 bg-ui-01 transition-colors;
+    /* Layout & Position */
+    @apply fixed z-50 min-w-[10rem] p-1.5;
+
+    /* Visuals */
+    @apply bg-ui-01/95 backdrop-blur-md rounded-xl shadow-xl border border-ui-02/50 ring-1 ring-black/5 dark:ring-white/5;
+
+    /* Default (Hidden) State */
+    display: none;
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+    transform-origin: top;
+
+    /* Modern CSS Entry/Exit Transitions */
+    transition:
+      opacity 0.2s cubic-bezier(0.4, 0, 1, 1),
+      transform 0.2s cubic-bezier(0.4, 0, 1, 1),
+      display 0.2s allow-discrete,
+      overlay 0.2s allow-discrete;
 
     &.active {
-      @apply block;
+      display: block;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+
+      /* Entry Animation Hook */
+      @starting-style {
+        opacity: 0;
+        transform: scale(0.96) translateY(-4px);
+      }
     }
   }
-  .dropdown-item {
-    @apply block px-4 py-2 text-ui-accent transition-colors;
 
-    &.active,
-    &:hover {
-      @apply text-ui-accent;
+  .dropdown-item {
+    @apply flex items-center w-full px-3 py-2 text-sm font-medium text-typo-secondary rounded-lg transition-colors cursor-pointer select-none;
+
+    &:hover, &:focus-visible {
+      @apply bg-ui-accent/10 text-ui-accent outline-none;
     }
 
-    &:hover {
-      @apply bg-ui-accent/15;
+    &.active {
+      @apply bg-ui-accent/5 text-ui-accent;
     }
   }
 }

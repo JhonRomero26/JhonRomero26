@@ -1,5 +1,6 @@
 @layer utilities {
   .container {
-    @apply w-full mx-auto px-4;
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: min(1280px, 100% - 2rem);
   }
 }

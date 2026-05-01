@@ -2,12 +2,12 @@
   "basics": {
     "firstName": "Jhon Alexander",
     "lastName": "Romero Gonzaga",
-    "label": "Full Stack Developer",
+    "label": "Odoo Developer & Full Stack TypeScript Developer",
     "image": "",
     "email": "romerogonzaga21@gmail.com",
     "phone": "+593 95 881 3841",
-    "url": "https://jhonromero26.vercel.app",
-    "summary": "Soy un Full Stack Developer con más de 5 años de experiencia creando soluciones innovadoras con tecnologías como React, Next.js, Node.js y MongoDB. Me apasiona diseñar experiencias accesibles y funcionales, automatizar procesos con Docker y CI/CD, y asegurar calidad con testing. He desarrollado desde sitios web hasta prototipos IoT. Amante del aprendizaje constante, disfruto trabajar en equipo y aportar ideas frescas. ¿Mi meta? Resolver problemas de manera ágil y creativa. ¡Listo para nuevos retos!",
+    "url": "https://jhonromero.dev",
+    "summary": "Soy desarrollador Odoo y Full Stack TypeScript enfocado en software empresarial, personalización de sistemas, integraciones y aplicaciones web modernas. Estoy abierto a oportunidades full-time y freelance, en remoto, presencial o con reubicación.",
     "location": {
       "postalCode": "EC 110150",
       "city": "Loja",
@@ -27,8 +27,8 @@
       },
       {
         "network": "Linkedin",
-        "username": "jhonchinss",
-        "url": "https://linkedin.com/in/jhonchinss"
+        "username": "jhonromero26",
+        "url": "https://www.linkedin.com/in/jhonromero26/"
       },
       {
         "network": "Instagram",

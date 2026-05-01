@@ -1,21 +1,27 @@
 ---
 import TimelineCard from "@/components/TimelineCard.astro";
 import { loadI18n } from "@/utils/i18n";
-import data from "@/assets/cv/education.json";
+import { getResumeEducation } from "@/utils/resume";
+import { Icon } from "astro-icon/components";
 
 const lang = Astro.currentLocale || "en";
 const t = await loadI18n({ lang, asset: "pages/home" });
 
-const education = data[lang as keyof typeof data];
+const education = getResumeEducation(lang);
 ---
 
 <div class="flex-1">
-  <h3 class="text-heading2 font-semibold">{t("trajectory.educationTitle")}</h3>
-  <ol>
+  <h3
+    class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2 text-typo-heading"
+  >
+    <Icon name="tabler:school" class="text-ui-accent" />
+    {t("trajectory.educationTitle")}
+  </h3>
+  <ol class="space-y-1">
     {
       education.map((item) => (
         <TimelineCard
-          title={item.title}
+          title={item.area}
           subtitle={item.institution}
           description={item.description}
           startDate={item.startDate}

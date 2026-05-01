@@ -28,11 +28,12 @@ const urlImage = `/images/projects/${image}`;
 ---
 
 <PostLayout
-  title={title}
+  title={`${title} — Jhon Romero`}
   description={description}
   image={urlImage}
   published={publishDate}
   readMinTime={readMinTime}
+  ogType="article"
 >
   <ProjectLinks slot="subhead" repoUri={repoUri} website={website} />
   {repoUri && <GithubShields slot="subhead" repositoryURL={repoUri} />}

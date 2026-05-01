@@ -1,0 +1,282 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCvData } from "@/assets/cv/cv-data";
+import { Icon } from "astro-icon/components";
+import "@/styles/pages/cv.css";
+
+const lang = Astro.currentLocale || "en";
+const isSpanish = lang === "es";
+const cvData = getCvData(lang);
+const { basics, work, education, skills, languages } = cvData;
+
+const labels = isSpanish
+  ? {
+      titleSuffix: "Desarrollador Odoo y TypeScript",
+      descriptionPrefix: `CV profesional de ${basics.name}.`,
+      downloadHint: "Hacé click en",
+      downloadAction: "Descargar PDF",
+      downloadAfter: "y elegí Guardar como PDF en el diálogo de impresión del navegador.",
+      downloadAria: "Descargar CV como PDF — abre el diálogo de impresión",
+      education: "Educación",
+      experience: "Experiencia profesional",
+      skills: "Habilidades técnicas",
+      languages: "Idiomas",
+      present: "Presente",
+      locale: "es-EC",
+    }
+  : {
+      titleSuffix: "Odoo & TypeScript Engineer",
+      descriptionPrefix: `Professional CV of ${basics.name}.`,
+      downloadHint: "Click",
+      downloadAction: "Download PDF",
+      downloadAfter: "then choose Save as PDF in your browser's print dialog.",
+      downloadAria: "Download CV as PDF — opens print dialog",
+      education: "Education",
+      experience: "Professional Experience",
+      skills: "Technical Skills",
+      languages: "Languages",
+      present: "Present",
+      locale: "en-US",
+    };
+
+/** Format ISO date "YYYY-MM" → "Month YYYY" or leave "Present" as-is */
+function formatDate(dateStr: string): string {
+  if (!dateStr || dateStr === "Present") return dateStr;
+  const [year, month] = dateStr.split("-");
+  if (!month) return year;
+  const date = new Date(Number(year), Number(month) - 1);
+  return date.toLocaleDateString(labels.locale, { month: "short", year: "numeric" });
+}
+
+const canonicalPath = isSpanish ? "/es/cv" : "/cv";
+---
+
+<Layout
+  title={`Curriculum Vitae — ${basics.name} | ${labels.titleSuffix}`}
+  description={`${labels.descriptionPrefix} ${basics.summary}`}
+  ogType="profile"
+  canonical={`https://jhonromero.dev${canonicalPath}`}
+>
+  <!-- Print-only: hide the site header/footer -->
+  <style>
+    @media print {
+      body > header,
+      body > footer,
+      body > main > *:not(.cv-page) {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <div class="cv-page container relative z-10 py-24 sm:py-32 print:py-0 print:container-none print:max-w-none">
+
+    <!-- ── SCREEN: Download actions bar ── -->
+    <div class="cv-screen-actions max-w-none flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 print:hidden">
+      <p class="cv-print-hint">
+        <Icon name="tabler:info-circle" class="text-base shrink-0" aria-hidden="true" />
+        <span>
+          {labels.downloadHint} <strong>{labels.downloadAction}</strong>, {labels.downloadAfter}
+        </span>
+      </p>
+      <button
+        type="button"
+        class="cv-download-btn shrink-0"
+        aria-label={labels.downloadAria}
+        onclick="window.print()"
+      >
+        <Icon name="tabler:download" class="text-base" aria-hidden="true" />
+        {labels.downloadAction}
+      </button>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         CV DOCUMENT
+         Screen  → hero card + 2-col grid portfolio layout
+         Print   → academic single-column (CSS overrides)
+    ════════════════════════════════════════════════ -->
+    <div class="cv-document">
+
+      <!-- ── HEADER / HERO CARD ── -->
+      <header class="cv-header print:mb-0 print:pb-0">
+
+        <!-- Name + Label -->
+        <h1 class="cv-name print:text-[22pt]">
+          {basics.name}
+        </h1>
+        <p class="cv-label print:text-[11pt]">
+          {basics.label}
+        </p>
+
+        <!-- Contact — chips on web, inline bullet row on print -->
+        <div class="cv-contacts print:mt-[4pt]" role="list" aria-label="Contact information">
+          {basics.location && (
+            <span class="cv-contact-item" role="listitem">
+              <Icon name="tabler:map-pin" class="cv-contact-icon" aria-hidden="true" />
+              <span>{basics.location.city}, {basics.location.country}</span>
+            </span>
+          )}
+          {basics.phone && (
+            <a href={`tel:${basics.phone}`} class="cv-contact-item" role="listitem">
+              <Icon name="tabler:phone" class="cv-contact-icon" aria-hidden="true" />
+              <span>{basics.phone}</span>
+            </a>
+          )}
+          {basics.email && (
+            <a href={`mailto:${basics.email}`} class="cv-contact-item" role="listitem">
+              <Icon name="tabler:mail" class="cv-contact-icon" aria-hidden="true" />
+              <span>{basics.email}</span>
+            </a>
+          )}
+          {basics.url && (
+            <a href={basics.url} target="_blank" rel="noopener noreferrer" class="cv-contact-item" role="listitem">
+              <Icon name="tabler:world" class="cv-contact-icon" aria-hidden="true" />
+              <span>{basics.url.replace("https://", "")}</span>
+            </a>
+          )}
+          {basics.profiles.map((profile) => (
+            <a
+              href={profile.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cv-contact-item"
+              role="listitem"
+              aria-label={profile.network}
+            >
+              <Icon name={`simple-icons:${profile.network.toLowerCase()}`} class="cv-contact-icon" aria-hidden="true" />
+              <span>{profile.username}</span>
+            </a>
+          ))}
+        </div>
+
+        <!-- Summary — inside hero card on web, plain paragraph on print -->
+        <div class="cv-summary-block print:mt-[0.25cm] print:mb-0">
+          <p class="cv-summary-text">
+            {basics.summary}
+          </p>
+        </div>
+      </header>
+
+      <!-- ════ CONTENT GRID ════
+           DOM order: Education → Experience → Skills → Languages
+           (DOM order optimises print flow: Education first in PDF)
+           CSS grid places Experience in col-1, sidebar sections in col-2
+      ════════════════════════ -->
+      <div class="cv-content-grid">
+
+        <!-- ── EDUCATION (DOM first → print renders first; CSS grid col-2 row-1 on screen) ── -->
+        <section aria-labelledby="edu-heading" class="cv-section cv-section--education">
+          <h2 id="edu-heading" class="cv-section-title">
+            <span class="cv-section-icon-wrap print:hidden" aria-hidden="true">
+              <Icon name="tabler:school" />
+            </span>
+            {labels.education}
+          </h2>
+
+          <div class="cv-section-body">
+            {education.map((edu) => (
+              <div class="cv-edu-item">
+                <div class="cv-edu-main">
+                  <h3 class="cv-edu-institution">{edu.institution}</h3>
+                  <p class="cv-edu-degree">{edu.area}</p>
+                </div>
+                <p class="cv-edu-dates">
+                  {formatDate(edu.startDate)} — {edu.endDate ? formatDate(edu.endDate) : labels.present}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- ── PROFESSIONAL EXPERIENCE (DOM second → print renders second; CSS grid col-1 rows 1-3 on screen) ── -->
+        <section aria-labelledby="exp-heading" class="cv-section cv-section--experience">
+          <h2 id="exp-heading" class="cv-section-title">
+            <span class="cv-section-icon-wrap print:hidden" aria-hidden="true">
+              <Icon name="tabler:briefcase" />
+            </span>
+            {labels.experience}
+          </h2>
+
+          <div class="cv-section-body">
+            {work.map((job) => (
+              <article class="cv-job-card">
+                <div class="cv-job-header">
+                  <div class="cv-job-title-block">
+                    <h3 class="cv-job-position">{job.position}</h3>
+                    <p class="cv-job-company">{job.name}</p>
+                  </div>
+                  <span class="cv-job-dates">
+                    {formatDate(job.startDate)} — {formatDate(job.endDate)}
+                  </span>
+                </div>
+
+                <!-- Print: bullet list; Screen: paragraph -->
+                <ul class="cv-job-bullets hidden print:block" aria-label="Job responsibilities">
+                  <li>{job.summary}</li>
+                </ul>
+                <p class="cv-job-description print:hidden">
+                  {job.summary}
+                </p>
+
+                {job.skills && job.skills.length > 0 && (
+                  <div class="cv-job-skills">
+                    {job.skills.map((skill) => (
+                      <span class="cv-job-skill-tag">{skill}</span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <!-- ── TECHNICAL SKILLS (CSS grid col-2 row-2 on screen) ── -->
+        <section aria-labelledby="skills-heading" class="cv-section cv-section--skills">
+          <h2 id="skills-heading" class="cv-section-title">
+            <span class="cv-section-icon-wrap print:hidden" aria-hidden="true">
+              <Icon name="tabler:tools" />
+            </span>
+            {labels.skills}
+          </h2>
+
+          <div class="cv-section-body cv-skills-grid">
+            {skills.map((group) => (
+              <div class="cv-skill-group">
+                <h3 class="cv-skill-group-name">{group.name}</h3>
+                <div class="cv-skill-tags">
+                  {group.keywords.map((keyword) => (
+                    <span class="cv-skill-tag">{keyword}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- ── LANGUAGES (CSS grid col-2 row-3 on screen) ── -->
+        <section aria-labelledby="lang-heading" class="cv-section cv-section--languages">
+          <h2 id="lang-heading" class="cv-section-title">
+            <span class="cv-section-icon-wrap print:hidden" aria-hidden="true">
+              <Icon name="tabler:language" />
+            </span>
+            {labels.languages}
+          </h2>
+
+          <div class="cv-section-body">
+            <ul class="cv-lang-list" aria-label="Languages">
+              {languages.map((lang) => (
+                <li class="cv-lang-item">
+                  <span class="cv-lang-name">{lang.language}</span>
+                  <span class="cv-lang-sep print:hidden" aria-hidden="true"></span>
+                  <span class="cv-lang-fluency">({lang.fluency})</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+      </div><!-- /cv-content-grid -->
+
+    </div><!-- /cv-document -->
+
+  </div><!-- /cv-page -->
+</Layout>

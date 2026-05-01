@@ -1,6 +1,6 @@
 export const SOCIAL_NETWORKS_URLS = {
   github: "https://github.com/JhonRomero26",
-  linkedin: "https://linkedin.com/in/jhonchinss/",
+  linkedin: "https://www.linkedin.com/in/jhonromero26/",
   instagram: "https://www.instagram.com/jhonchinss/",
   twitter: "https://twitter.com/jhonchinss",
 };

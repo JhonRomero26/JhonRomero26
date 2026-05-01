@@ -3,6 +3,8 @@ import Trajectory from "@/components/home/Trajectory.astro";
 import Hero from "@/components/home/Hero.astro";
 import Projects from "@/components/home/Projects.astro";
 import SkillsSlider from "@/components/home/SkillsSlider.astro";
+import AboutValueProp from "@/components/home/AboutValueProp.astro";
+import FinalCTA from "@/components/home/FinalCTA.astro";
 import Layout from "@/layouts/Layout.astro";
 import { loadI18n } from "@/utils/i18n";
 
@@ -11,7 +13,9 @@ const t = await loadI18n({ lang: Astro.currentLocale, asset: "pages/home" });
 
 <Layout title={t("title")} description={t("description")}>
   <Hero />
+  <AboutValueProp />
   <SkillsSlider />
   <Projects />
   <Trajectory />
+  <FinalCTA />
 </Layout>

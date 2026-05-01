@@ -1,6 +1,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Improves rendering consistency across platforms */
+    text-rendering: optimizeLegibility;
   }
 
   html,
@@ -14,6 +18,47 @@
     background-color: var(--color-ui-body);
     color: var(--color-typo-primary);
     scrollbar-width: thin;
-    @apply transition-colors;
+    /* Smooth color transitions on theme toggle */
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    @apply transition-all duration-200;
+  }
+
+  /* Focus styles for accessibility — WCAG 2.4.11 */
+  :focus-visible {
+    outline: 2px solid var(--color-ui-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Selection color — use accent brand color */
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-ui-accent) 25%, transparent);
+    color: var(--color-typo-primary);
+  }
+
+  /* Headings: warm dark, strong weight */
+  h1, h2, h3, h4 {
+    color: var(--color-typo-heading);
+    letter-spacing: -0.01em;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

@@ -1,3 +1,9 @@
 @theme {
   --transition-display: display 500ms ease allow-discrete;
 }
+
+/* Customize View Transition duration for theme toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
